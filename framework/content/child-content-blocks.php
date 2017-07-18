@@ -172,7 +172,7 @@ function child_front_page_blocks() {
 
 					$recent_posts_query = new WP_Query( $args ); 
 				?>
-					<section class="inti-block blog-posts">
+					<section class="inti-block recent-posts">
 						<?php if ($title || $description) : ?>	
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x">
@@ -575,7 +575,7 @@ function child_front_page_blocks() {
 					$description = get_sub_field('description');
 					$column_count = count(get_sub_field('logos_selected'));
 				?>
-					<section class="inti-block logos">							
+					<section class="inti-block logos <?php echo $display_as; ?>">							
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -590,7 +590,7 @@ function child_front_page_blocks() {
 					<?php endif; ?>	
 						
 					<?php if( have_rows('logos_selected') ): ?>
-						<?php if ($display_as == 'slider'): ?>	
+						<?php if ($display_as == 'slides'): ?>	
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x">
 									<div class="small-12 cell">
@@ -716,7 +716,7 @@ function child_front_page_blocks() {
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
 				?>
-				<section class="inti-block testimonials">							
+				<section class="inti-block testimonials <?php echo $display_as; ?>">							
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -735,7 +735,7 @@ function child_front_page_blocks() {
 						/**
 						 * The slide format is displays testimonials in a slider.
 						 */
-						if ($display_as == 'slider'): ?>	
+						if ($display_as == 'slides'): ?>	
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x">
 									<div class="small-12 cell">
@@ -761,20 +761,26 @@ function child_front_page_blocks() {
 											?>
 											
 												<div class="slide">
-													<?php 
-														if ($link) {
-															echo $link;
-														} 
-													 ?>
+													
 
-													<blockquote class="testimonial" data-equalizer-watch>
+													<blockquote class="testimonial">
 														<div class="grid-x grid-padding-x">
 															
 															<?php // if it has a thumbnail, create two cells, else just one
 															if ( has_post_thumbnail($testimonial->ID) && $hide_photos == 0 ) : ?>
 															<div class="medium-5 mlarge-4 cell">
 																<div class="testimonial-image">
-																	<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																	<?php 
+																		if ($link) {
+																			echo $link;
+																		} 
+																	?>
+																		<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																	<?php 
+																		if ($link) {
+																			echo '</a>';
+																		} 
+																	?>
 																</div>
 															</div>
 															<div class="medium-7 mlarge-8 cell">
@@ -816,11 +822,7 @@ function child_front_page_blocks() {
 													</blockquote>
 											
 
-													<?php 
-														if ($link) {
-															echo '</a>';
-														} 
-													 ?>
+													
 												</div>
 
 											<?php 
@@ -836,7 +838,7 @@ function child_front_page_blocks() {
 						 */
 						?>			
 							<div class="grid-container">
-								<div class="grid-x grid-padding-x>
+								<div class="grid-x grid-padding-x">
 
 								<?php
 
@@ -845,10 +847,6 @@ function child_front_page_blocks() {
 									// loop through the rows of data
 									while ( have_rows('testimonials_selected') ) : the_row(); 
 										$testimonial = get_sub_field('testimonial');
-
-										$hide_photos = get_sub_field('hide_photos');
-										$linkto_type = get_sub_field('link_testimonials_to');
-										$linkto_page = get_sub_field('linked_page');
 
 										// Get the meta data 
 										$testimonial_role = get_post_meta( $testimonial->ID, "_inti_testimonial_role", true );
@@ -870,7 +868,8 @@ function child_front_page_blocks() {
 											<?php if ($align == "left" || $align == "") : ?>
 
 											<blockquote class="testimonial left">
-												<?php if ($has_image) : ?>
+												<?php // if it has a thumbnail, create two cells, else just one
+												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-padding-x">
 														<div class="medium-5 mlarge-4 cell">
 															<div class="testimonial-image">
@@ -894,7 +893,7 @@ function child_front_page_blocks() {
 													</div>
 												<?php else : ?>
 													<div class="grid-x grid-padding-x">
-														<div class="column">
+														<div class="small-12 cell">
 															<div class="testimonial-text">
 																<?php 
 																	if ($content == "excerpt") {
@@ -917,7 +916,8 @@ function child_front_page_blocks() {
 										<?php elseif ($align == "right") : ?>
 
 											<blockquote class="testimonial right">
-												<?php if ($has_image) : ?>
+												<?php // if it has a thumbnail, create two cells, else just one
+												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-padding-x">
 														<div class="medium-5 medium-order-2 mlarge-4 cell">
 															<div class="testimonial-image">
@@ -941,7 +941,7 @@ function child_front_page_blocks() {
 													</div>
 												<?php else : ?>
 													<div class="grid-x grid-padding-x">
-														<div class="column">
+														<div class="small-12 cell">
 															<div class="testimonial-text">
 																<?php 
 																	if ($content == "excerpt") {
@@ -964,7 +964,8 @@ function child_front_page_blocks() {
 										<?php elseif ($align == "mixed") : ?>
 											<?php if ($right) : ?>
 												<blockquote class="testimonial mixed right">
-													<?php if ($has_image) : ?>
+													<?php // if it has a thumbnail, create two cells, else just one
+													if ( $has_image && $hide_photos == 0 ) : ?>
 														<div class="grid-x grid-padding-x">
 															<div class="medium-5 medium-order-2 mlarge-4 cell">
 																<div class="testimonial-image">
@@ -988,7 +989,7 @@ function child_front_page_blocks() {
 														</div>
 													<?php else : ?>
 														<div class="grid-x grid-padding-x">
-															<div class="column">
+															<div class="small-12 cell">
 																<div class="testimonial-text">
 																	<?php 
 																		if ($content == "excerpt") {
@@ -1007,7 +1008,8 @@ function child_front_page_blocks() {
 
 											<?php $right = false; else : ?>
 												<blockquote class="testimonial mixed left">
-												<?php if ($has_image) : ?>
+												<?php // if it has a thumbnail, create two cells, else just one
+												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-padding-x">
 														<div class="medium-5 mlarge-4 cell">
 															<div class="testimonial-image">
@@ -1031,7 +1033,7 @@ function child_front_page_blocks() {
 													</div>
 												<?php else : ?>
 													<div class="grid-x grid-padding-x">
-														<div class="column">
+														<div class="small-12 cell">
 															<div class="testimonial-text">
 																<?php 
 																	if ($content == "excerpt") {

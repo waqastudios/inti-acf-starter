@@ -1,0 +1,81 @@
+/******************************************************************
+
+Stylesheet: Content Blocks (Advanced Custom Fields)
+
+Styles for blocks that are placed on ACF-enabled page templates
+
+******************************************************************/
+
+
+section.inti-block {
+	margin: $global-margin 0;
+	padding: $global-padding 0;
+
+		// Header/Intro sections in each block
+		header.block-header {
+			h3 {}
+			.entry-summery {
+				p {}
+			}
+		}
+
+		// 
+		&:nth-child(odd) {
+			background-color: $light-gray;
+		}
+
+		// Shows the content from any other page
+		&.page-post {}
+
+		// Shows the simple content
+		&.content-block {}
+
+		// Shows the simple content in multiple columns
+		&.content-block.columns {}
+
+		// Shows the a list of blog posts, usually in columns
+		&.recent-posts {}
+
+		// Shows the a list of blog posts, usually in columns
+		&.personal-bio {}
+
+		// Shows inti-service post types
+		&.services {}
+	
+		// Shows a video from a streaming service
+		&.video {}
+	
+		// Shows a Google Map embed URL
+		&.map {
+			iframe { display:block; max-height: 350px; }
+		}
+
+		// Shows logos that are Featured Images of the Logo custom type, in two styles
+		&.logos {
+			&.list {}
+			&.slides {
+				overflow: hidden;
+					.inti-logos-carousel {
+						position: relative; display: none;
+
+							&.slick-initialized { display: block; }
+					}
+			}
+		}
+
+		// Shows inti-testimonials post types in two styles
+		&.testimonials {
+			&.list {}
+			&.slides {
+				overflow: hidden;
+					.inti-testimonial-slider {
+						position: relative; display: none;
+
+							&.slick-initialized { display: block; }
+					}
+			}
+		}
+
+	
+
+}
