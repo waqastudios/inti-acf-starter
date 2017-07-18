@@ -1,4 +1,4 @@
 ### HEAD
 
 ### 1.0.0 (July 18, 2017)
-- Initial release
+- Initial release -  Fork of inti-kitchen-sink 1.3.0
