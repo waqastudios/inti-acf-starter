@@ -97,20 +97,36 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="mlarge-6 cell">
+
 					<div class="hero-area">
-						<h1><?php _e('Example text', 'inti-child'); ?></h1>
-						<p><?php _e('Could be made editable in customizer', 'inti-child'); ?></p>
-						<p><a href="#" class="button"><?php _e('More Info', 'inti-child'); ?></a></p>
+						<?php 
+						if ( class_exists('acf') ) {
+							the_field('hero_area_left');
+						} else { ?>
+							<h1><?php _e('Example text', 'inti-child'); ?></h1>
+							<p><?php _e('Could be made editable in customizer', 'inti-child'); ?></p>
+							<p><a href="#" class="button"><?php _e('More Info', 'inti-child'); ?></a></p>
+						<?php
+						} ?>
 					</div>
+
 				</div>
 				<div class="mlarge-6 cell">
+
 					<div class="callout">
-						<h5><?php _e('Replace this with something important', 'inti-child'); ?></h5>
-						<p><?php _e('Perhaps an image of a product or an opt-in.', 'inti-child'); ?></p>
-						<?php if (inti_current_theme_supports( 'inti-post-types', 'opt-in' )) : 
+						<?php 
+						if ( class_exists('acf') ) {
+							the_field('hero_area_right');
+						} else { ?>
+							<h5><?php _e('Replace this with something important', 'inti-child'); ?></h5>
+							<p><?php _e('Perhaps an image of a product or an opt-in.', 'inti-child'); ?></p>
+							<?php if (inti_current_theme_supports( 'inti-post-types', 'opt-in' )) : 
 							// get_template_part('template-parts/part-opt-in', 'header');
-						endif; ?>
+							endif; ?>
+						<?php
+						} ?>
 					</div>
+
 				</div>
 			</div><!-- .grid-x . grid-padding-x -->
 		</div><!-- .grid-container -->
