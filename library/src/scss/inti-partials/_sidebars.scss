@@ -1,0 +1,80 @@
+/******************************************************************
+
+Stylesheet: Sidebars and Widgets
+
+Styles for sidebars and the widgets they contain
+
+******************************************************************/
+
+
+.sidebar {
+	.widget {
+		margin: $global-margin 0 ($global-margin * 2) 0; 
+
+			.widget-title {}
+			ul { margin: 0 0 $global-margin ($global-margin * 2); }
+	}
+
+	.widget_search {
+		form {}
+		label {
+			text-transform: uppercase;
+			font-size: rem-calc(11);
+		}
+		input#s {}
+		input.button {}
+	}
+
+	.widget_calendar {
+		#today { background-color: $primary-color; }
+		td { text-align: center; }
+	}
+
+	.widget_nav_menu {
+		ul { 
+			margin: 0;
+			background-color: $black;
+			
+				li { }
+				ul.submenu {
+					list-style: none;
+					margin-bottom: $global-margin;
+
+						li {
+							a {
+								display: block;
+								padding: .7rem 1rem;
+								line-height: 1;
+							}
+						}
+				}
+				
+			ul { display: none; } // Loads with display: none to prevent submenu flashes. 
+			ul.js-dropdown-active { display: block; }
+		}
+	}
+	.widget_inti_image {}
+	.widget_inti_flexvideo {}
+	.widget_inti_social_links {
+		ul.social-icons {
+			margin: 0;
+			list-style: none;
+				li { display: inline-block; margin: 0 ($global-margin / 2); }
+		}
+	}
+}
+
+#sidebar {}
+#sidebar-frontpage {}
+#sidebar-footer {} 
+
+// Sticky Sidebars need to have extra top spacing if admin-bar is visible
+.admin-bar .sidebar .sticky.is-stuck { 
+	margin-top: 32px !important; transition: margin-top .25s ease;
+
+	@include breakpoint(782px down) { // only relevant if sticky turned on for mobile
+		& {
+			margin-top: 46px !important;
+		}	
+	}	
+ }

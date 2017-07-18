@@ -1,0 +1,59 @@
+/******************************************************************
+
+Stylesheet: Opt Ins
+
+Styles for the opt in forms site wide.
+
+******************************************************************/
+
+.opt-in {
+	form {
+		fieldset {
+			padding: ($global-padding / 2) 0;
+		}
+
+		.column, .columns {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		input { margin-bottom: $global-margin/2; }
+
+		// @include breakpoint(mlarge up) {
+		// 	input { margin-bottom: 0; }
+		// }
+	}		
+
+	.button, input[type="submit"], button {
+
+		&:hover {}
+	}
+}
+
+
+// Header
+.opt-in.header {
+	background-color: $light-gray;
+	padding: $global-padding 0;
+}
+
+// Footer
+.opt-in.footer {
+	background-color: $light-gray;
+	padding: $global-padding 0;
+}
+
+// Shortcode
+.opt-in.shortcode {
+
+}
+
+// Blog
+.opt-in.post {
+	
+}
+
+// Widget
+.opt-in.widget {
+
+}
