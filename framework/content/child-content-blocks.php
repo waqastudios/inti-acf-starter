@@ -7,8 +7,9 @@
  * @since 1.0.0
  */
 
-add_action( 'child_hook_front_page_blocks', 'child_front_page_blocks' );
-function child_front_page_blocks() {
+add_action( 'child_hook_front_page_blocks', 'child_content_blocks' );
+add_action( 'child_hook_standard_page_blocks', 'child_content_blocks' );
+function child_content_blocks() {
 	if( class_exists('acf') ) {
 		// Check to see if ACF is installed and activated.
 		
@@ -31,7 +32,7 @@ function child_front_page_blocks() {
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 cell">
 									
-									<article  id="post-<?php echo $selected->post_id; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+									<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
 										<div class="entry-body">
 
 											<?php inti_hook_page_header_before(); ?>
@@ -77,7 +78,7 @@ function child_front_page_blocks() {
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 cell">
 									
-									<article  id="post-<?php echo $selected->post_id; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+									<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
 										<div class="entry-body">
 
 											<div class="entry-content">
@@ -118,7 +119,7 @@ function child_front_page_blocks() {
 									<?php while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
 											
-											<article  id="post-<?php echo $selected->post_id; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+											<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
 												<div class="entry-body">
 
 													<div class="entry-content">
@@ -194,11 +195,11 @@ function child_front_page_blocks() {
 								
 									<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); global $more; $more = 0; ?>
 										
-										<?php inti_hook_post_before(); ?>
 										
 										<?php if ( $post_columns != 1 ) echo '<div class="cell">'; ?>
 											
 											<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+												<?php // inti_hook_post_before(); ?>
 												<div class="entry-body">
 													<?php  if ( has_post_thumbnail() ) : ?>
 													<div class="grid-x grid-padding-x">
@@ -266,15 +267,15 @@ function child_front_page_blocks() {
 													</div>
 
 													
+										
 														
 
 
 												</div><!-- .entry-body -->
+												<?php // inti_hook_post_after(); ?>
 											</article><!-- #post -->
 											
 										<?php if ( $post_columns != 1 ) echo '</div>'; ?> 
-										
-										<?php inti_hook_post_after(); ?>
 
 									<?php endwhile; // end of the loop 
 										wp_reset_query(); ?>
