@@ -104,7 +104,7 @@
 							the_field('hero_area_left');
 						} else { ?>
 							<h1><?php _e('Example text', 'inti-child'); ?></h1>
-							<p><?php _e('Could be made editable in customizer', 'inti-child'); ?></p>
+							<p><?php _e('Could be made editable with Advanced Custom Forms', 'inti-child'); ?></p>
 							<p><a href="#" class="button"><?php _e('More Info', 'inti-child'); ?></a></p>
 						<?php
 						} ?>
