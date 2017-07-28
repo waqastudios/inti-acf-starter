@@ -25,18 +25,13 @@ function childtheme_override_setup() {
 	 * Features to expand on Inti Foundation
 	 */ 
 	add_theme_support(
-		'inti-front-page-blocks',
-		array('page', 'posts', 'services', 'testimonials', 'logos', 'bio', 'video', 'gmap', 'slogan')
-	);
-	
-	add_theme_support(
 		'inti-post-types',
 		array('slide', 'service', 'testimonial', 'logo', 'opt-in')
 	);
 	
 	add_theme_support(
 		'inti-page-templates',
-		array('front-page', 'news-page', 'portfolio', 'contact') //examples
+		array('front-page', 'acf-page', 'portfolio', 'contact') //examples
 	);
 
 	/**
