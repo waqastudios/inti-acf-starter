@@ -329,7 +329,9 @@ function child_content_blocks() {
 												<h3><?php the_sub_field('title');; ?></h3>
 											</header>
 										<?php endif; ?>
-										<?php the_sub_field('content'); ?>
+										<div class="entry-content">
+											<?php the_sub_field('content'); ?>
+										</div>
 									</article>
 								</div>
 								<div class="small-12 mlarge-6 cell">
