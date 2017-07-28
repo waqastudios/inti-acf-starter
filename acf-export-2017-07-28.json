@@ -1177,6 +1177,13 @@
                     "operator": "==",
                     "value": "page-templates\/acf-page.php"
                 }
+            ],
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
             ]
         ],
         "menu_order": 2,
