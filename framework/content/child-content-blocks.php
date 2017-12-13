@@ -154,7 +154,9 @@ function child_content_blocks() {
 					$number_posts = get_sub_field('number_posts');
 					$post_columns = get_sub_field('post_columns');
 					$order = get_sub_field('order');
-					$post_category = implode(',', get_sub_field('only_show_posts_from'));
+					if (get_sub_field('only_show_posts_from')) {
+						$post_category = implode(',', get_sub_field('only_show_posts_from'));
+					}
 					$showlinktoblog = get_sub_field('show_link_to_blog_index');
 					$blogindexurl = get_sub_field('select_page_set_as_blog_index');
 					$bloglinktext = get_sub_field('text_for_the_button_to_view');
