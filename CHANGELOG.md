@@ -8,3 +8,6 @@
 
 ### 1.0.2 (July 28, 2017)
 - Minor bug fixes
+
+### 1.0.3 (December 13, 2017)
+- Minor bug fixes
