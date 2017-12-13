@@ -16,7 +16,7 @@
     "motion-ui": "~1.2.2"
   },
   "devDependencies": {
-    "animate.css": "^3.5.2",
+    "animatewithsass": "^3.2.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.3.13",
