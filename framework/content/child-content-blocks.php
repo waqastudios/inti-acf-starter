@@ -38,7 +38,7 @@ function child_content_blocks() {
 											<?php inti_hook_page_header_before(); ?>
 
 											<header class="entry-header">
-												<?php inti_hook_page_header(); ?>
+												<h1 class="entry-title"><?php echo $selected->post_title; ?></h1>
 											</header><!-- .entry-header -->
 											
 											<?php inti_hook_page_header_after(); ?>
