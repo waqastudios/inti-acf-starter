@@ -99,6 +99,7 @@ function childtheme_override_setup() {
 	add_image_size('logo-thumbnail', 200, 150, true);
 	add_image_size('testimonial-thumbnail', 800, 800, true);
 	add_image_size('service-thumbnail', 800, 800, true);
+	add_image_size('background', 2560, 1440, true);
 	
 	
 	// RSS feed links to header.php for posts and comments.

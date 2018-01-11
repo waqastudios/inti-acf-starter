@@ -25,9 +25,20 @@ function child_content_blocks() {
 				 */
 				if( get_row_layout() == 'page_post' ):
 
-					$selected = get_sub_field('page_post_selected');	
+					$selected = get_sub_field('page_post_selected');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';	
 				?>
-					<section class="inti-block page-post">
+					<section class="inti-block page-post<?php echo $classes; ?>"<?php echo $style; ?>>
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 cell">
@@ -72,8 +83,20 @@ function child_content_blocks() {
 				elseif( get_row_layout() == 'content_block' ): 
 
 					$content = get_sub_field('content');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cols = get_sub_field('content_width_limited');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block content-block">
+					<section class="inti-block content-block<?php echo $classes; ?>"<?php echo $style; ?>>
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 cell">
@@ -109,10 +132,22 @@ function child_content_blocks() {
 					$column_count = count($columns);
 					$breakpoint = get_sub_field('breakpoint');
 
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+
 					if( have_rows('content_column') ):
 						if (!$breakpoint) $breakpoint = "mlarge"; if (!$column_count) $column_count = 3;
 						?>
-							<section class="inti-block content-block columns">
+							<section class="inti-block content-block columns<?php echo $classes; ?>"<?php echo $style; ?>>
 								<div class="grid-container">
 									<div class="grid-x grid-padding-x <?php echo $breakpoint . "-up-" . $column_count ?>">
 
@@ -164,6 +199,17 @@ function child_content_blocks() {
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
 
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+
 					$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 					$args = array( 
 						'post_type'           => 'post',
@@ -175,7 +221,7 @@ function child_content_blocks() {
 
 					$recent_posts_query = new WP_Query( $args ); 
 				?>
-					<section class="inti-block recent-posts">
+					<section class="inti-block recent-posts<?php echo $classes; ?>"<?php echo $style; ?>>
 						<?php if ($title || $description) : ?>	
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x">
@@ -320,15 +366,26 @@ function child_content_blocks() {
 				 */
 				elseif( get_row_layout() == 'personal_bio' ): 
 					$image = get_sub_field('featured_image');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block personal-bio">							
+					<section class="inti-block personal-bio<?php echo $classes; ?>"<?php echo $style; ?>>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 mlarge-6 cell">
 									<article class="entry-body">
 										<?php if ($title) : ?>	
 											<header class="block-header">
-												<h3><?php the_sub_field('title');; ?></h3>
+												<h3><?php the_sub_field('title'); ?></h3>
 											</header>
 										<?php endif; ?>
 										<div class="entry-content">
@@ -358,8 +415,19 @@ function child_content_blocks() {
 
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block services">							
+					<section class="inti-block services<?php echo $classes; ?>"<?php echo $style; ?>>		
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -477,8 +545,19 @@ function child_content_blocks() {
 					$aspect = get_sub_field('aspect_ratio');
 					$source = get_sub_field('video_source');
 					$videoid = get_sub_field('video_id');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block video">	
+					<section class="inti-block video<?php echo $classes; ?>"<?php echo $style; ?>>
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -540,8 +619,19 @@ function child_content_blocks() {
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
 					$mapurl = get_sub_field('map_url');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block map">	
+					<section class="inti-block map<?php echo $classes; ?>"<?php echo $style; ?>>	
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -579,8 +669,19 @@ function child_content_blocks() {
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
 					$column_count = count(get_sub_field('logos_selected'));
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block logos <?php echo $display_as; ?>">							
+					<section class="inti-block logos <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>						
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
@@ -720,8 +821,19 @@ function child_content_blocks() {
 
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
 				?>
-				<section class="inti-block testimonials <?php echo $display_as; ?>">							
+				<section class="inti-block testimonials <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>							
 					<?php if ($title || $description) : ?>	
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">

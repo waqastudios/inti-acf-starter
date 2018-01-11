@@ -19,10 +19,30 @@ section.inti-block {
 			}
 		}
 
-		// 
-		&:nth-child(odd) {
-			background-color: $light-gray;
+
+		// Style classes independent of blocks		
+		&.invert-text {
+			color: $white;
+			header.block-header {
+				h3 { color: $white; }
+				.entry-summary {
+					p { color: $white; }
+				}
+			}
+			.entry-content {
+				p, li { color: $white; }
+			}
+
+			a.button, button {
+				@extend .secondary;
+			}
 		}
+
+		&.cover {
+			background-size: cover;
+			background-position: 50%;
+		}
+
 
 		// Shows the content from any other page
 		&.page-post {}
