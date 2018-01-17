@@ -30,10 +30,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';	
@@ -87,11 +89,13 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 					$cols = get_sub_field('content_width_limited');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -136,10 +140,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -202,10 +208,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -370,10 +378,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -419,10 +429,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -549,10 +561,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -623,10 +637,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -673,10 +689,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -825,10 +843,12 @@ function child_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
