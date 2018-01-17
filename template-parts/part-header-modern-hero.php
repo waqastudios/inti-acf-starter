@@ -157,7 +157,11 @@
 			</div><!-- .grid-x . grid-padding-x -->
 		</div><!-- .grid-container -->
 	</div>
-<?php elseif ( 'inti-example-post-type' == get_post_type() || is_post_type_archive('inti-example-post-type') ) : ?>
+<?php 
+	/**
+	 * Add header for specific post types and their archive pages – move before is_single() or is_archive()
+	 */
+	/** elseif ( 'inti-example-post-type' == get_post_type() || is_post_type_archive('inti-example-post-type') ) : ?>
 	<div class="site-hero inti-example-post-type inti-example-taxonomy">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
@@ -169,7 +173,7 @@
 				</div>
 			</div><!-- .grid-x . grid-padding-x -->
 		</div><!-- .grid-container -->
-	</div>
+	</div> <?php */ ?>
 <?php endif; ?>
 
 	<?php inti_hook_site_banner_after(); // inti_do_main_dropwdown_menu() is placed above or below banner ?>

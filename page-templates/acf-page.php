@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: ACF Page
+ * Template Name: Advanced Page
  * Standard Page template but with ACF support
  *
  * @package Inti
@@ -22,7 +22,8 @@ get_header(); ?>
 
 				<?php inti_hook_inner_content_before(); ?>
 
-				<?php // get the main loop
+				<?php // get the main loop, 
+				// remove if ACF pages will not have normal content areas
 				get_template_part('loops/loop', 'page'); ?>
 
 				<?php child_hook_standard_page_blocks() ?>
