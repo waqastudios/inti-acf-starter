@@ -14,3 +14,10 @@
 
 ### 1.0.4 (December 13, 2017) 
 - Switched from animate.css to animatewithsass
+
+### 1.0.5 (January 17, 2018) 
+- Added instagram content 
+- Added classes field to ACF blocks
+- Slight tweaks to make it quicker to move page titles to hero headers rather than content areas
+- Style tweaks, repeat mixins added
+- New acf field groups json
