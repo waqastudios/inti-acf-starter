@@ -1619,8 +1619,8 @@
                     },
                     {
                         "key": "5a579772c91f7",
-                        "name": "instagram_carousel",
-                        "label": "Instagram Carousel",
+                        "name": "instagram",
+                        "label": "Instagram Feed",
                         "display": "block",
                         "sub_fields": [
                             {
@@ -1641,6 +1641,30 @@
                                 "prepend": "",
                                 "append": "",
                                 "maxlength": ""
+                            },
+                            {
+                                "key": "field_5a5f2ab2c1252",
+                                "label": "Display As",
+                                "name": "display_as",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "list": "List",
+                                    "slides": "Slides"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "save_other_choice": 0,
+                                "default_value": "slider : Slider",
+                                "layout": "horizontal",
+                                "return_format": "value"
                             },
                             {
                                 "key": "field_5a579773c91fb",
@@ -2089,7 +2113,7 @@
                 {
                     "param": "page_template",
                     "operator": "==",
-                    "value": "default"
+                    "value": "page-templates\/acf-page.php"
                 }
             ],
             [
