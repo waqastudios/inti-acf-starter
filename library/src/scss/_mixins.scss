@@ -22,7 +22,53 @@ TOOLS
 /*********************
 COLORS
 *********************/
+// Make something look like an anchor
+@mixin anchor {
+	color: $anchor-color;
+	&:hover {
+		color: scale-color($anchor-color, $lightness: -14%); //$anchor-color-hover;
+	}
+}
 
+// Set an anchor to have a different color than the default
+@mixin anchor-color($color, $hover-color: $color) {
+	transition: $global-transition;
+	color: $color;
+	&:hover {
+		@if $hover-color == $color {
+			color: scale-color($hover-color, $lightness: -14%);
+		} 
+		@else {
+			color: $hover-color;
+		}
+	}
+}
+
+// Set a button to have a different color than the default
+@mixin button-color($color, $hover-color: $color) {
+	transition: $global-transition;
+	color: $color !important;
+	&:hover {
+		@if $hover-color == $white {
+			color: scale-color($hover-color, $lightness: -14%);
+		} 
+		@else {
+			color: $hover-color;
+		}
+	}
+
+	&.hollow {
+		border-color: $color !important;
+		&:hover {
+			@if $hover-color == $color {
+				border-color: scale-color($color, $lightness: -15%);
+			} 
+			@else {
+				border-color: scale-color($hover-color, $lightness: -15%);
+			}
+		}
+	}
+}
 
 /*********************
 TYPOGRAPHY

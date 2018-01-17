@@ -11,6 +11,9 @@ ul.accordion {
 
 		li.accordion-item {
 			background-color: $white;
+
+			> p { display: none; }
+			
 			a { 
 				color: $primary-color;
 

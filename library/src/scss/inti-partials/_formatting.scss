@@ -6,6 +6,14 @@ Styles that affect the look of page and post content
 
 ******************************************************************/
 
+h1, h2, h3, h4, h5, h6 {
+	// text-transform: uppercase;
+}
+
+.button, button, input[type="submit"], input[type="button"] {
+	// text-transform: uppercase; font-weight: 900;
+}
+
 .entry-content, .entry-summary {
 
 	ul, ol {
