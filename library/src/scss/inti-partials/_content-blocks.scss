@@ -96,6 +96,17 @@ section.inti-block {
 			}
 		}
 
-	
+		// Pulls instagram images and displays in two styles
+		&.instagram {
+			&.list {}
+			&.slides {
+				overflow: hidden;
+					.inti-instagram-carousel {
+						position: relative; display: none;
+
+							&.slick-initialized { display: block; }
+					}
+			}
+		}
 
 }
