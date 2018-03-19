@@ -21,3 +21,6 @@
 - Slight tweaks to make it quicker to move page titles to hero headers rather than content areas
 - Style tweaks, repeat mixins added
 - New acf field groups json
+
+### 1.0.6 (March 19, 2018) 
+– Updated Instagram scraper to match new API
