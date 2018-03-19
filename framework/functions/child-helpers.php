@@ -84,95 +84,62 @@ function inti_scrape_instagram( $username, $slice = 9 ) {
 
 	$username = strtolower( $username );
 
-	if ( false === ( $instagram = get_transient( 'instagram-media-new-'.sanitize_title_with_dashes( $username ) ) ) ) {
+	$remote = wp_remote_get( 'https://www.instagram.com/'.trim( $username ) );
 
-		$remote = wp_remote_get( 'https://www.instagram.com/'.trim( $username ) );
+	if ( is_wp_error( $remote ) )
+		return new WP_Error( 'site_down', __( 'Unable to communicate with Instagram.', 'inti-child' ) );
 
-		if ( is_wp_error( $remote ) )
-			return new WP_Error( 'site_down', __( 'Unable to communicate with Instagram.', 'inti-child' ) );
+	if ( 200 != wp_remote_retrieve_response_code( $remote ) )
+		return new WP_Error( 'invalid_response', __( 'Instagram did not return a 200. ('.wp_remote_retrieve_response_code( $remote ).')', 'inti-child' ) );
 
-		if ( 200 != wp_remote_retrieve_response_code( $remote ) )
-			return new WP_Error( 'invalid_response', __( 'Instagram did not return a 200. ('.wp_remote_retrieve_response_code( $remote ).')', 'inti-child' ) );
+	$shards = explode( 'window._sharedData = ', $remote['body'] );
+	$insta_json = explode( ';</script>', $shards[1] );
+	$insta_array = json_decode( $insta_json[0], TRUE );
 
-		$shards = explode( 'window._sharedData = ', $remote['body'] );
-		$insta_json = explode( ';</script>', $shards[1] );
-		$insta_array = json_decode( $insta_json[0], TRUE );
 
-		if ( !$insta_array )
-			return new WP_Error( 'bad_json', __( 'Instagram has returned invalid data.', 'inti-child' ) );
+	if ( !$insta_array )
+		return new WP_Error( 'bad_json', __( 'Instagram has returned invalid data.', 'inti-child' ) );
 
-		// old style
-		if ( isset( $insta_array['entry_data']['UserProfile'][0]['userMedia'] ) ) {
-			$images = $insta_array['entry_data']['UserProfile'][0]['userMedia'];
-			$type = 'old';
-		// new style
-		} else if ( isset( $insta_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'] ) ) {
-			$images = $insta_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'];
-			$type = 'new';
-		} else {
-			return new WP_Error( 'bad_json_2', __( 'Instagram has returned invalid data.', 'inti-child' ) );
-		}
 
-		if ( !is_array( $images ) )
-			return new WP_Error( 'bad_array', __( 'Instagram has returned invalid data.', 'inti-child' ) );
-
-		$instagram = array();
-
-		switch ( $type ) {
-			case 'old':
-				foreach ( $images as $image ) {
-
-					if ( $image['user']['username'] == $username ) {
-
-						$image['link']                        = preg_replace( "/^http:/i", "", $image['link'] );
-						$image['images']['thumbnail']          = preg_replace( "/^http:/i", "", $image['images']['thumbnail'] );
-						$image['images']['standard_resolution'] = preg_replace( "/^http:/i", "", $image['images']['standard_resolution'] );
-						$image['images']['low_resolution']    = preg_replace( "/^http:/i", "", $image['images']['low_resolution'] );
-
-						$instagram[] = array(
-							'description'   => $image['caption']['text'],
-							'link'          => $image['link'],
-							'time'          => $image['created_time'],
-							'comments'      => $image['comments']['count'],
-							'likes'         => $image['likes']['count'],
-							'thumbnail'     => $image['images']['thumbnail'],
-							'large'         => $image['images']['standard_resolution'],
-							'small'         => $image['images']['low_resolution'],
-							'type'          => $image['type']
-						);
-					}
-				}
-			break;
-			default:
-				foreach ( $images as $image ) {
-
-					$image['display_src'] = preg_replace( "/^http:/i", "", $image['display_src'] );
-
-					if ( $image['is_video']  == true ) {
-						$type = 'video';
-					} else {
-						$type = 'image';
-					}
-
-					$instagram[] = array(
-						'description'   => __( 'Instagram Image', 'inti-child' ),
-						'link'          => '//instagram.com/p/' . $image['code'],
-						'time'          => $image['date'],
-						'comments'      => $image['comments']['count'],
-						'likes'         => $image['likes']['count'],
-						'thumbnail'     => $image['display_src'],
-						'type'          => $type
-					);
-				}
-			break;
-		}
-
-		// do not set an empty transient - should help catch private or empty accounts
-		if ( ! empty( $instagram ) ) {
-			$instagram = base64_encode( serialize( $instagram ) );
-			set_transient( 'instagram-media-new-'.sanitize_title_with_dashes( $username ), $instagram, apply_filters( 'null_instagram_cache_time', HOUR_IN_SECONDS*2 ) );
-		}
+	if ( isset( $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'] ) ) {
+		$images = $insta_array['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges'];
+	} else {
+		return new WP_Error( 'bad_json_2', __( 'Instagram has returned invalid data.', 'inti-child' ) );
 	}
+
+	if ( !is_array( $images ) )
+		return new WP_Error( 'bad_array', __( 'Instagram has returned invalid data.', 'inti-child' ) );
+
+	$instagram = array();
+
+	
+	foreach ( $images as $image ) {
+
+		if ( $image['node']['is_video']  == true ) {
+			$type = 'video';
+		} else {
+			$type = 'image';
+		}
+
+		$instagram[] = array(
+			'description'   => __( 'Instagram Image', 'inti-child' ),
+			'link'          => '//instagram.com/p/' . $image['node']['shortcode'],
+			'time'          => $image['node']['taken_at_timestamp'],
+			'comments'      => $image['node']['edge_media_to_comment']['count'],
+			'likes'         => $image['node']['edge_liked_by']['count'],
+			'thumbnail'     => $image['node']['thumbnail_src'],
+			'type'          => $type
+		);
+	}
+
+
+
+	// do not set an empty transient - should help catch private or empty accounts
+	if ( ! empty( $instagram ) ) {
+		$instagram = base64_encode( serialize( $instagram ) );
+		set_transient( 'instagram-media-new-'.sanitize_title_with_dashes( $username ), $instagram, apply_filters( 'null_instagram_cache_time', HOUR_IN_SECONDS*2 ) );
+	}
+
 
 	if ( ! empty( $instagram ) ) {
 
