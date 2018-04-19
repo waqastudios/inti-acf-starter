@@ -132,7 +132,6 @@ function childtheme_override_setup() {
 	require_once locate_template('/framework/content/child-content-posts-pages.php');
 	require_once locate_template('/framework/functions/child-helpers.php');
 	require_once locate_template('/framework/functions/theme-supports.php');
-	require_once locate_template('/framework/metaboxes/child-metaboxes.php');
 	require_once locate_template('/framework/customizer/child-customize.php');
 	require_once locate_template('/framework/theme-options/child-theme-options.php');
 	require_once locate_template('/framework/extensions/child-typography.php');

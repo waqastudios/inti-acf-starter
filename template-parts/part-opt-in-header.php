@@ -8,20 +8,20 @@
 	if($optin_object && $optin_object->post_type == "inti-opt-in" && $optin_object->post_status == "publish") :
 
 		// get its meta
-		$action = get_post_meta( $optin_id, '_inti_opt_in_url', true);
-		$target = get_post_meta( $optin_id, '_inti_opt_in_target', true);
-		$hidden = get_post_meta( $optin_id, '_inti_opt_in_hidden', true);
-		$button_text = get_post_meta( $optin_id, '_inti_opt_in_button_text', true);
-		$button_name = get_post_meta( $optin_id, '_inti_opt_in_button_name', true);
-		$form_name = get_post_meta( $optin_id, '_inti_opt_in_form_name', true);
+		$action = get_field('url', $optin_id);
+		$target = get_field('target', $optin_id);
+		$hidden = get_field('hidden', $optin_id);
+		$button_text = get_field('button_text', $optin_id);
+		$button_name = get_field('button_name', $optin_id);
+		$form_name = get_field('form_element_name', $optin_id);
 
-		$first_name_name = get_post_meta( $optin_id, '_inti_opt_in_first_name_name', true);
-		$first_name_placeholder = get_post_meta( $optin_id, '_inti_opt_in_first_name_placeholder', true);
-		$first_name_required = get_post_meta( $optin_id, '_inti_opt_in_first_name_required', true);
+		$first_name_name = get_field('first_name_name', $optin_id);
+		$first_name_placeholder = get_field('first_name_placeholder', $optin_id);
+		$first_name_required = get_field('first_name_required', $optin_id);
 
-		$email_name = get_post_meta( $optin_id, '_inti_opt_in_email_name', true);
-		$email_placeholder = get_post_meta( $optin_id, '_inti_opt_in_email_placeholder', true);
-		$email_required = get_post_meta( $optin_id, '_inti_opt_in_email_required', true);
+		$email_name = get_field('email_name', $optin_id);
+		$email_placeholder = get_field('email_placeholder', $optin_id);
+		$email_required = get_field('email_required', $optin_id);
 
 ?>
 		<section class="opt-in header">
@@ -40,7 +40,7 @@
 							</div>
 
 							<fieldset>
-								<div class="grid-x grid-margin-x">
+								<div class="grid-x">
 									<div class="medium-6 mlarge-4 cell">
 										<input type="text" name="<?php echo $first_name_name; ?>" id="header-opt-in-<?php echo $first_name_name; ?>" placeholder="<?php echo $first_name_placeholder; ?>" class=""<?php if ($first_name_required) echo ' required'; ?>>
 									</div>
@@ -48,7 +48,7 @@
 										<input type="email" name="<?php echo $email_name; ?>" id="header-opt-in-<?php echo $email_name; ?>" placeholder="<?php echo $email_placeholder; ?>" class=""<?php if ($email_required) echo ' required'; ?>>
 									</div>
 									<div class="medium-12 mlarge-4 cell">
-										<input type="submit" value="<?php echo $button_text ?>" name="<?php $button_name; ?>" id="submit" class="button expanded">
+										<input type="submit" value="<?php echo $button_text ?>" name="<?php echo $button_name; ?>" id="submit-<?php echo $button_name; ?>" class="button expanded">
 									</div>
 								</div>
 							</fieldset>

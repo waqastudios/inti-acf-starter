@@ -82,10 +82,6 @@ class inti_widget_testimonial extends WP_Widget {
 				<?php if ($testimonials->have_posts()) : ?>
 					<?php while ( $testimonials->have_posts() ) : $testimonials->the_post(); ?>
 						<?php 
-							// Get the meta data 
-							$testimonial_role = get_post_meta( get_the_ID(), "_inti_testimonial_role", true );
-							$testimonial_company = get_post_meta( get_the_ID(), "_inti_testimonial_company", true );
-							$testimonial_url = get_post_meta( get_the_ID(), "_inti_testimonial_url", true ); 
 										
 							$link = "";
 							if ($linkto_type == "permalink") {

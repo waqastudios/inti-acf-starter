@@ -461,9 +461,9 @@ function child_content_blocks() {
 								while ( have_rows('services_selected') ) : the_row(); 
 									$service = get_sub_field('service');
 
-									$action_text = get_post_meta($service->ID, '_inti_service_action_text', true);
-									$action_url = get_post_meta($service->ID, '_inti_service_url', true);
-									$action_new = get_post_meta($service->ID, '_inti_service_new', true);
+									$action_text = get_field($service->ID, 'action_text');
+									$action_url = get_field($service->ID, 'custom_url');
+									$action_new = get_field($service->ID, 'new_tab');
 
 
 									$default_action_text = get_inti_option('read_more_text', 'inti_general_options', 'Read more &raquo;');
@@ -730,7 +730,7 @@ function child_content_blocks() {
 													if ( has_post_thumbnail($logo->ID) ) :
 
 														// Get the meta data 
-														$logo_url = get_post_meta( $logo->ID, "_inti_logo_url", true );
+														$logo_url = get_field('logo_link', $logo->ID);
 														if ( $logo_url ) : ?>
 															<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
 																<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class' => 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
@@ -770,7 +770,7 @@ function child_content_blocks() {
 														if ( has_post_thumbnail($logo->ID) ) :
 
 															// Get the meta data 
-															$logo_url = get_post_meta( $logo->ID, "_inti_logo_url", true );
+															$logo_url = get_field('logo_link', $logo->ID);
 															if ( $logo_url ) : ?>
 																<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
 																	<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class'	=> 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
@@ -881,11 +881,6 @@ function child_content_blocks() {
 											// loop through the rows of data
 											while ( have_rows('testimonials_selected') ) : the_row();  
 												$testimonial = get_sub_field('testimonial');
-
-												// Get the meta data 
-												$testimonial_role = get_post_meta( $testimonial->ID, "_inti_testimonial_role", true );
-												$testimonial_company = get_post_meta( $testimonial->ID, "_inti_testimonial_company", true );
-												$testimonial_url = get_post_meta( $testimonial->ID, "_inti_testimonial_url", true ); 
 															
 												$link = "";
 												if ($linkto_type == "permalink") {
@@ -984,11 +979,6 @@ function child_content_blocks() {
 									// loop through the rows of data
 									while ( have_rows('testimonials_selected') ) : the_row(); 
 										$testimonial = get_sub_field('testimonial');
-
-										// Get the meta data 
-										$testimonial_role = get_post_meta( $testimonial->ID, "_inti_testimonial_role", true );
-										$testimonial_company = get_post_meta( $testimonial->ID, "_inti_testimonial_company", true );
-										$testimonial_url = get_post_meta( $testimonial->ID, "_inti_testimonial_url", true ); 
 													
 										$link = "";
 										if ($linkto_type == "permalink") {

@@ -38,10 +38,10 @@ function get_testimonial_owner($id) {
 	$post_t = get_post($id);
 
 	/* Build owner info */
-	$testimonial_role = get_post_meta( $id, '_inti_testimonial_role', true );
-	$testimonial_company = get_post_meta( $id, '_inti_testimonial_company', true );
-	$testimonial_url = get_post_meta( $id, '_inti_testimonial_url', true );
-	$testimonial_new = get_post_meta( $id, '_inti_testimonial_new', true );
+	$testimonial_role = get_field('role', $post_t->ID);
+	$testimonial_company = get_field('company', $post_t->ID);
+	$testimonial_url = get_field('url', $post_t->ID);
+	$testimonial_new = get_field('new_tab', $post_t->ID);
 
 	$owner_html = '<span class="testimonial-name">'.$post_t->post_title.'</span>';
 	if ($testimonial_role) {
