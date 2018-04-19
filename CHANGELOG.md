@@ -24,3 +24,9 @@
 
 ### 1.0.6 (March 19, 2018) 
 – Updated Instagram scraper to match new API
+
+
+### 1.1.0 (Apr 19, 2018)
+– Updated Foundation for Sites to 6.4.3
+- Transitioned from grid-padding to grid-margin layouts as per (https://github.com/zurb/foundation-sites/pull/10371)
+- Removed CMB2 (used for metaboxes) to use ACF exclusively 
