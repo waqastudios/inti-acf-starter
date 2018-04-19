@@ -62,8 +62,10 @@ ul.site-navigation {
 // Top Bar in all variations
 .top-bar {
 	background-color: $global-menu-background; // overwrites value in _settings.scss because we want to control all menus here
-		.top-bar-left {}
-		.top-bar-right {}
+		@include breakpoint (medium down) {
+			.top-bar-left { max-width: 70%; }
+			.top-bar-right { max-width: 30%; }
+		}
 
 		.site-logo {}
 		.site-title { color: $white; }
@@ -87,10 +89,11 @@ ul.site-navigation {
 		}
 }
 		ul.dropdown.menu {
-			li {}
+			@include flex-align(center, middle); width:100%;
+				li {}
 
-			ul { display: none; } // Loads with display: none to prevent submenu flashes. 
-			ul.js-dropdown-active { display: block; }
+				ul { display: none; } // Loads with display: none to prevent submenu flashes. 
+				ul.js-dropdown-active { display: block; }
 		}
 }
 

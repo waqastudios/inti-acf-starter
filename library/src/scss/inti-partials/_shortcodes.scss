@@ -34,12 +34,16 @@ ul.accordion {
 					width: 20px; height: 20px; border-radius: 50%; margin-top: -.8em;
 				}
 
+				&:hover {
+					background-color: $primary-color; color: $white;
+				}
+
 			}
 
 			&.is-active {
 				
 				a { 
-					color: $primary-color; 
+					background-color: $primary-color; color: $white;
 
 
 					&::before {
@@ -52,6 +56,20 @@ ul.accordion {
 }
 ul.tabs {
 	margin: 0;
+		li.tabs-title {
+			a { 
+				font-weight: 600; text-transform: uppercase; 
+				&:hover { 
+					background-color: $tab-background-active; //: $light-gray;
+					
+					color: $white; 
+				} 
+			}
+
+			&.is-active {
+				background-color: $tab-active-color; //: $primary-color;
+			}
+		}
 }
 
 

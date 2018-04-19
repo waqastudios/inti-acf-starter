@@ -373,7 +373,25 @@ function child_new_section($wp_customize) {
 						)
 					)
 				);
-	}
+	}		
+		$wp_customize->add_setting('inti_customizer_options[footer_logo]', array( 
+			'default'    => get_option('inti_customizer_options[footer_logo]'),
+			'type'       => 'option',
+			'capability' => 'manage_options',
+			// 'transport'  => 'postMessage',
+		 ) );
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize, 
+					'inti_customizer_options[footer_logo]', 
+					array( 
+						'label'    => __('Footer Logo', 'inti-child'),
+						'section'  => 'inti_customizer_footer',
+						'settings' => 'inti_customizer_options[footer_logo]',
+						'priority' => 8,
+					)
+				)
+			);
 	/**
 	 * Main Styles section exists in parent theme, let's add to it here
 	 * Section: inti_customizer_main_styles

@@ -95,8 +95,10 @@ $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $global-prototype-breakpoints: false;
+$global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
+$global-transition: all 0.25s ease-out;
 
 @include add-foundation-colors;
 
@@ -154,14 +156,6 @@ $header-styles: (
     'h4': ('font-size': 28),
     'h5': ('font-size': 27),
     'h6': ('font-size': 26),
-  ),
-  mlarge: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
   ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -233,7 +227,7 @@ $input-error-font-weight: $global-weight-bold;
 
 $accordion-background: $white;
 $accordion-plusminus: true;
-$accordion-title-font-size: rem-calc(12);
+$accordion-title-font-size: rem-calc(18);
 $accordion-item-color: $primary-color;
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
@@ -487,6 +481,7 @@ $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-state-back-compat: true;
 $menu-centered-back-compat: true;
+$menu-icons-back-compat: true;
 
 // 24. Meter
 // ---------
@@ -501,8 +496,12 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-size: 250px;
-$offcanvas-vertical-size: 250px;
+$offcanvas-sizes: (
+  small: 250px,
+);
+$offcanvas-vertical-sizes: (
+  small: 250px,
+);
 $offcanvas-background: $light-gray;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
@@ -799,10 +798,10 @@ $table-stack-breakpoint: medium;
 $tab-margin: 0;
 $tab-background: $white;
 $tab-color: $primary-color;
-$tab-background-active: $light-gray;
-$tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
-$tab-item-background-hover: $white;
+$tab-background-active: $primary-color;
+$tab-active-color: $white;
+$tab-item-font-size: rem-calc(18);
+$tab-item-background-hover: $primary-color;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
 $tab-content-background: $white;

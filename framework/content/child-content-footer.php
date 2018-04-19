@@ -12,11 +12,36 @@
  * 
  */
 function child_remove_footer_content_actions(){
+	remove_action( 'inti_hook_footer_inside', 'inti_do_footer_widget', 1);
     remove_action( 'inti_hook_footer_inside', 'inti_do_footer_menu', 2);
     remove_action( 'inti_hook_footer_inside', 'inti_do_footer_info', 4);
     remove_action( 'inti_hook_footer_inside', 'inti_do_footer_social', 3);
 }
 add_action( 'after_setup_theme', 'child_remove_footer_content_actions', 15 );
+
+
+/**
+ * Footer widgets
+ * Adds a row in which a sidebar is displayed in the footer
+ * See sidebar.php for details of how it is displayed horizontally
+ * 
+ * @since 1.1.0
+ */
+function child_do_footer_widgets() { ?>
+	<div class="footer-widgets">
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+				<div class="small-12 cell">
+					<?php get_sidebar('footer'); ?>  
+				</div><!-- .cell -->
+			</div><!-- .grid-x -->  
+		</div> 
+
+	</div><!-- .footer-widgets -->
+<?php 
+}
+add_action('inti_hook_footer_inside', 'child_do_footer_widgets', 1);
+
 
 /**
  * Footer opt-in
@@ -41,7 +66,7 @@ add_action('inti_hook_footer_inside', 'child_do_footer_opt_in', 1);
 function child_do_footer_menu() { 
 	if ( has_nav_menu('footer-menu') ) : ?>
 		<div class="footer-menu">
-			<div class="grid-container fluid">
+			<div class="grid-container">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 cell">
 						<?php echo inti_get_footer_menu();	?>
@@ -64,16 +89,29 @@ add_action('inti_hook_footer_inside', 'child_do_footer_menu', 2);
  */
 function child_do_footer_info() { ?>
 	<div class="footer-info">
-		<div class="grid-container fluid">
+		<div class="grid-container">
 			<div class="grid-x grid-margin-x">
-				<div class="small-12 cell">		
+				<div class="shrink cell">
 					<?php 
-					if ( get_inti_option('custom_copyright', 'inti_customizer_options') ) : 
-						echo get_inti_option('custom_copyright', 'inti_customizer_options'); 
-					else : ?>
-						<p><span class="copyright">Copyright &copy; <?php echo date_i18n('Y'); ?> <?php bloginfo('name'); ?> | </span>
-						<span class="site-credits"><?php _e('Powered by', 'inti'); ?> <a href="<?php echo esc_url('http://wordpress.org/'); ?>" title="<?php esc_attr_e('Personal Publishing Platform', 'inti'); ?>">WordPress</a> &amp; <a href="<?php echo esc_url('http://inti.waqastudios.com/') ?>" title="<?php esc_attr_e('Foundation 6 WordPress Framework', 'inti'); ?>" rel="nofollow">Inti Foundation</a></span></p>
-					<?php endif; ?>
+					$logo = get_inti_option('footer_logo', 'inti_customizer_options');
+					if ($logo) : ?> 
+						<div class="footer-logo">
+							<div class="site-logo">
+								<img src="<?php echo $logo; ?>" alt="<?php bloginfo('name'); ?>">
+							</div>
+						</div>
+					<?php
+						endif;
+					?>
+				</div>
+				<div class="auto cell">		
+						<?php 
+						if ( get_inti_option('custom_copyright', 'inti_customizer_options') ) : 
+							echo get_inti_option('custom_copyright', 'inti_customizer_options'); 
+						else : ?>
+							<p><span class="copyright">Copyright &copy; <?php echo date_i18n('Y'); ?> <?php bloginfo('name'); ?> | </span>
+							<span class="site-credits"><?php _e('Powered by', 'inti'); ?> <a href="<?php echo esc_url('http://wordpress.org/'); ?>" title="<?php esc_attr_e('Personal Publishing Platform', 'inti'); ?>">WordPress</a> &amp; <a href="<?php echo esc_url('http://inti.waqastudios.com/') ?>" title="<?php esc_attr_e('Foundation 6 WordPress Framework', 'inti'); ?>" rel="nofollow">Inti Foundation</a></span></p>
+						<?php endif; ?>
 				</div><!-- .cell -->
 			</div><!-- .grid-x .grid-margin-x -->
 		</div>
@@ -92,7 +130,7 @@ add_action('inti_hook_footer_inside', 'child_do_footer_info', 4);
 function child_do_footer_social() { 
 	if ( get_inti_option('footer_social', 'inti_footer_options') ) { ?>
 		<div class="footer-social">
-			<div class="grid-container fluid">
+			<div class="grid-container">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 cell">
 						<?php echo inti_get_footer_social_links(); ?>
