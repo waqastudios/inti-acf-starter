@@ -30,3 +30,7 @@
 – Updated Foundation for Sites to 6.4.3
 - Transitioned from grid-padding to grid-margin layouts as per (https://github.com/zurb/foundation-sites/pull/10371)
 - Removed CMB2 (used for metaboxes) to use ACF exclusively 
+
+
+### 1.1.1 (Apr 28, 2018)
+– Added missed acf-export file that should have been included in 1.1.0
