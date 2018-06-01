@@ -35,3 +35,6 @@
 
 ### 1.1.2 (Jun 1, 2018)
 - Added basic tool for GDPR cookie compliance. Allows overall setting and removing of cookies by the visitor, for the site owner to categorize cookie-setting JS into one of three (or more) types and the visitor to allow/disallow each cookie category individually.
+
+### 1.1.3 (Jun 1, 2018)
+- Fix for missed cookie js item in confirm
