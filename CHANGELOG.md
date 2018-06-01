@@ -25,12 +25,13 @@
 ### 1.0.6 (March 19, 2018) 
 – Updated Instagram scraper to match new API
 
-
 ### 1.1.0 (Apr 19, 2018)
 – Updated Foundation for Sites to 6.4.3
 - Transitioned from grid-padding to grid-margin layouts as per (https://github.com/zurb/foundation-sites/pull/10371)
 - Removed CMB2 (used for metaboxes) to use ACF exclusively 
 
-
 ### 1.1.1 (Apr 28, 2018)
 – Added missed acf-export file that should have been included in 1.1.0
+
+### 1.1.2 (Jun 1, 2018)
+- Added basic tool for GDPR cookie compliance. Allows overall setting and removing of cookies by the visitor, for the site owner to categorize cookie-setting JS into one of three (or more) types and the visitor to allow/disallow each cookie category individually.
