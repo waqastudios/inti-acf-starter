@@ -197,8 +197,8 @@ $('.inti-carousel').slick({
 	slidesToScroll: 1,
 	speed: 600,
 	swipe: true,
-	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fa fa-chevron-left"></i></button>',
-	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fa fa-chevron-right"></i></button>',
+	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fas fa-chevron-left"></i></button>',
+	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fas fa-chevron-right"></i></button>',
 	responsive: [
 		{
 			breakpoint: 768,
@@ -240,8 +240,8 @@ $('.inti-slider').slick({
 	slidesToScroll: 1,
 	speed: 600,
 	swipe: true,
-	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fa fa-chevron-left"></i></button>',
-	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fa fa-chevron-right"></i></button>',
+	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fas fa-chevron-left"></i></button>',
+	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fas fa-chevron-right"></i></button>',
 	responsive: [
 		{
 			breakpoint: 1024,
@@ -275,8 +275,8 @@ $('.inti-main-slider').slick({
 	slidesToScroll: 1,
 	speed: 600,
 	swipe: true,
-	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fa fa-chevron-left"></i></button>',
-	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fa fa-chevron-right"></i></button>',
+	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fas fa-chevron-left"></i></button>',
+	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fas fa-chevron-right"></i></button>',
 	responsive: [
 		{
 			breakpoint: 1024,
@@ -309,8 +309,8 @@ $('.inti-testimonial-widget').slick({
 	slidesToScroll: 1,
 	speed: 600,
 	swipe: true,
-	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fa fa-chevron-left"></i></button>',
-	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fa fa-chevron-right"></i></button>',
+	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fas fa-chevron-left"></i></button>',
+	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fas fa-chevron-right"></i></button>',
 	responsive: [
 		{
 			breakpoint: 1024,
@@ -344,8 +344,8 @@ $('.inti-instagram-carousel').slick({
 	slidesToScroll: 1,
 	speed: 600,
 	swipe: true,
-	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fa fa-chevron-left"></i></button>',
-	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fa fa-chevron-right"></i></button>',
+	// prevArrow: '<button type="button" class="slick-prev arrows"><i class="fas fa-chevron-left"></i></button>',
+	// nextArrow: '<button type="button" class="slick-next arrows"><i class="fas fa-chevron-right"></i></button>',
 	responsive: [
 		{
 			breakpoint: 768,

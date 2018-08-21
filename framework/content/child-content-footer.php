@@ -158,7 +158,7 @@ add_action('inti_hook_footer_inside', 'child_do_footer_social', 3);
 function child_do_scroll_to_top() { 
 	if ( current_theme_supports( 'inti-scroll-to-top' ) ) { ?>
 	<a href="#page" id="inti-scroll-to-top" data-smooth-scroll>
-		<i class="fa fa-angle-up"></i>
+		<i class="fas fa-angle-up"></i>
 	</a>
 <?php 
 	}

@@ -11,10 +11,11 @@ ul.accordion {
 
 		li.accordion-item {
 			background-color: $white;
+			&:before { display: none; } // hide standard bullet formatting
 
 			> p { display: none; }
 			
-			a { 
+			a.accordion-title { 
 				color: $primary-color;
 
 				&::before, &::after {
@@ -28,8 +29,8 @@ ul.accordion {
 				}
 
 				&::before {
-					font-family: 'FontAwesome';
-					content: '\f054';
+					font-family: 'Font Awesome 5 Free';
+					content: '\f067'; font-weight: 900;
 					font-size: 12px; line-height: 1.8;
 					width: 20px; height: 20px; border-radius: 50%; margin-top: -.8em;
 				}
@@ -37,6 +38,7 @@ ul.accordion {
 				&:hover {
 					background-color: $primary-color; color: $white;
 				}
+				&:focus {  }
 
 			}
 
@@ -47,8 +49,8 @@ ul.accordion {
 
 
 					&::before {
-						font-family: 'FontAwesome';
-						content: '\f078';
+						font-family: 'Font Awesome 5 Free';
+						content: '\f068'; font-weight: 900;
 					}
 				}
 			}
@@ -57,6 +59,7 @@ ul.accordion {
 ul.tabs {
 	margin: 0;
 		li.tabs-title {
+			&:before { display: none; } // hide standard bullet formatting
 			a { 
 				font-weight: 600; text-transform: uppercase; 
 				&:hover { 
@@ -72,6 +75,8 @@ ul.tabs {
 		}
 }
 
+.tabs-content { margin: 0 0 $global-margin 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
+.tabs-wrapper > p { display: none; }
 
 a span.label { color: $primary-color; background-color: $light-gray; cursor: pointer; }
 a:hover span.label { color: $primary-color; background-color: smart-scale($light-gray); }

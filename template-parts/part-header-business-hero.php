@@ -35,7 +35,7 @@
 						<div class="grid-x grid-margin-x medium-up-1 mlarge-up-3">
 							<div class="cell">
 								<div class="contact-method phone">
-									<div class="contact-icon"><i class="fa fa-phone"></i></div>
+									<div class="contact-icon"><i class="fas fa-phone"></i></div>
 									<div class="contact-text">
 										<p><strong><?php _e('Call now!', 'inti-child'); ?></strong></p>
 										<p>1-800-123-4567</p>
@@ -44,7 +44,7 @@
 							</div>
 							<div class="cell">
 								<div class="contact-method physical">
-									<div class="contact-icon"><i class="fa fa-home"></i></div>
+									<div class="contact-icon"><i class="fas fa-home"></i></div>
 									<div class="contact-text">
 										<p><strong><?php _e('Visit us!', 'inti-child'); ?></strong></p>
 										<p><?php _e('100 Your Address', 'inti-child'); ?></p>
@@ -53,7 +53,7 @@
 							</div>
 							<div class="cell">
 								<div class="contact-method email">
-									<div class="contact-icon"><i class="fa fa-envelope"></i></div>
+									<div class="contact-icon"><i class="fas fa-envelope"></i></div>
 									<div class="contact-text">
 										<p><strong><?php _e('Email Us', 'inti-child'); ?></strong></p>
 										<p>you@youremail.local</p>
