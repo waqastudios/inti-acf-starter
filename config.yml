@@ -56,7 +56,5 @@ PATHS:
   # Paths tae individual vendor JS, nae tae be cominbed for wp_register_script()
   vendorjs:
     - "node_modules/toastr/build/toastr.min.js"
-    - "node_modules/slick-carousel/slick/slick.js"
-    - "node_modules/js-cookie/src/js.cookie.js"
 
   # "She canna take any more, captain.  She's gonna blow!"
