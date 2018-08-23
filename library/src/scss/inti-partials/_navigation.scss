@@ -15,7 +15,7 @@ Inti Foundation v1.2.11
 
 ******************************************************************/
 
-$global-menu-background: $topbar-background;;
+$global-menu-background: $topbar-background;
 $global-menu-color: $anchor-color;
 
 
@@ -38,10 +38,22 @@ ul.site-navigation {
 	}
 	
 		// individual menu styles
-		&.site-navigation-top-bar {}
+		// individual menu styles
+		&.site-navigation-top-bar {
+			li {
+				ul.submenu {
+					background: $global-menu-background;
+					a { color: $global-menu-color; }
+				}
+				ul.submenu.first-sub {
+					background: $global-menu-background;
+					@include fadeInDown($duration: .1s);
+				}
+			}
+		}
 		&.site-navigation-drilldown {}
 		&.site-navigation-accordion {}
-		&.site-navigation-footer {} // overwritten in _sitefooter.scss
+		&.site-navigation-footer {} // overwritten in _site-footer.scss
 		&.site-navigation-widget {} // overwritten in _sidebar.scss
 
 		// arrows

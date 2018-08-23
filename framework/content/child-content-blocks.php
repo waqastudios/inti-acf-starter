@@ -83,7 +83,7 @@ function child_content_blocks() {
 				 * Content Block  - Add standard HTML through a wysiwyg interface
 				 */
 				elseif( get_row_layout() == 'content_block' ): 
-
+					$title = get_sub_field('title');
 					$content = get_sub_field('content');
 
 					$bgcolor = get_sub_field('background_color');
@@ -101,6 +101,17 @@ function child_content_blocks() {
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block content-block<?php echo $classes; ?>"<?php echo $style; ?>>
+						<?php if ($title) : ?>	
+							<div class="grid-container">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<h3><?php echo $title; ?></h3>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>
 						<div class="grid-container">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
@@ -136,6 +147,7 @@ function child_content_blocks() {
 					$column_count = count($columns);
 					$breakpoint = get_sub_field('breakpoint');
 
+					$title = get_sub_field('title');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
@@ -154,8 +166,19 @@ function child_content_blocks() {
 						if (!$breakpoint) $breakpoint = "mlarge"; if (!$column_count) $column_count = 3;
 						?>
 							<section class="inti-block content-block columns<?php echo $classes; ?>"<?php echo $style; ?>>
+								<?php if ($title) : ?>	
+									<div class="grid-container">
+										<div class="grid-x grid-margin-x">
+											<div class="small-12 cell">
+												<header class="block-header">
+													<h3><?php echo $title; ?></h3>
+												</header>
+											</div><!-- .cell -->
+										</div><!-- .grid-x .grid-container-x -->
+									</div><!-- .grid-container -->
+								<?php endif; ?>
 								<div class="grid-container">
-									<div class="grid-x grid-margin-x <?php echo $breakpoint . "-up-" . $column_count ?>">
+									<div class="grid-x grid-margin-x grid-margin-y <?php echo $breakpoint . "-up-" . $column_count ?>">
 
 									<?php while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
@@ -247,7 +270,7 @@ function child_content_blocks() {
 							
 							
 								<?php // if more than one cell use block-grid
-								if ( $post_columns != 1 ) echo '<div class="grid-x grid-margin-x small-up-1 medium-up-1 mlarge-up-' . $post_columns . '">'; ?>
+								if ( $post_columns != 1 ) echo '<div class="grid-x grid-margin-x grid-margin-y small-up-1 medium-up-1 mlarge-up-' . $post_columns . '">'; ?>
 								
 									<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); global $more; $more = 0; ?>
 										
@@ -373,6 +396,7 @@ function child_content_blocks() {
 				 * it in the div as a background image
 				 */
 				elseif( get_row_layout() == 'personal_bio' ): 
+					$title = get_sub_field('title');
 					$image = get_sub_field('featured_image');
 
 					$bgcolor = get_sub_field('background_color');
@@ -395,7 +419,7 @@ function child_content_blocks() {
 									<article class="entry-body">
 										<?php if ($title) : ?>	
 											<header class="block-header">
-												<h3><?php the_sub_field('title'); ?></h3>
+												<h3><?php echo $title; ?></h3>
 											</header>
 										<?php endif; ?>
 										<div class="entry-content">
@@ -452,8 +476,8 @@ function child_content_blocks() {
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
 					<?php endif; ?>					
-						<div class="grid-container">
-							<div class="grid-x grid-margin-x mlarge-up-<?php echo $post_columns ?>">
+						<div class="grid-container fluid">
+							<div class="grid-x grid-margin-x grid-margin-y small-up-2 mlarge-up-<?php echo $post_columns ?>">
 
 						<?php
 							if( have_rows('services_selected') ): 
@@ -461,9 +485,9 @@ function child_content_blocks() {
 								while ( have_rows('services_selected') ) : the_row(); 
 									$service = get_sub_field('service');
 
-									$action_text = get_field($service->ID, 'action_text');
-									$action_url = get_field($service->ID, 'custom_url');
-									$action_new = get_field($service->ID, 'new_tab');
+									$action_text = get_field('action_text', $service->ID);
+									$action_url = get_field('custom_url', $service->ID);
+									$action_new = get_field('new_tab', $service->ID);
 
 
 									$default_action_text = get_inti_option('read_more_text', 'inti_general_options', 'Read more &raquo;');
@@ -485,53 +509,50 @@ function child_content_blocks() {
 									}
 								?>
 								<div class="cell">
-									<article id="post-<?php echo $service->ID; ?>" class="inti-service">
-										<div class="entry-body">
-											<?php  if ( has_post_thumbnail($service->ID) ) : ?>
-											<div class="grid-x grid-margin-x">
-												<div class="cell">
-													<div class="entry-thumbnail">
-														<a href="<?php echo $final_url; ?>" 
-														    rel="bookmark" 
-														    title="<?php echo $service->post_title; ?>"
-														    <?php if ($action_new) echo 'target="_blank"' ?>>
+									<a href="<?php echo $final_url; ?>" 
+										rel="bookmark" 
+										title="<?php echo $service->post_title; ?>"
+										<?php if ($action_new) echo 'target="_blank"' ?>>
+										<article id="post-<?php echo $service->ID; ?>" class="inti-service">
+											<div class="entry-body">
+												<?php  if ( has_post_thumbnail($service->ID) ) : ?>
+												<div class="grid-x grid-margin-x">
+													<div class="cell">
+														<div class="entry-thumbnail">
 															<?php echo get_the_post_thumbnail($service, 'service-thumbnail', array( 'class' => 'service-thumbnail', 'alt' => $final_action_text ) ); ?>
-														</a>
+														</div>
 													</div>
 												</div>
-											</div>
-											<?php endif; ?>
-											<div class="grid-x grid-margin-x">
-												<div class="cell"> 
+												<?php endif; ?>
+												<div class="grid-x grid-margin-x">
+													<div class="cell"> 
 
-													
-													<header class="entry-header">
-														<h3 class="entry-title">
-															<a href="<?php the_permalink($service->ID); ?>" rel="bookmark"><?php echo $service->post_title; ?></a>
-														</h3>
-													</header><!-- .entry-header -->
-													
-
-													<div class="entry-summary">
-														<?php // echo apply_filters('the_excerpt', get_forced_excerpt($service)); ?>
-														<p><?php echo get_forced_excerpt($service); ?></p>
-														<a href="<?php echo $final_url; ?>" 
-														    rel="bookmark"
-														    <?php if ($action_new) echo 'target="_blank"' ?>
-														    class="button read-more">
-															<?php echo $final_action_text; ?>
-														</a>
-													</div><!-- .entry-content -->               
-
-													 <footer class="entry-footer">
 														
-													</footer><!-- .entry-footer -->
+														<header class="entry-header">
+															<h3 class="entry-title">
+																<?php echo $service->post_title; ?>
+															</h3>
+														</header><!-- .entry-header -->
+														
 
+														<div class="entry-summary">
+															<?php // echo apply_filters('the_excerpt', get_forced_excerpt($service)); ?>
+															<p><?php echo get_forced_excerpt($service); ?></p>
+															<span class="button read-more">
+																<?php echo $final_action_text; ?>
+															</span>
+														</div><!-- .entry-content -->               
+
+														 <footer class="entry-footer">
+															
+														</footer><!-- .entry-footer -->
+
+													</div>
 												</div>
-											</div>
 
-										</div><!-- .entry-body -->
-									</article><!-- #post -->
+											</div><!-- .entry-body -->
+										</article><!-- #post -->
+									</a>
 								</div><!-- .cell -->
 														
 								<?php
@@ -754,7 +775,7 @@ function child_content_blocks() {
 						<?php elseif ($display_as == 'list'): 
 						?>			
 							<div class="grid-container">
-								<div class="grid-x grid-margin-x mlarge-up-<?php echo $column_count ?>">
+								<div class="grid-x grid-margin-x grid-margin-y mlarge-up-<?php echo $column_count ?>">
 
 								<?php
 									// loop through the rows of data
@@ -874,8 +895,8 @@ function child_content_blocks() {
 						 */
 						if ($display_as == 'slides'): ?>	
 							<div class="grid-container">
-								<div class="grid-x grid-margin-x">
-									<div class="small-12 cell">
+								<div class="grid-x grid-margin-x align-center">
+									<div class="small-12 mlarge-11 cell">
 										<div class="inti-slider inti-testimonial-slider clearfix">
 											<?php 
 											// loop through the rows of data
@@ -970,7 +991,7 @@ function child_content_blocks() {
 						 */
 						?>			
 							<div class="grid-container">
-								<div class="grid-x grid-margin-x">
+								<div class="grid-x grid-margin-x grid-margin-y">
 
 								<?php
 
@@ -1250,8 +1271,8 @@ function child_content_blocks() {
 						
 						<?php if ($display_as == 'slides'): ?>	
 							<div class="grid-container">
-								<div class="grid-x grid-margin-x">
-									<div class="small-12 cell">
+								<div class="grid-x grid-margin-x align-center">
+									<div class="small-12 mlarge-11 cell">
 										<div class="inti-instagram-carousel clearfix">
 											<?php
 
@@ -1293,7 +1314,7 @@ function child_content_blocks() {
 						<?php elseif ($display_as == 'list'): 
 						?>			
 							<div class="grid-container">
-								<div class="grid-x grid-margin-x grid-padding-y medium-up-2 mlarge-up-<?php echo $column_count ?>">
+								<div class="grid-x grid-margin-x grid-margin-y medium-up-2 mlarge-up-<?php echo $column_count ?>">
 
 									<?php
 

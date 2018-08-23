@@ -37,8 +37,8 @@ section.inti-block {
 					p { color: $white; }
 				}
 			}
-			.entry-content {
-				p, li { color: $white; }
+			.entry-content, .entry-summary {
+				p, li { color: $white !important; }
 			}
 
 			a.button, button {
@@ -68,7 +68,13 @@ section.inti-block {
 		&.personal-bio {}
 
 		// Shows inti-service post types
-		&.services {}
+		&.services {
+			article {
+				.entry-summary {
+					p { color: $body-font-color; }
+				}
+			}
+		}
 	
 		// Shows a video from a streaming service
 		&.video {}

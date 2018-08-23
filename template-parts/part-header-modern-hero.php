@@ -178,6 +178,10 @@
 
 	<?php inti_hook_site_banner_after(); // inti_do_main_dropwdown_menu() is placed above or below banner ?>
 
+
+	<?php if (inti_current_theme_supports( 'inti-post-types', 'opt-in' )) : 
+		get_template_part('template-parts/part-opt-in', 'header');
+	endif; ?>
 </div>
 
 <?php inti_hook_site_header_after(); ?>

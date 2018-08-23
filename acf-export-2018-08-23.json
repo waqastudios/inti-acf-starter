@@ -658,6 +658,25 @@
                         "display": "block",
                         "sub_fields": [
                             {
+                                "key": "field_5b7e83fb44dfb",
+                                "label": "Title",
+                                "name": "title",
+                                "type": "text",
+                                "instructions": "Add a title for this block",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "Title",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
                                 "key": "field_596cad71770c6",
                                 "label": "Content",
                                 "name": "content",
@@ -763,6 +782,25 @@
                         "label": "Content Block (Columns)",
                         "display": "block",
                         "sub_fields": [
+                            {
+                                "key": "field_5b7e83d444dfa",
+                                "label": "Title",
+                                "name": "title",
+                                "type": "text",
+                                "instructions": "Add a title for this block",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "Title",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
                             {
                                 "key": "field_596cc502a4066",
                                 "label": "Columns",

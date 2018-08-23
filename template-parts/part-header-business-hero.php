@@ -178,20 +178,6 @@
 			</div><!-- .grid-x . grid-margin-x -->
 		</div><!-- .grid-container -->
 	</div>
-
-<?php elseif ( is_home() || is_archive() || is_single() ) : ?>
-	<div class="site-hero post archive"<?php if ( $hero_bg ) echo ' style="background-image: url('. $hero_bg .');"'; ?>>
-		<div class="grid-container">
-			<div class="grid-x grid-margin-x">
-				<div class="mlarge-6 cell">
-					<h1><?php _e('Example text', 'inti-child'); ?></h1>
-				</div>
-				<div class="mlarge-6 cell">
-					
-				</div>
-			</div><!-- .grid-x . grid-margin-x -->
-		</div><!-- .grid-container -->
-	</div>
 <?php elseif ( 'inti-example-post-type' == get_post_type() || is_post_type_archive('inti-example-post-type') ) : ?>
 	<div class="site-hero inti-example-post-type inti-example-taxonomy"<?php if ( $hero_bg ) echo ' style="background-image: url('. $hero_bg .');"'; ?>>
 		<div class="grid-container">
@@ -205,7 +191,24 @@
 			</div><!-- .grid-x . grid-margin-x -->
 		</div><!-- .grid-container -->
 	</div>
+<?php elseif ( is_home() || is_archive() || is_single() ) : ?>
+	<div class="site-hero post archive"<?php if ( $hero_bg ) echo ' style="background-image: url('. $hero_bg .');"'; ?>>
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+				<div class="mlarge-6 cell">
+					<h1><?php _e('Example text', 'inti-child'); ?></h1>
+				</div>
+				<div class="mlarge-6 cell">
+					
+				</div>
+			</div><!-- .grid-x . grid-margin-x -->
+		</div><!-- .grid-container -->
+	</div>
 <?php endif; ?>
+
+<?php if (inti_current_theme_supports( 'inti-post-types', 'opt-in' )) : 
+	get_template_part('template-parts/part-opt-in', 'header');
+endif; ?>
 </div>
 
 <?php inti_hook_site_header_after(); ?>
