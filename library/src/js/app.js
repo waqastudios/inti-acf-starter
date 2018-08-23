@@ -32,6 +32,21 @@ $(window).scroll(function() {
 		else 
 			$('#inti-scroll-to-top').fadeOut(400);
 });
+	
+
+
+// In View Animations
+import inview from 'jquery-inview';
+$('.to-animate').css('opacity', '0');
+$('.to-animate').one('inview', function(event, isInView) {
+	$(this).addClass('animated');
+	if (isInView) {
+		// element is now visible in the viewport
+		
+	} else {
+		// element has gone out of viewport
+	}
+});
 
 
 

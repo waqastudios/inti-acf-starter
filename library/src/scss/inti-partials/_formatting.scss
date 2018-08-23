@@ -5,7 +5,8 @@ Stylesheet: Formatting
 Styles that affect the look of page and post content
 
 ******************************************************************/
-
+.to-animate { opacity: 0; }
+.animated { @include fadeInUp(); }
 h1, h2, h3, h4, h5, h6 {
 	// text-transform: uppercase;
 }

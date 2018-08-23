@@ -41,7 +41,7 @@ function child_content_blocks() {
 					if ($style) $style = ' style="' . $style . '"';	
 				?>
 					<section class="inti-block page-post<?php echo $classes; ?>"<?php echo $style; ?>>
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
@@ -102,7 +102,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block content-block<?php echo $classes; ?>"<?php echo $style; ?>>
 						<?php if ($title) : ?>	
-							<div class="grid-container">
+							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
@@ -112,7 +112,7 @@ function child_content_blocks() {
 								</div><!-- .grid-x .grid-container-x -->
 							</div><!-- .grid-container -->
 						<?php endif; ?>
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
@@ -167,7 +167,7 @@ function child_content_blocks() {
 						?>
 							<section class="inti-block content-block columns<?php echo $classes; ?>"<?php echo $style; ?>>
 								<?php if ($title) : ?>	
-									<div class="grid-container">
+									<div class="grid-container to-animate">
 										<div class="grid-x grid-margin-x">
 											<div class="small-12 cell">
 												<header class="block-header">
@@ -177,7 +177,7 @@ function child_content_blocks() {
 										</div><!-- .grid-x .grid-container-x -->
 									</div><!-- .grid-container -->
 								<?php endif; ?>
-								<div class="grid-container">
+								<div class="grid-container to-animate">
 									<div class="grid-x grid-margin-x grid-margin-y <?php echo $breakpoint . "-up-" . $column_count ?>">
 
 									<?php while ( have_rows('content_column') ) : the_row(); ?>
@@ -254,7 +254,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block recent-posts<?php echo $classes; ?>"<?php echo $style; ?>>
 						<?php if ($title || $description) : ?>	
-							<div class="grid-container">
+							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
@@ -265,7 +265,7 @@ function child_content_blocks() {
 								</div><!-- .grid-x .grid-container-x -->
 							</div><!-- .grid-container -->
 						<?php endif; ?>
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<?php if ( $recent_posts_query->have_posts() ) : ?>
 							
 							
@@ -413,7 +413,7 @@ function child_content_blocks() {
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block personal-bio<?php echo $classes; ?>"<?php echo $style; ?>>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 mlarge-6 cell">
 									<article class="entry-body">
@@ -465,7 +465,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block services<?php echo $classes; ?>"<?php echo $style; ?>>		
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -476,7 +476,7 @@ function child_content_blocks() {
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
 					<?php endif; ?>					
-						<div class="grid-container fluid">
+						<div class="grid-container fluid to-animate">
 							<div class="grid-x grid-margin-x grid-margin-y small-up-2 mlarge-up-<?php echo $post_columns ?>">
 
 						<?php
@@ -594,7 +594,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block video<?php echo $classes; ?>"<?php echo $style; ?>>
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -605,7 +605,7 @@ function child_content_blocks() {
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
 					<?php endif; ?>								
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
@@ -670,7 +670,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block map<?php echo $classes; ?>"<?php echo $style; ?>>	
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -681,7 +681,7 @@ function child_content_blocks() {
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
 					<?php endif; ?>								
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
@@ -722,7 +722,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block logos <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>						
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -774,7 +774,7 @@ function child_content_blocks() {
 
 						<?php elseif ($display_as == 'list'): 
 						?>			
-							<div class="grid-container">
+							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x grid-margin-y mlarge-up-<?php echo $column_count ?>">
 
 								<?php
@@ -876,7 +876,7 @@ function child_content_blocks() {
 				?>
 				<section class="inti-block testimonials <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>							
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -1015,7 +1015,7 @@ function child_content_blocks() {
 										<div class="small-12 cell">
 											<?php if ($align == "left" || $align == "") : ?>
 
-											<blockquote class="testimonial left">
+											<blockquote class="testimonial left to-animate">
 												<?php // if it has a thumbnail, create two cells, else just one
 												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-margin-x">
@@ -1063,7 +1063,7 @@ function child_content_blocks() {
 
 										<?php elseif ($align == "right") : ?>
 
-											<blockquote class="testimonial right">
+											<blockquote class="testimonial right to-animate">
 												<?php // if it has a thumbnail, create two cells, else just one
 												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-margin-x">
@@ -1111,7 +1111,7 @@ function child_content_blocks() {
 
 										<?php elseif ($align == "mixed") : ?>
 											<?php if ($right) : ?>
-												<blockquote class="testimonial mixed right">
+												<blockquote class="testimonial mixed right to-animate">
 													<?php // if it has a thumbnail, create two cells, else just one
 													if ( $has_image && $hide_photos == 0 ) : ?>
 														<div class="grid-x grid-margin-x">
@@ -1155,7 +1155,7 @@ function child_content_blocks() {
 													<?php endif; ?>
 
 											<?php $right = false; else : ?>
-												<blockquote class="testimonial mixed left">
+												<blockquote class="testimonial mixed left to-animate">
 												<?php // if it has a thumbnail, create two cells, else just one
 												if ( $has_image && $hide_photos == 0 ) : ?>
 													<div class="grid-x grid-margin-x">
@@ -1257,7 +1257,7 @@ function child_content_blocks() {
 				?>
 					<section class="inti-block instagram <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>						
 					<?php if ($title || $description) : ?>	
-						<div class="grid-container">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									<header class="block-header">
@@ -1313,7 +1313,7 @@ function child_content_blocks() {
 
 						<?php elseif ($display_as == 'list'): 
 						?>			
-							<div class="grid-container">
+							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x grid-margin-y medium-up-2 mlarge-up-<?php echo $column_count ?>">
 
 									<?php
