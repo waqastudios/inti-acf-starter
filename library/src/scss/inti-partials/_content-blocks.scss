@@ -8,14 +8,7 @@ Styles for blocks that are placed on ACF-enabled page templates
 
 
 section.inti-block {
-	padding: $global-padding*2 0;
-
-	@include breakpoint(mlarge up) {
-		padding: $global-padding*3 0;
-	}
-	@include breakpoint(large up) {
-		padding: $global-padding*5 0;
-	}
+	@include layout-spacing();
 
 		// Header/Intro sections in each block
 		header.block-header {

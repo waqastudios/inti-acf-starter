@@ -12,9 +12,6 @@ Main site skeleton, major containers etc
 }
 .site-content {
 	#content {
-		
-		margin: $global-margin 0;
+		@include layout-spacing();
 	}
-
-
 }

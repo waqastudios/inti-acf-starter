@@ -70,6 +70,19 @@ COLORS
 	}
 }
 
+
+/*********************
+LAYOUT
+*********************/
+@mixin layout-spacing() {
+	padding: $global-padding*2 0;
+
+	@include breakpoint(mlarge up) {
+		padding: $global-padding*3 0;
+	}
+}
+
+
 /*********************
 TYPOGRAPHY
 *********************/
