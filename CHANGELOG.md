@@ -38,3 +38,11 @@
 
 ### 1.1.3 (Jun 1, 2018)
 - Fix for missed cookie js item in confirm
+
+### 1.1.3 (Jun 1, 2018)
+- Upgrade to FontAwesome 5
+- Fixes for various small bugs
+- Content blocks now with title fields
+- GDPR functionality turned off/commented by default
+- Inti Foundation page layout metaboxes not shown when editing pages with ACF blocks in use
+- Adding jquery-inview by default to fade in blocks
