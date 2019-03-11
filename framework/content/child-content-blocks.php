@@ -35,7 +35,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';	
@@ -95,7 +95,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -157,7 +157,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -236,7 +236,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -407,7 +407,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -458,7 +458,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -587,7 +587,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -663,7 +663,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -715,7 +715,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -869,7 +869,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
@@ -1250,7 +1250,7 @@ function child_content_blocks() {
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9]+~", "", $cssclass);
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
 					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
