@@ -25,14 +25,14 @@ function inti_show_if_front_page( $cmb ) {
  */
 function inti_hide_if_front_page( $cmb ) {
 	// Don't show this metabox if it IS the front page template
-	if ( get_post_meta($cmb->object_id, '_wp_page_template')[0] == 'page-templates/acf-page.php' ) {
-		//echo "<h1>xxx 1</h2>" .  get_post_meta($cmb->object_id, '_wp_page_template')[0];
-		return false;
-	} elseif  ( $cmb->object_id == get_option( 'page_on_front' ) ) {
-		//echo "<h1>xxx 2</h2>";
-		//var_dump(get_post_meta($cmb->object_id, '_wp_page_template'));
-		return false;
-	} 
+	$meta = get_post_meta($cmb->object_id, '_wp_page_template');
+	if ( !empty($meta) ) {
+		if ( $meta[0] == 'page-templates/acf-page.php' ) {
+			return false;
+		} elseif  ( $cmb->object_id == get_option( 'page_on_front' ) ) {
+			return false;
+		} 
+	}
 	return true;
 }
 
