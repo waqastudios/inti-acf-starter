@@ -78,7 +78,7 @@ add_filter('inti_filter_do_typography_google_fonts', 'child_do_typography_google
 function child_do_typography_weights($weights) {
 	
 	// overwrite as needed
-	$weights = "300,400,600";
+	$weights = "300,400,700";
 
 	return $weights;
 }
