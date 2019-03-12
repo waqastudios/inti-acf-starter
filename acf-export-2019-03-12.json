@@ -57,7 +57,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -96,7 +96,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": "Configuration for the Logos custom type"
     },
     {
@@ -327,6 +327,181 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_5c8806097f5cb",
+                "label": "GDPR Configuration",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c8801bf32aae",
+                "label": "Add GDPR fields?",
+                "name": "add_gdpr_fields",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5c88022032aaf",
+                "label": "Give Permissions Description",
+                "name": "give_permissions_description",
+                "type": "wysiwyg",
+                "instructions": "Explain what permissions are needed.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c8801bf32aae",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "We would love to send you exclusive offers and the latest information by email. We will always treat your personal details with the utmost care and promise to never pass them on to others for marketing purposes.",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5c88027b32ab0",
+                "label": "Extra GDPR Notices",
+                "name": "extra_gdpr_notices",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c8801bf32aae",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "<p>You can unsubscribe at any time by clicking the link in the footer of our emails. For information about our privacy practices, please visit our website.<\/p>\r\n<p>We use MailChimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to MailChimp for processing. Learn more about MailChimp's privacy practices <a href=\"https:\/\/mailchimp.com\/legal\/\" target=\"_blank\">here<\/a>.<\/p>",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5c88034a32ab1",
+                "label": "Give Permissions",
+                "name": "give_permissions",
+                "type": "repeater",
+                "instructions": "Checkbox for subscribers to accept future contacts.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c8801bf32aae",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5c88036832ab2",
+                        "label": "Checkbox Value",
+                        "name": "checkbox_value",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5c88037d32ab3",
+                        "label": "Checkbox Label",
+                        "name": "checkbox_label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5c88038e32ab4",
+                        "label": "Checkbox Element Name",
+                        "name": "checkbox_element_name",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
             }
         ],
         "location": [
@@ -344,7 +519,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": "Configuration for the Opt-in Form custom type"
     },
     {
@@ -421,7 +596,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": "Configuration for the Service custom type"
     },
     {
@@ -517,7 +692,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": "Configuration for the Testimonials custom type"
     },
     {
@@ -2628,7 +2803,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     }
 ]

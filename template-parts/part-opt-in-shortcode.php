@@ -22,6 +22,11 @@
 		$email_placeholder = get_field('email_placeholder', $optin_id);
 		$email_required = get_field('email_required', $optin_id);
 
+		$add_gdpr_fields = get_field('add_gdpr_fields', $optin_id);
+		$give_permissions_description = get_field('give_permissions_description', $optin_id);
+		$give_permissions = get_field('give_permissions', $optin_id);
+		$extra_gdpr_notices = get_field('extra_gdpr_notices', $optin_id);
+
 ?>
 		<section class="opt-in shortcode">
 			<div class="grid-container">
@@ -53,6 +58,33 @@
 									</div>
 								</div>
 							</fieldset>
+							
+							<?php if ($add_gdpr_fields) : ?>
+							<fieldset class="opt-in-gdpr">
+								<div class="grid-x">
+									<div class="cell">
+										<div class="opt-in-gdpr-intro">
+											<?php echo $give_permissions_description; ?>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="opt-in-gdpr-permissions">
+											<?php if( have_rows('give_permissions', $optin_id) ): ?>
+												<?php while ( have_rows('give_permissions', $optin_id) ) : the_row(); ?>
+													<input type="checkbox" name="<?php the_sub_field('checkbox_element_name'); ?>" value="<?php the_sub_field('checkbox_value'); ?>"> <label for="<?php the_sub_field('checkbox_element_name'); ?>"><?php the_sub_field('checkbox_label'); ?></label>
+												<?php endwhile; ?>
+											<?php endif; ?>
+										</div>
+									</div>
+									<div class="cell">
+										<div class="opt-in-gdpr-outro">
+											<?php echo $extra_gdpr_notices; ?>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<?php endif; ?>
+
 						</form>
 					</div>
 				</div>

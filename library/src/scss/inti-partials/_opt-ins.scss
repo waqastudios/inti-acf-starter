@@ -19,15 +19,27 @@ Styles for the opt in forms site wide.
 
 		input { margin-bottom: $global-margin/2; }
 
-		// @include breakpoint(mlarge up) {
-		// 	input { margin-bottom: 0; }
-		// }
+		@include breakpoint(mlarge up) {
+			input { margin-bottom: 0; }
+		}
 	}		
 
 	.button, input[type="submit"], button {
 
 		&:hover {}
 	}
+
+	.opt-in-gdpr-intro {
+		p { margin-bottom: 0; }
+	}	
+	.opt-in-gdpr-permissions, .opt-in-gdpr-permissions label {
+		@extend strong;
+	}
+	.opt-in-gdpr-outro {
+		@extend small;
+
+		p { margin-bottom: 0; }
+	}	
 }
 
 
