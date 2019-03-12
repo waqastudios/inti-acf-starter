@@ -74,11 +74,19 @@ COLORS
 /*********************
 LAYOUT
 *********************/
-@mixin layout-spacing() {
-	padding: $global-padding*2 0;
+@mixin layout-spacing($small:2, $medium:3, $mlarge:3, $large:3) {
+	padding: $global-padding*$small 0;
+
+	@include breakpoint(medium up) {
+		padding: $global-padding*$medium 0;
+	}
 
 	@include breakpoint(mlarge up) {
-		padding: $global-padding*3 0;
+		padding: $global-padding*$mlarge 0;
+	}
+
+	@include breakpoint(large up) {
+		padding: $global-padding*$large 0;
 	}
 }
 

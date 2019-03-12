@@ -21,6 +21,8 @@
 						* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
 						*/
 						$logo = get_inti_option('logo_image', 'inti_customizer_options');
+						$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
+						$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
 
 						if ( $logo ) : ?>
 						<div class="site-logo">
@@ -30,6 +32,16 @@
 						</div><!-- .site-logo -->
 						<?php inti_hook_site_banner_site_logo_after(); ?>
 						<?php inti_hook_site_banner_title_area_before(); ?>
+						<?php endif; // end of logo 
+
+						if ( $sticky_logo && $show_mobile_logo ) : ?>
+							<div class="site-logo sticky-logo">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+									<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+								</a>
+							</div><!-- .site-logo -->
+							<?php inti_hook_site_banner_site_logo_after(); ?>
+							<?php inti_hook_site_banner_title_area_before(); ?>
 						<?php endif; // end of logo ?>
 						<div class="title-area" >
 							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
@@ -48,17 +60,31 @@
 								/**
 								* Add logo or site title to the navigation bar, in addition or instead of having the site banner
 								*/
-								$mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
-
-								if ($mobile_logo != 'none') : ?>
+								if ($show_mobile_logo != 'none') : ?>
 									<div class="top-bar-left hide-for-mlarge mobile-logo">
+									<?php  
+										/**
+										* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
+										*/
+										$logo = get_inti_option('logo_image', 'inti_customizer_options');
+										$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
+										$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
+
+										if ( $logo ) : ?>
 										<div class="site-logo">
-											<?php if ( get_inti_option('nav_logo_image', 'inti_customizer_options') ) : ?>
+											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+												<?php inti_do_srcset_image(get_inti_option('logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+											</a>
+										</div><!-- .site-logo -->
+										<?php endif; 
+
+											if ( $sticky_logo && $show_mobile_logo ) : ?>
+											<div class="site-logo sticky-logo">
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 													<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
 												</a>
-											<?php endif; ?>
-										</div>
+											</div><!-- .site-logo -->
+										<?php endif; ?>
 										<div class="site-title"><?php bloginfo('name'); ?></div>
 									</div>
 
@@ -66,10 +92,16 @@
 								endif; ?>
 
 									<div class="top-bar-right show-for-mlarge main-dropdown-menu">
-										<?php echo inti_get_dropdown_menu(); ?>
+										<div class="grid-x grid-margin-x">
+											<div class="shrink cell">
+												<?php echo inti_get_dropdown_menu(); ?>
+											</div>
+											<div class="shrink cell">
 										<?php 
 										$showsocial = get_inti_option('nav_social', 'inti_headernav_options');
 										if ($showsocial) echo inti_get_dropdown_social_links();  ?>
+											</div>
+										</div>
 									</div>
 									<div class="top-bar-right hide-for-mlarge">
 										<div class="off-canvas-button">

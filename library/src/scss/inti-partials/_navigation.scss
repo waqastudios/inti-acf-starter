@@ -15,8 +15,11 @@ Inti Foundation v1.2.11
 
 ******************************************************************/
 
-$global-menu-background: $topbar-background;
-$global-menu-color: $anchor-color;
+$global-menu-background: $black; //$topbar-background;
+$global-menu-color: $white;
+$global-menu-color-hover: $black;
+$global-menu-color-background: transparent;
+$global-menu-color-background-hover: $white;
 
 
 // Common Nagivation elements and common styles
@@ -25,12 +28,14 @@ ul.site-navigation {
 
 	li {
 		a { color: $global-menu-color; }
-		a:hover { text-decoration: underline; }
+		a:hover { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
 
-		&.current-menu-item > a { text-decoration: underline; }
-		&.current-menu-perent > a, &.current-menu-ancestor > a { text-decoration: underline; }
+		&.is-active > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+		&.current-menu-item > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+		&.current-menu-parent > a, &.current-menu-ancestor > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
 
 		ul.submenu {
+			background: $global-menu-background; //$-menu-submenu-background;
 			li {
 				a {}
 			}
@@ -38,34 +43,51 @@ ul.site-navigation {
 	}
 	
 		// individual menu styles
-		// individual menu styles
-		&.site-navigation-top-bar {
+		&.site-navigation-top-bar { //dropdownmenu
 			li {
-				ul.submenu {
-					background: $global-menu-background;
-					a { color: $global-menu-color; }
+				a { color: $global-menu-color; }
+				a:hover { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+
+				&.is-active > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+				&.current-menu-item > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+				&.current-menu-parent > a, &.current-menu-ancestor > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+
+				// Top level arrows
+				&.menu-item-has-children, &.is-dropdown-submenu-parent {
+					> a::after { border-color: $dropdownmenu-arrow-color transparent transparent; }
 				}
-				ul.submenu.first-sub {
-					background: $global-menu-background;
+					// when active
+					&.is-active, &.current-menu-item, &.current-menu-parent, &.current-menu-ancestor {
+						> a::after { border-color: $black transparent transparent; }
+					}
+
+
+				ul.submenu {
 					@include fadeInDown($duration: .1s);
+					background: $global-menu-background; //$-menu-submenu-background;
+					li {
+						a {}
+						
+						// Sub menu arrows (pointing left)
+						&.menu-item-has-children, &.is-dropdown-submenu-parent {
+							> a::after { border-color: transparent $dropdownmenu-arrow-color transparent transparent; }
+						}
+							// when active
+							&.is-active, &.current-menu-item, &.current-menu-parent, &.current-menu-ancestor {
+								> a::after { border-color: transparent $black transparent transparent; }
+							}
+					}
+
 				}
 			}
+
 		}
 		&.site-navigation-drilldown {}
 		&.site-navigation-accordion {}
 		&.site-navigation-footer {} // overwritten in _site-footer.scss
 		&.site-navigation-widget {} // overwritten in _sidebar.scss
 
-		// arrows
-		.is-dropdown-submenu-parent {
-			> a::after { border-color: $global-menu-color transparent transparent; }
-		}
-		.is-accordion-submenu-parent {
-			> a::after { border-color: $global-menu-color transparent transparent; }
-		}
-		.is-drilldown-submenu-parent {
-			> a::after { border-color: transparent $global-menu-color transparent; }
-		}
+
 }
 
 // Top Bar Container, used with #site-header-contained in part-header-contained.php

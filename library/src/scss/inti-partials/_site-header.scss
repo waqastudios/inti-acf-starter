@@ -41,6 +41,7 @@ normally includes a logo, or a full width hero image.
 		padding: $global-padding 0;
 
 			.site-logo {}
+
 			.title-area {}
 
 			.contact-area {
@@ -81,11 +82,14 @@ normally includes a logo, or a full width hero image.
 		padding: $global-padding 0;
 
 			.site-logo {}
+			.site-logo.sticky-logo {
+				display: none;
+			}
 			.title-area {}
 
 			
 			nav.top-bar  {
-				background-color: transparent;
+				background-color: $topbar-background;
 			}
 	}
 
@@ -149,6 +153,8 @@ normally includes a logo, or a full width hero image.
 }
 
 // ii. Default sticky styles
+#site-header-modern-hero,
+#site-header-business-hero,
 .site-header {
 
 	// For the sticky element regardless of state
@@ -167,6 +173,13 @@ normally includes a logo, or a full width hero image.
 			.site-banner { 
 				transition: padding-bottom .25s ease;
 				padding: 0; 
+					.site-logo {
+						display: none;
+					}
+					.site-logo.sticky-logo {
+						display: inline-block;
+						margin: 0;
+					}
 			}
 	}
 
