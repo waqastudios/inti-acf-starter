@@ -143,11 +143,13 @@ function child_content_blocks() {
 				 * but in multiple columns.
 				 */
 				elseif( get_row_layout() == 'content_block_columns' ):
-					$columns = get_sub_field('content_column');
-					$column_count = count($columns);
-					$breakpoint = get_sub_field('breakpoint');
 
 					$title = get_sub_field('title');
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
@@ -163,7 +165,6 @@ function child_content_blocks() {
 					if ($style) $style = ' style="' . $style . '"';
 
 					if( have_rows('content_column') ):
-						if (!$breakpoint) $breakpoint = "mlarge"; if (!$column_count) $column_count = 3;
 						?>
 							<section class="inti-block content-block columns<?php echo $classes; ?>"<?php echo $style; ?>>
 								<?php if ($title) : ?>	
@@ -178,12 +179,82 @@ function child_content_blocks() {
 									</div><!-- .grid-container -->
 								<?php endif; ?>
 								<div class="grid-container to-animate">
-									<div class="grid-x grid-margin-x grid-margin-y <?php echo $breakpoint . "-up-" . $column_count ?>">
+									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
 									<?php while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
 											
-											<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+											<article  class="entry-body">
+												<div class="entry-body">
+
+													<div class="entry-content">
+														<?php inti_hook_page_content_before_the_content(); ?>
+														<?php the_sub_field('content'); ?>
+														<?php inti_hook_page_content_after_the_content(); ?>
+													</div><!-- .entry-content -->
+													
+												</div><!-- .entry-body -->
+											</article><!-- #post -->
+
+										</div>
+									<?php endwhile; ?>
+
+									</div>
+								</div>
+							</section>
+					<?php endif; ?>
+
+
+
+				<?php
+				/**
+				 * Content Block Grid
+				 */
+				elseif( get_row_layout() == 'content_block_grid' ):
+
+					$title = get_sub_field('title');
+					$description = get_sub_field('description');
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+
+			
+					if( have_rows('content_column') ):
+						?>
+							<section class="inti-block paragraph-grid<?php echo $classes; ?>"<?php echo $style; ?>>
+								<?php if ($title) : ?>	
+									<div class="grid-container to-animate">
+										<div class="grid-x grid-margin-x">
+											<div class="small-12 cell">
+												<header class="block-header">
+													<h3><?php echo $title; ?></h3>
+												</header>
+											</div><!-- .cell -->
+										</div><!-- .grid-x .grid-container-x -->
+									</div><!-- .grid-container -->
+								<?php endif; ?>
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+
+									<?php while ( have_rows('content_column') ) : the_row(); ?>
+										<div class="small-12 cell">
+											
+											<article id="" class="entry-body">
 												<div class="entry-body">
 
 													<div class="entry-content">
@@ -207,7 +278,6 @@ function child_content_blocks() {
 
 
 
-
 				<?php
 				/**
 				 * Recent Posts - lists recent blog posts based on selected category.
@@ -216,7 +286,12 @@ function child_content_blocks() {
 				 */
 				elseif( get_row_layout() == 'recent_post_list' ):
 					$number_posts = get_sub_field('number_posts');
-					$post_columns = get_sub_field('post_columns');
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
+
 					$order = get_sub_field('order');
 					if (get_sub_field('only_show_posts_from')) {
 						$post_category = implode(',', get_sub_field('only_show_posts_from'));
@@ -268,14 +343,12 @@ function child_content_blocks() {
 						<div class="grid-container to-animate">
 							<?php if ( $recent_posts_query->have_posts() ) : ?>
 							
-							
-								<?php // if more than one cell use block-grid
-								if ( $post_columns != 1 ) echo '<div class="grid-x grid-margin-x grid-margin-y small-up-1 medium-up-1 mlarge-up-' . $post_columns . '">'; ?>
+								<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 								
 									<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); global $more; $more = 0; ?>
 										
 										
-										<?php if ( $post_columns != 1 ) echo '<div class="cell">'; ?>
+										<div class="cell">
 											
 											<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
 												<?php // inti_hook_post_before(); ?>
@@ -345,21 +418,17 @@ function child_content_blocks() {
 														</div>
 													</div>
 
-													
-										
-														
-
 
 												</div><!-- .entry-body -->
 												<?php // inti_hook_post_after(); ?>
 											</article><!-- #post -->
 											
-										<?php if ( $post_columns != 1 ) echo '</div>'; ?> 
+										</div><!-- .cell -->
 
 									<?php endwhile; // end of the loop 
 										wp_reset_query(); ?>
 									
-								<?php if ( $post_columns != 1 ) echo '</div>'; // close the block-grid ?>
+								</div><!-- .grid-x -->
 								
 							<?php else: ?>
 								<div class="grid-container">
@@ -388,64 +457,16 @@ function child_content_blocks() {
 
 
 
-
-				<?php
-				/**
-				 * Personal Bio - a content area with a second column for a featured image on that post.
-				 * Useful for for things like personal bios. Add featured image as a img element or place
-				 * it in the div as a background image
-				 */
-				elseif( get_row_layout() == 'personal_bio' ): 
-					$title = get_sub_field('title');
-					$image = get_sub_field('featured_image');
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';
-				?>
-					<section class="inti-block personal-bio<?php echo $classes; ?>"<?php echo $style; ?>>	
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 mlarge-6 cell">
-									<article class="entry-body">
-										<?php if ($title) : ?>	
-											<header class="block-header">
-												<h3><?php echo $title; ?></h3>
-											</header>
-										<?php endif; ?>
-										<div class="entry-content">
-											<?php the_sub_field('content'); ?>
-										</div>
-									</article>
-								</div>
-								<div class="small-12 mlarge-6 cell">
-									<div class="entry-thumbnail" <?php // if($image) echo 'style="height:100%;background-image: url('. $image .');"' ?>>
-										<?php echo '<img src="' . $image . '" alt="' . get_sub_field('title') . '">'; ?>
-									</div>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
-					</section>
-
-
-
-
 				<?php
 				/**
 				 * Services - Shows inti-service post types
 				 */
 				elseif( get_row_layout() == 'services' ):				
 
-					$post_columns = get_sub_field('post_columns');
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
 
 					$title = get_sub_field('title');
 					$description = get_sub_field('description');
@@ -477,7 +498,7 @@ function child_content_blocks() {
 						</div><!-- .grid-container -->
 					<?php endif; ?>					
 						<div class="grid-container fluid to-animate">
-							<div class="grid-x grid-margin-x grid-margin-y small-up-2 mlarge-up-<?php echo $post_columns ?>">
+							<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
 						<?php
 							if( have_rows('services_selected') ): 
@@ -562,6 +583,271 @@ function child_content_blocks() {
 						?>
 		
 						</div>
+					</section>
+
+
+
+
+
+				<?php
+				/**
+				 * Personal Bio - a content area with a second column for a featured image on that post.
+				 * Useful for for things like personal bios. Add featured image as a img element or place
+				 * it in the div as a background image
+				 */
+				elseif( get_row_layout() == 'personal_bio' ): 
+					$title = get_sub_field('title');
+					$image = get_sub_field('featured_image');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+				?>
+					<section class="inti-block personal-bio<?php echo $classes; ?>"<?php echo $style; ?>>	
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x">
+								<div class="small-12 mlarge-6 cell">
+									<article class="entry-body">
+										<?php if ($title) : ?>	
+											<header class="block-header">
+												<h3><?php echo $title; ?></h3>
+											</header>
+										<?php endif; ?>
+										<div class="entry-content">
+											<?php the_sub_field('content'); ?>
+										</div>
+									</article>
+								</div>
+								<div class="small-12 mlarge-6 cell">
+									<div class="entry-thumbnail" <?php // if($image) echo 'style="height:100%;background-image: url('. $image .');"' ?>>
+										<?php echo wp_get_attachment_image( $image, 'large', true, array('alt' => get_sub_field('title')) ); ?>
+									</div>
+								</div><!-- .cell -->
+							</div><!-- .grid-x .grid-container-x -->
+						</div><!-- .grid-container -->
+					</section>
+
+
+
+
+
+				<?php
+				/**
+				 * Featured Image
+				 */
+				elseif( get_row_layout() == 'featured_image' ): 
+					$image = get_sub_field('image');
+					$loc = get_sub_field('image_location');
+					$alt = get_sub_field('image_alt');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+				?>
+					<section class="inti-block featured-image<?php echo $classes; ?>"<?php echo $style; ?>>							
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x">
+
+								<?php 
+									switch ($loc) {
+										case "left" : ?>
+											<div class="small-12 mlarge-4 cell">
+												<div class="entry-thumbnail">
+													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
+												</div>
+											</div>
+											<div class="small-12 mlarge-8 cell">
+												<article class="entry-body">
+													<div class="entry-content">
+														<?php the_sub_field('content'); ?>
+													</div>
+												</article>
+											</div><!-- .cell -->
+
+
+									<?php
+      									break;
+										case "right" : ?>
+											<div class="small-12 mlarge-8 cell">
+												<article class="entry-body">
+													<div class="entry-content">
+														<?php the_sub_field('content'); ?>
+													</div>
+												</article>
+											</div>
+											<div class="small-12 mlarge-4 cell">
+												<div class="entry-thumbnail">
+													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
+												</div>
+											</div><!-- .cell -->
+
+
+									<?php
+      									break;
+										case "top" : ?>
+											<div class="small-12 cell">
+												<div class="entry-thumbnail">
+													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
+												</div>
+											</div>
+											<div class="small-12 cell">
+												<article class="entry-body">
+													<div class="entry-content">
+														<?php the_sub_field('content'); ?>
+													</div>
+												</article>
+											</div><!-- .cell -->
+
+
+									<?php
+      									break;
+										case "bottom" : ?>
+											<div class="small-12 cell">
+												<article class="entry-body">
+													<div class="entry-content">
+														<?php the_sub_field('content'); ?>
+													</div>
+												</article>
+											</div>
+											<div class="small-12 cell">
+												<div class="entry-thumbnail">
+													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
+												</div>
+											</div><!-- .cell -->
+
+									<?php
+      									break;
+									}
+								 ?>
+								
+							
+							</div><!-- .grid-x .grid-container-x -->
+						</div><!-- .grid-container -->
+					</section>
+
+
+
+
+
+				<?php
+				/**
+				 * Icon Buttons
+				 */
+				elseif( get_row_layout() == 'icon_buttons' ): 
+					$title = get_sub_field('title');
+					$description = get_sub_field('description');
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+				?>
+					<section class="inti-block icon-buttons<?php echo $classes; ?>"<?php echo $style; ?>>	
+						<?php if ($title || $description) : ?>	
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x align-center">
+								<div class="small-12 cell">
+									<header class="block-header">
+										<?php if ($title) : ?><h3 class="default"><?php echo $title; ?></h3><?php endif; ?>
+										<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+									</header>
+								</div><!-- .cell -->
+							</div><!-- .grid-x .grid-container-x -->
+						</div><!-- .grid-container -->
+						<?php endif; ?>	
+					
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x grid-padding-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+								
+								<?php if( have_rows('icons') ): ?>
+
+										<?php 
+										// loop through the rows of data
+										while ( have_rows('icons') ) : the_row();  
+											$img = get_sub_field('icon');
+											$icon_title = get_sub_field('icon_title');
+											$icon_text = get_sub_field('icon_text');
+
+											$link = get_sub_field('link');
+											$link_url = get_sub_field('link_url');
+											$link_text = get_sub_field('link_text');
+											$make_button = get_sub_field('make_button');
+										?>	
+
+										<div class="cell to-animate">
+											<article class="icon">
+												<div class="entry-thumbnail">
+													<?php if ($link) : ?>
+														<a href="<?php echo $link_url; ?>">
+													<?php endif; ?>
+													<?php echo wp_get_attachment_image( $img, 'thumbnail-300', true, array('alt' => $icon_title) ); ?>
+													<?php if ($link) : ?>
+														</a>
+													<?php endif; ?>
+												</div>
+												<?php if ($icon_title || $icon_text) : ?>	
+												<div class="entry-header">
+													<h3>
+													<?php if ($link) : ?>
+														<a href="<?php echo $link_url; ?>">
+													<?php endif; ?>
+													<?php if ($icon_title) : ?><?php echo $icon_title; ?><?php endif; ?>
+													<?php if ($link) : ?>
+														</a>
+													<?php endif; ?>
+													</h3>
+													<?php if ($icon_text) : ?><div class="entry-summary"><?php echo $icon_text; ?></div><?php endif; ?>
+													<?php if ($link) : ?>
+														<?php if ($make_button != "no") : ?>
+															<a href="<?php echo $link_url ?>" class="button <?php echo $make_button; ?>"><?php echo $link_text; ?></a>
+														<?php else : ?>
+															<a href="<?php echo $link_url; ?>"><?php echo $link_text; ?></a>
+														<?php endif; ?>
+													<?php endif; ?>
+												</div>
+												<?php endif; ?>
+											</article>
+										</div>
+
+										<?php
+										endwhile;
+										?>
+
+								<?php endif; ?>
+							</div>
+						</div>
+
 					</section>
 
 

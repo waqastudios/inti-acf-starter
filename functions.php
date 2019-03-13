@@ -97,9 +97,10 @@ function childtheme_override_setup() {
 	
 	add_theme_support('post-thumbnails');
 	
-	// add_image_size('thumb-300', 300, 250, true);
 	// add_image_size('thumb-200', 200, 150, true);
 
+
+	add_image_size('thumbnail-300', 300, 300, true);
 	add_image_size('blog-thumbnail', 800, 600, true);
 	add_image_size('logo-thumbnail', 200, 150, true);
 	add_image_size('testimonial-thumbnail', 800, 800, true);
