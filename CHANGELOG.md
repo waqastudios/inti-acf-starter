@@ -39,10 +39,21 @@
 ### 1.1.3 (Jun 1, 2018)
 - Fix for missed cookie js item in confirm
 
-### 1.1.3 (Jun 1, 2018)
+### 1.1.4 (Aug 24, 2018)
 - Upgrade to FontAwesome 5
 - Fixes for various small bugs
 - Content blocks now with title fields
 - GDPR functionality turned off/commented by default
 - Inti Foundation page layout metaboxes not shown when editing pages with ACF blocks in use
 - Adding jquery-inview by default to fade in blocks
+
+### 1.2.0 (Mar 12, 2019)
+- Upgrade Foundation to 6.5.3
+- Big fixes for PHP 7.2
+- Tweaks for image captions
+- Fixed bug that changes focus on Cookie Manager link
+- Content block class names can now include spaces for multiple F6 or custom class names
+- Improvements to default sticky logo working on modern-hero example header
+- Changed default topbar menu colors for ease, made small improvements
+- Added GDPR fields to opt-in forms based on MailChimp
+- Added three new content block examples
