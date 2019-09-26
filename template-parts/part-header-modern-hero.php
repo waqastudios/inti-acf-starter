@@ -92,14 +92,19 @@
 								endif; ?>
 
 									<div class="top-bar-right show-for-mlarge main-dropdown-menu">
-										<div class="grid-x grid-margin-x">
-											<div class="shrink cell">
-												<?php echo inti_get_dropdown_menu(); ?>
-											</div>
-											<div class="shrink cell">
-										<?php 
-										$showsocial = get_inti_option('nav_social', 'inti_headernav_options');
-										if ($showsocial) echo inti_get_dropdown_social_links();  ?>
+										<div class="grid-container">
+											<div class="grid-x grid-margin-x">
+												<div class="auto cell">
+													<?php echo inti_get_dropdown_menu(); ?>
+												</div>
+												<?php 
+													$showsocial = get_inti_option('nav_social', 'inti_headernav_options');
+													if ($showsocial) :  ?>
+														<div class="shrink cell">
+															<?php echo inti_get_dropdown_social_links(); ?>
+														</div>
+												<?php 
+													endif; ?>
 											</div>
 										</div>
 									</div>
