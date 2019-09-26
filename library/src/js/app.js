@@ -50,7 +50,7 @@ $('.to-animate').one('inview', function(event, isInView) {
 
 
 
-import Cookies from 'js-cookie';
+/** import Cookies from 'js-cookie';
 
 // Cookie policy
 $(document).ready(function(){
@@ -189,7 +189,7 @@ $(document).ready(function(){
 		$('#inti-cookie-block').foundation('open');
 	});
 
-});
+}); */
 
 
 
