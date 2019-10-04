@@ -1,0 +1,78 @@
+{
+    "key": "group_5ad8c91b4ab28",
+    "title": "Services Configuration",
+    "fields": [
+        {
+            "key": "field_5ad8c933d4503",
+            "label": "Action Text",
+            "name": "action_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ad8c947d4504",
+            "label": "Custom URL",
+            "name": "custom_url",
+            "type": "url",
+            "instructions": "Alternative link to custom URL - leave blank to keep default service page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ad8c960d4505",
+            "label": "Open in new tab?",
+            "name": "new_tab",
+            "type": "true_false",
+            "instructions": "Ignore if not externally linked",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "inti-service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Configuration for the Service custom type",
+    "modified": 1570212787
+}

@@ -163,7 +163,7 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.staticfonts, copyFonts);
   gulp.watch(PATHS.staticcss, copyStaticCss);
-  gulp.watch('library/src/scss/**/*.scss').on('all', sass);
+  gulp.watch('library/src/scss/**/*.scss').on('all', gulp.parallel(sass, editorSass));
   gulp.watch('library/src/js/**/*.js').on('all', gulp.series(foundationjs, browser.reload));
   gulp.watch('library/src/img/**/*').on('all', gulp.series(images, browser.reload));
   gulp.watch('library/src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));

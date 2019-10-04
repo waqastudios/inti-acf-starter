@@ -1,0 +1,156 @@
+{
+    "key": "group_5d91d981bbd9c",
+    "title": "Block: Video",
+    "fields": [
+        {
+            "key": "field_5d91d9a0ab755",
+            "label": "Aspect Ratio",
+            "name": "aspect_ratio",
+            "type": "select",
+            "instructions": "Aspect Ratio of video",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "widescreen": "Widescreen (16:9)",
+                "fourthree": "Ye Old Aspect (4:3)"
+            },
+            "default_value": [
+                "widescreen"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d91d9c2ab756",
+            "label": "Video Source",
+            "name": "video_source",
+            "type": "select",
+            "instructions": "Select one of these video services",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "youtube": "YouTube",
+                "wistia": "Wistia",
+                "vimeo": "Vimeo"
+            },
+            "default_value": [
+                "youtube"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d91d9e5ab757",
+            "label": "Video ID",
+            "name": "video_id",
+            "type": "text",
+            "instructions": "Add just the embed URL, not the full HTML embed code with iframe element.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "oRQWwv82c_U",
+            "placeholder": "Just the ID, i.e. oRQWwv82c_U",
+            "prepend": "",
+            "append": "",
+            "maxlength": 60
+        },
+        {
+            "key": "field_5d91d981c0a5b",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_5d91d981c0a63",
+            "label": "Background Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "background",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5d91d981c0a6f",
+            "label": "Invert Text",
+            "name": "invert_text",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Inverted",
+            "ui_off_text": "Default"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1570212753
+}

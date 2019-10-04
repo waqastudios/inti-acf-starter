@@ -1,0 +1,98 @@
+{
+    "key": "group_5d91ce99d7267",
+    "title": "Block: Map",
+    "fields": [
+        {
+            "key": "field_5d91d1c242429",
+            "label": "Map iframe URL",
+            "name": "map_url",
+            "type": "url",
+            "instructions": "Add just the embed URL, not the full HTML embed code with iframe element.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d15539.95297088543!2d-72.5449629!3d-13.1631412!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3a10370ea4a01a27!2sMachu+Picchu!5e0!3m2!1sen!2ses!4v1500294862690",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d91d2614242a",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_5d91d2824242b",
+            "label": "Background Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "background",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5d91d2a94242c",
+            "label": "Invert Text",
+            "name": "invert_text",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Inverted",
+            "ui_off_text": "Default"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/map"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1570212648
+}

@@ -107,7 +107,8 @@ new styles, or the minimized inti-min.css file can be unqueued
 @import "mixins";
 
 // Import components
-@import "inti-partials/wp-classes";
+@import "wp-partials/elements";
+@import "wp-partials/blocks";
 @import "inti-partials/formatting";
 @import "inti-partials/site-header";
 @import "inti-partials/navigation";
@@ -121,8 +122,8 @@ new styles, or the minimized inti-min.css file can be unqueued
 @import "inti-partials/comments";
 @import "inti-partials/site-footer";
 @import "inti-partials/testimonials";
-@import "inti-partials/content-blocks";
 @import "inti-partials/opt-ins";
+@import "inti-partials/content-blocks-acf";
 
 // Import slick slider for inti
 @import "slick-inti-theme";

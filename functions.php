@@ -80,9 +80,16 @@ function childtheme_override_setup() {
 	); */
 	
 	/**
+	 * 3rd Party Supprt
+	 */
+	// add_theme_support( 'woocommerce' );
+	
+	/**
 	 * WordPress features
 	 */ 
 	add_theme_support('menus');
+
+	add_theme_support('editor-styles');
 	
 	// different post formats for tumblog style posting
 	add_theme_support(
@@ -90,15 +97,7 @@ function childtheme_override_setup() {
 		array('aside', 'gallery','link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
 	);
 	
-	/**
-	 * 3rd Party Supprt
-	 */
-	add_theme_support( 'woocommerce' );
-	
 	add_theme_support('post-thumbnails');
-	
-	// add_image_size('thumb-200', 200, 150, true);
-
 
 	add_image_size('thumbnail-300', 300, 300, true);
 	add_image_size('blog-thumbnail', 800, 600, true);
@@ -110,9 +109,9 @@ function childtheme_override_setup() {
 	
 	// RSS feed links to header.php for posts and comments.
 	add_theme_support('automatic-feed-links');
-	
-	// editor stylesheet for TinyMCE
-	add_editor_style('/library/dist/css/editor.css');
+
+	// editor stylesheet for Gutenberg
+	add_editor_style( get_stylesheet_directory_uri() . '/library/dist/css/editor.css' . '?ver=' . filemtime(get_stylesheet_directory()) . '/library/dist/css/editor.css' );
 
 	// load parent translations
 	load_theme_textdomain( 'inti' , get_template_directory() . '/languages');
@@ -128,11 +127,10 @@ function childtheme_override_setup() {
 	 * and if not found, will search the parent theme. Override parent theme files by giving
 	 * the child theme versions the same name, set a unique name or add a prefix to load
 	 * them in addition to parent theme files.
-	 */ 
-	// require_once locate_template('/framework/content/child-content-header.php');
-	// require_once locate_template('/framework/content/child-content-footer.php');
+	 */
 
-	require_once locate_template('/framework/content/child-content-blocks.php');
+	require_once locate_template('/framework/blocks/blocks.php');
+	require_once locate_template('/framework/content/child-acf-blocks.php');
 	require_once locate_template('/framework/content/child-content-header.php');
 	require_once locate_template('/framework/content/child-content-footer.php');
 	require_once locate_template('/framework/content/child-content-posts-pages.php');
@@ -140,6 +138,7 @@ function childtheme_override_setup() {
 	require_once locate_template('/framework/functions/theme-supports.php');
 	require_once locate_template('/framework/customizer/child-customize.php');
 	require_once locate_template('/framework/theme-options/child-theme-options.php');
+	require_once locate_template('/framework/acf-json/acf-points.php');
 	require_once locate_template('/framework/extensions/child-typography.php');
 
 	require_once locate_template('/framework/post-types/taxonomies.php');
@@ -170,11 +169,11 @@ add_action('after_setup_theme', 'childtheme_override_setup', 15);
 /*
  * Declare some hooks
  */
-function child_hook_front_page_blocks() {
-	do_action('child_hook_front_page_blocks');
+function child_hook_flexible_front_page_blocks() {
+	do_action('child_hook_flexible_front_page_blocks');
 }
-function child_hook_standard_page_blocks() {
-	do_action('child_hook_standard_page_blocks');
+function child_hook_flexible_content_page_blocks() {
+	do_action('child_hook_flexible_content_page_blocks');
 }
 function child_hook_site_banner_auxiliary_column() {
 	do_action('child_hook_site_banner_auxiliary_column');

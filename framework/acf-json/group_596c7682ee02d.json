@@ -1,0 +1,62 @@
+{
+    "key": "group_596c7682ee02d",
+    "title": "Front Page - Hero Area",
+    "fields": [
+        {
+            "key": "field_596c7688285c2",
+            "label": "Hero Area (Left)",
+            "name": "hero_area_left",
+            "type": "wysiwyg",
+            "instructions": "Left text area",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_596c76c9285c3",
+            "label": "Hero Area (Right)",
+            "name": "hero_area_right",
+            "type": "wysiwyg",
+            "instructions": "Right Hero Area",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1570212755
+}

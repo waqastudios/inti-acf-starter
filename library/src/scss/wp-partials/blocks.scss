@@ -1,0 +1,211 @@
+/******************************************************************
+
+Stylesheet: Inti Gutenberg Blocks
+
+"Gutenberg Blocks" refer to those blocks designed to be used within
+a standard page or post with predefined wrappers for the entirety of
+those pages/posts.
+
+As such, .inti-gutenberg-blocks sit within a .entry-content or .entry-summary
+wrapper as standard inline page content.
+
+
+
+"Content Blocks" minick the Flexible Content Blocks using the Flexible
+Content field in ACF. Gutenberg Blocks added to this category will/should
+have wrappers that can have background colors and padding applied.
+
+As such, .inti-content-blocks are a wrapper with padding and background
+options designed to sit on a web page with no outermost wrapper and 
+instead contain constrained wrappers themselves. They'd use templates
+such as /page-templates/grid-fluid.php or /page-templates/grid-full.php
+principally.
+
+
+Note:
+An alternative to Gutenberg are the Flexible Content Blocks using the 
+Flexible Content field in ACF. These are a drop and drag alternative to 
+Gutenberg Blocks.
+
+To use them, see /page-templates/acf-page.php, Flexible Content Blocks 
+field group in ACF and the blocks themselves in /framework/content/child-acf-blocks.php
+
+  Table of Contents:
+
+   1. Content Blocks
+   2. Gutenberg Blocks
+
+******************************************************************/
+
+/**
+ *	1. Content Blocks
+ */
+.inti-content-block {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;	
+
+	@include layout-spacing();
+
+
+		// Style classes independent of blocks		
+		&.invert-text {
+			color: $white;
+
+				.entry-content, .entry-summary {
+					p, li { color: $white !important; }
+				}
+
+				a.button, button {
+					@extend .secondary;
+				}
+		}
+
+		&.cover {
+			background-size: cover;
+			background-position: 50%;
+		}
+
+
+		// Style specific blocks here
+
+		// Shows inti-service post types
+		&.services {
+			article {
+				.entry-summary {
+					p { color: $body-font-color; }
+				}
+			}
+		}
+	
+		// Shows a video from a streaming service
+		&.video {
+			iframe { display:block; max-height: 350px; }
+		}
+	
+		// Shows a Google Map embed URL
+		&.map {
+			iframe { display:block; max-height: 350px; }
+		}		
+
+		// Shows logos that are Featured Images of the Logo custom type, in two styles
+		&.logos {
+			&.list {}
+			&.slides {
+				overflow: hidden;
+					.inti-logos-carousel {
+						position: relative; display: none;
+
+							&.slick-initialized { display: block; }
+					}
+			}
+		}
+
+		// Shows inti-testimonials post types in two styles
+		&.testimonials {
+			&.list {}
+			&.slides {
+				overflow: hidden;
+					.inti-testimonial-slider {
+						position: relative; display: none;
+
+							&.slick-initialized { display: block; }
+					}
+			}
+		}
+}
+
+
+/**
+ *	2. Gutenberg Blocks
+ */
+.entry-content, .entry-summary {
+
+	.inti-gutenberg-block {
+		padding: $global-padding*3 0;
+	}
+
+	/** Text and Images */	
+	p {
+		&.has-background {
+			padding: $global-padding;
+		}
+		&.has-drop-cap {
+
+		}
+	}
+
+	.wp-block-button {
+		a {
+			@extend .button;
+		}
+
+			&.is-style-outline {
+				a {
+					@extend .hollow;
+				}
+			}
+
+			&.is-style-squared {
+				a {
+					border-radius: 0;
+				}
+			}
+	}
+
+	blockquote.wp-block-quote {
+
+	}
+
+	figure.wp-block-pullquote {
+
+	}
+
+	.wp-block-cover {
+		background-color: $primary-color;
+
+		&.has-background-dim {}
+		&.has-parallax {}
+	}
+
+	.wp-block-file {
+		a:not(.wp-block-file__button) {}
+		a.wp-block-file__button {
+			margin: 0 0 0 $global-margin;
+			@extend .button, .small;
+		}
+	}
+
+
+
+	/** Layout and Structure */	
+	.wp-block-columns {
+		&.has-2-columns {}
+
+		.wp-block-column {
+
+		}
+	}
+
+	.wp-block-media-text {
+		figure.wp-block-media-text__media {
+			img {}
+		}
+		.wp-block-media-text__content {
+			p.has-medium-font-size {}
+			p.has-large-font-size {}
+			p.has-huge-font-size {}
+		}
+	}
+
+
+
+
+	/** Widgets */	
+	.wp-calendar {}
+	.wp-block-latest-comments {}
+	.wp-block-latest-posts {}
+}

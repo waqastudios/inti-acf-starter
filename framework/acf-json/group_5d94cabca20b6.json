@@ -1,0 +1,120 @@
+{
+    "key": "group_5d94cabca20b6",
+    "title": "Block: Callout",
+    "fields": [
+        {
+            "key": "field_5d94cf8e13129",
+            "label": "Type",
+            "name": "type",
+            "type": "select",
+            "instructions": "'Type' for a callout refers to what color background it will have depending on its use.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "success": "Success",
+                "alert": "Alert",
+                "warning": "Warning"
+            },
+            "default_value": [
+                "primary"
+            ],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d94d04f1312a",
+            "label": "Style",
+            "name": "style",
+            "type": "select",
+            "instructions": "'Style' for a callout defines what size the callout will be.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "small": "Small",
+                "large": "Large"
+            },
+            "default_value": [
+                "default"
+            ],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d94d0c71312b",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5d94d0e41312c",
+            "label": "Closeable",
+            "name": "closeable",
+            "type": "true_false",
+            "instructions": "Add a 'close' button to allow user to dismiss this callout like they would an alert.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/callout"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "A standard Foundation 6 'callout' container.",
+    "modified": 1570212611
+}

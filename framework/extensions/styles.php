@@ -48,5 +48,5 @@ function child_enqueue_styles() {
 		if ( is_child_theme() ) {
 			wp_enqueue_style('style');
 		}
-	}
+	} 
 }

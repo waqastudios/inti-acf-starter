@@ -1,15 +1,15 @@
 <?php
 /**
- * The main template for a static front page. 
- *
- * Delete this template if you'll have no static front page.
- *
- *
+ * Template Name: Full (Full Width)
+ * Page template using Full grid-container and controlled with
+ * framework/functions/layouts.php and framework/functions/xy-grid.php
+ * @link https://foundation.zurb.com/sites/docs/xy-grid.html
  *
  * @package Inti
  * @subpackage Templates
  * @since 1.0.0
  */
+
 
 get_header(); ?>
 
@@ -24,11 +24,8 @@ get_header(); ?>
 
 				<?php inti_hook_inner_content_before(); ?>
 
-				<?php // get the main loop, 
-				// remove if ACF pages will not have normal content areas
+				<?php // get the main loop
 				get_template_part('loops/loop', 'page'); ?>
-
-				<?php child_hook_flexible_front_page_blocks() ?>
 				
 				<?php inti_hook_inner_content_after(); ?>
 			

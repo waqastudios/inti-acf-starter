@@ -1,0 +1,265 @@
+{
+    "key": "group_5d948e7f0e4f3",
+    "title": "Block: Logos\/Brands",
+    "fields": [
+        {
+            "key": "field_5d948e7f1243a",
+            "label": "Selected Logos",
+            "name": "logos_selected",
+            "type": "repeater",
+            "instructions": "Select published logos\/brands to display",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Logo",
+            "sub_fields": [
+                {
+                    "key": "field_5d948e7f13dfe",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "inti-logo"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_5d948e7f1d241",
+            "label": "Display As",
+            "name": "display_as",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "list": "List",
+                "slides": "Slides"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "slides",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5d948e7f16d51",
+            "label": "Columns (small)",
+            "name": "post_columns_small",
+            "type": "number",
+            "instructions": "For small screens.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d948e7f1d241",
+                        "operator": "==",
+                        "value": "list"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 3,
+            "step": ""
+        },
+        {
+            "key": "field_5d948e7f1873a",
+            "label": "Columns (medium)",
+            "name": "post_columns_medium",
+            "type": "number",
+            "instructions": "For medium screens.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d948e7f1d241",
+                        "operator": "==",
+                        "value": "list"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 3,
+            "step": ""
+        },
+        {
+            "key": "field_5d948e7f19ff5",
+            "label": "Columns (mlarge)",
+            "name": "post_columns_mlarge",
+            "type": "number",
+            "instructions": "For medium-large screens.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d948e7f1d241",
+                        "operator": "==",
+                        "value": "list"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 6,
+            "step": ""
+        },
+        {
+            "key": "field_5d948e7f1b91e",
+            "label": "Columns (large)",
+            "name": "post_columns_large",
+            "type": "number",
+            "instructions": "For large screens.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d948e7f1d241",
+                        "operator": "==",
+                        "value": "list"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 6,
+            "step": ""
+        },
+        {
+            "key": "field_5d948e7f1e9b0",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_5d948e7f1ff10",
+            "label": "Background Image",
+            "name": "background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "background",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5d948e7f2168b",
+            "label": "Invert Text",
+            "name": "invert_text",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Inverted",
+            "ui_off_text": "Default"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/logos-brands"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1570212635
+}

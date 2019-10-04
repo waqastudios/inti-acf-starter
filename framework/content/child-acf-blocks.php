@@ -1,15 +1,23 @@
 <?php
 /**
- * Content - Advanced Custom Field Layout Blocks
+ * Inti Flexible Content Blocks - Advanced Custom Field Flexible Content
  * Adds blocks to page templates that suport them.
+ *
+ * An alternative to Gutenberg are the Flexible Content Blocks using the 
+ * Flexible Content field in ACF. These are a drop and drag alternative to 
+ * Gutenberg Blocks.
+ * 
+ * To use them, see /page-templates/acf-page.php, Flexible Content Blocks 
+ * field group in ACF and the blocks themselves below. You'll find the style
+ * sheet in /library/src/scss/inti-partials/_content-blocks-acf.scss
  *
  * @package Inti
  * @since 1.0.0
  */
 
-add_action( 'child_hook_front_page_blocks', 'child_content_blocks' );
-add_action( 'child_hook_standard_page_blocks', 'child_content_blocks' );
-function child_content_blocks() {
+add_action( 'child_hook_flexible_front_page_blocks', 'child_flexible_content_blocks' );
+add_action( 'child_hook_flexible_content_page_blocks', 'child_flexible_content_blocks' );
+function child_flexible_content_blocks() {
 	if( class_exists('acf') ) {
 		// Check to see if ACF is installed and activated.
 		
@@ -90,7 +98,6 @@ function child_content_blocks() {
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
 					$cssclass = get_sub_field('css_class');
-					$cols = get_sub_field('content_width_limited');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
@@ -116,7 +123,7 @@ function child_content_blocks() {
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
-									<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+									<article class="entry-body">
 										<div class="entry-body">
 
 											<div class="entry-content">
@@ -184,7 +191,7 @@ function child_content_blocks() {
 									<?php while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
 											
-											<article  class="entry-body">
+											<article class="entry-body">
 												<div class="entry-body">
 
 													<div class="entry-content">
@@ -1511,148 +1518,6 @@ function child_content_blocks() {
 
 					<?php endif; ?>
 				</section>
-
-
-
-
-				<?php
-				/**
-				 * Instagram Carousel - fetches and displays photos from instagram 
-				 * in one of two display formats
-				 */
-				elseif( get_row_layout() == 'instagram' ):				
-					$username = get_sub_field('username');			
-					$display_as = get_sub_field('display_as');
-					$title = get_sub_field('title');
-					$description = get_sub_field('description');
-					$limit = 12;
-					$column_count = 4;
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';
-				?>
-					<section class="inti-block instagram <?php echo $display_as; ?><?php echo $classes; ?>"<?php echo $style; ?>>						
-					<?php if ($title || $description) : ?>	
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 cell">
-									<header class="block-header">
-										<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
-										<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-									</header>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
-					<?php endif; ?>	
-						
-						<?php if ($display_as == 'slides'): ?>	
-							<div class="grid-container">
-								<div class="grid-x grid-margin-x align-center">
-									<div class="small-12 mlarge-11 cell">
-										<div class="inti-instagram-carousel clearfix">
-											<?php
-
-												if ( $username != '' ) {
-
-													$target = "_blank";
-													$media_array = inti_scrape_instagram( $username, $limit );
-
-													if ( is_wp_error( $media_array ) ): ?>
-
-													<div class="slide">
-														<div class="callout warning" data-closable>
-															<p><?php echo $media_array->get_error_message(); ?></p>
-															<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-																<span aria-hidden="true">&times;</span>
-															</button>
-														</div>
-													</div>
-
-													<?php else :
-
-														
-														foreach ( $media_array as $item ) {
-															?><div class="slide"><?php
-
-																echo '<a href="'. esc_url( $item['link'] ) .'" target="'. esc_attr( $target ) .'"  class=""><img src="'. esc_url( $item['thumbnail'] ) .'"  alt="'. esc_attr( $item['description'] ) .'" title="'. esc_attr( $item['description'] ).'"  class=""/></a>';
-
-															?></div><?php
-														}
-													endif;
-												}
-
-											?>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						<?php elseif ($display_as == 'list'): 
-						?>			
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x grid-margin-y medium-up-2 mlarge-up-<?php echo $column_count ?>">
-
-									<?php
-
-										if ( $username != '' ) {
-
-											$target = "_blank";
-											$media_array = inti_scrape_instagram( $username, $limit );
-
-											if ( is_wp_error( $media_array ) ): ?>
-
-											<div class="cell">
-												<div class="callout warning" data-closable>
-													<p><?php echo $media_array->get_error_message(); ?></p>
-													<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-											</div>
-
-											<?php else :
-
-												
-												foreach ( $media_array as $item ) {
-													?><div class="cell"><?php
-
-														echo '<a href="'. esc_url( $item['link'] ) .'" target="'. esc_attr( $target ) .'"  class=""><img src="'. esc_url( $item['thumbnail'] ) .'"  alt="'. esc_attr( $item['description'] ) .'" title="'. esc_attr( $item['description'] ).'"  class=""/></a>';
-
-													?></div><?php
-												}
-											endif;
-										}
-
-									?>
-				
-								</div>
-							</div>
-
-
-						<?php else : ?>	
-							<div class="grid-container">
-								<div class="callout warning" data-closable>
-									<p><?php _e('No Display As value has been set.', 'inti-child'); ?></p>
-									<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-							</div>
-						<?php endif; ?>
-
-					
-				</section>				
-
 
 
 

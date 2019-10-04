@@ -1,8 +1,13 @@
 /******************************************************************
 
-Stylesheet: Content Blocks (Advanced Custom Fields)
+Stylesheet: Inti Flexible Content Blocks (Advanced Custom Fields)
 
-Styles for blocks that are placed on ACF-enabled page templates
+These are the styles for Flexible Content Blocks, using the Flexible
+Content field in ACF. These are a drop and drag alternative to 
+Gutenberg Blocks. For Gutenberg blocks see: ../wp-partials/blocks.scss
+
+To use them, see /page-templates/acf-page.php and Flexible Content Blocks 
+field group in ACF and the blocks themselves in /framework/content/child-acf-blocks.php
 
 ******************************************************************/
 
@@ -96,19 +101,6 @@ section.inti-block {
 			&.slides {
 				overflow: hidden;
 					.inti-testimonial-slider {
-						position: relative; display: none;
-
-							&.slick-initialized { display: block; }
-					}
-			}
-		}
-
-		// Pulls instagram images and displays in two styles
-		&.instagram {
-			&.list {}
-			&.slides {
-				overflow: hidden;
-					.inti-instagram-carousel {
 						position: relative; display: none;
 
 							&.slick-initialized { display: block; }

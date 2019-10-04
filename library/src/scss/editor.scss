@@ -1,6 +1,91 @@
 /**
  * Add Styles for the Editor here
  */
- .test {
- 	
- }
+
+// Import local Foundation overrides
+@import "settings";
+
+// Import foundation.scss from vendor files
+@import "../../../node_modules/foundation-sites/scss/foundation";
+@include foundation-global-styles;
+
+@include foundation-xy-grid-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-accordion;
+@include foundation-callout;
+@include foundation-tabs;
+@include foundation-media-object;
+
+
+
+// Import other vendor files
+// @import "../../../node_modules/slick-carousel/slick/slick.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss"; 
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+// Import slick slider for inti
+@import "slick-inti-theme";
+
+
+// Overrides for specific look and feel
+.wp-block-file__button {
+	@extend .button;
+}
+.wp-block-button__link {
+	@extend .button;
+}
+.button, .button-primary, .button-secondary {
+	 height: auto !important;
+}
+p {
+	&.has-background {
+		padding: $global-padding;
+	}
+	&.has-drop-cap {
+
+	}
+}
+
+// Styles for Inti Content Blocks
+.inti-content-block {
+	padding: $global-padding*2 $global-padding;
+
+		&.invert-text {
+			color: $white;
+			
+			.entry-content, .entry-summary {
+				p, li { color: $white !important; }
+			}
+		}
+
+		&.cover {
+			background-size: cover;
+			background-position: 50%;
+		}
+
+
+		// Special styles for individual blocks
+		.inti-carousel {
+			.slide { float: left; } // quick fix
+		}
+}
+
+
+// Fixing bad Gutenberg
+/* Main column width */
+.wp-block {
+    max-width: 720px;
+}
+ 
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+    max-width: 1080px;
+}
+ 
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+    max-width: none;
+}

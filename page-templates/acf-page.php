@@ -1,7 +1,12 @@
 <?php
 /**
- * Template Name: Advanced Page
- * Standard Page template but with ACF support
+ * Template Name: ACF Blocks (Flexible Content Blocks)
+ * This is a page built for Flexible Content Blocks, using the Flexible
+ * Content field in ACF. These are a drop and drag alternative to Gutenberg Blocks.
+ *
+ * To use them see the Flexible Content Blocks 
+ * field group in ACF and the blocks themselves in /framework/content/child-acf-blocks.php. 
+ * You'll find the style sheet in /library/src/scss/inti-partials/_blocks-acf.scss
  *
  * @package Inti
  * @subpackage Templates
@@ -23,10 +28,10 @@ get_header(); ?>
 				<?php inti_hook_inner_content_before(); ?>
 
 				<?php // get the main loop, 
-				// remove if ACF pages will not have normal content areas
-				get_template_part('loops/loop', 'page'); ?>
+				// remove this if ACF pages will not have a normal content area before the blocks 
+				// get_template_part('loops/loop', 'page'); ?>
 
-				<?php child_hook_standard_page_blocks() ?>
+				<?php child_hook_flexible_content_page_blocks() ?>
 				
 				<?php inti_hook_inner_content_after(); ?>
 			
