@@ -83,7 +83,7 @@ field group in ACF and the blocks themselves in /framework/content/child-acf-blo
 	
 		// Shows a video from a streaming service
 		&.video {
-			iframe { display:block; max-height: 350px; }
+			iframe {}
 		}
 	
 		// Shows a Google Map embed URL

@@ -12,119 +12,120 @@
 
 
 			<div class="site-banner" role="banner">
-				<div class="grid-x">
-					
-					<div class="mlarge-4 large-3 cell show-for-mlarge">
-						<?php inti_hook_site_banner_site_logo_before(); ?>
-						<?php  
-						/**
-						* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
-						*/
-						$logo = get_inti_option('logo_image', 'inti_customizer_options');
-						$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
-						$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x">
+						
+						<div class="mlarge-4 large-3 cell show-for-mlarge">
+							<?php inti_hook_site_banner_site_logo_before(); ?>
+							<?php  
+							/**
+							* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
+							*/
+							$logo = get_inti_option('logo_image', 'inti_customizer_options');
+							$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
+							$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
 
-						if ( $logo ) : ?>
-						<div class="site-logo">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-								<?php inti_do_srcset_image(get_inti_option('logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
-							</a>
-						</div><!-- .site-logo -->
-						<?php inti_hook_site_banner_site_logo_after(); ?>
-						<?php inti_hook_site_banner_title_area_before(); ?>
-						<?php endif; // end of logo 
-
-						if ( $sticky_logo && $show_mobile_logo ) : ?>
-							<div class="site-logo sticky-logo">
+							if ( $logo ) : ?>
+							<div class="site-logo">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-									<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+									<?php inti_do_srcset_image(get_inti_option('logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
 								</a>
 							</div><!-- .site-logo -->
 							<?php inti_hook_site_banner_site_logo_after(); ?>
 							<?php inti_hook_site_banner_title_area_before(); ?>
-						<?php endif; // end of logo ?>
-						<div class="title-area" >
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-							<p class="site-description"><?php bloginfo('description'); ?></p>
-						</div>
-						<div class="">
-							<?php inti_hook_site_banner_title_area_after(); ?>
-						</div>
-					</div><!-- .cell -->
-					<div class="mlarge-8 large-9 cell" >
-						<?php if ( has_nav_menu('dropdown-menu') ) : ?>
-							<nav class="top-bar" id="top-bar-menu">
-								
-								<?php
+							<?php endif; // end of logo 
 
-								/**
-								* Add logo or site title to the navigation bar, in addition or instead of having the site banner
-								*/
-								if ($show_mobile_logo != 'none') : ?>
-									<div class="top-bar-left hide-for-mlarge mobile-logo">
-									<?php  
-										/**
-										* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
-										*/
-										$logo = get_inti_option('logo_image', 'inti_customizer_options');
-										$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
-										$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
+							if ( $sticky_logo && $show_mobile_logo ) : ?>
+								<div class="site-logo sticky-logo">
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+										<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+									</a>
+								</div><!-- .site-logo -->
+								<?php inti_hook_site_banner_site_logo_after(); ?>
+								<?php inti_hook_site_banner_title_area_before(); ?>
+							<?php endif; // end of logo ?>
+							<div class="title-area" >
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+								<p class="site-description"><?php bloginfo('description'); ?></p>
+							</div>
+							<div class="">
+								<?php inti_hook_site_banner_title_area_after(); ?>
+							</div>
+						</div><!-- .cell -->
+						<div class="mlarge-8 large-9 cell" >
+							<?php if ( has_nav_menu('dropdown-menu') ) : ?>
+								<nav class="top-bar" id="top-bar-menu">
+									
+									<?php
 
-										if ( $logo ) : ?>
-										<div class="site-logo">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-												<?php inti_do_srcset_image(get_inti_option('logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
-											</a>
-										</div><!-- .site-logo -->
-										<?php endif; 
+									/**
+									* Add logo or site title to the navigation bar, in addition or instead of having the site banner
+									*/
+									if ($show_mobile_logo != 'none') : ?>
+										<div class="top-bar-left hide-for-mlarge mobile-logo">
+										<?php  
+											/**
+											* Add logo or site title to the site-banner, hidden in on smaller screens where another logo is shown on top-bar
+											*/
+											$logo = get_inti_option('logo_image', 'inti_customizer_options');
+											$sticky_logo = get_inti_option('nav_logo_image', 'inti_customizer_options');
+											$show_mobile_logo = get_inti_option('show_nav_logo_title', 'inti_customizer_options', 'none');
 
-											if ( $sticky_logo && $show_mobile_logo ) : ?>
-											<div class="site-logo sticky-logo">
+											if ( $logo ) : ?>
+											<div class="site-logo">
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-													<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+													<?php inti_do_srcset_image(get_inti_option('logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
 												</a>
 											</div><!-- .site-logo -->
-										<?php endif; ?>
-										<div class="site-title"><?php bloginfo('name'); ?></div>
-									</div>
+											<?php endif; 
 
-								<?php 
-								endif; ?>
+												if ( $sticky_logo && $show_mobile_logo ) : ?>
+												<div class="site-logo sticky-logo">
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+														<?php inti_do_srcset_image(get_inti_option('nav_logo_image', 'inti_customizer_options'), esc_attr( get_bloginfo('name', 'display') . ' logo')); ?>
+													</a>
+												</div><!-- .site-logo -->
+											<?php endif; ?>
+											<div class="site-title"><?php bloginfo('name'); ?></div>
+										</div>
 
-									<div class="top-bar-right show-for-mlarge main-dropdown-menu">
-										<div class="grid-container">
-											<div class="grid-x grid-margin-x">
-												<div class="auto cell">
-													<?php echo inti_get_dropdown_menu(); ?>
+									<?php 
+									endif; ?>
+
+										<div class="top-bar-right show-for-mlarge main-dropdown-menu">
+											<div class="grid-container">
+												<div class="grid-x grid-margin-x">
+													<div class="auto cell">
+														<?php echo inti_get_dropdown_menu(); ?>
+													</div>
+													<?php 
+														$showsocial = get_inti_option('nav_social', 'inti_headernav_options');
+														if ($showsocial) :  ?>
+															<div class="shrink cell">
+																<?php echo inti_get_dropdown_social_links(); ?>
+															</div>
+													<?php 
+														endif; ?>
 												</div>
-												<?php 
-													$showsocial = get_inti_option('nav_social', 'inti_headernav_options');
-													if ($showsocial) :  ?>
-														<div class="shrink cell">
-															<?php echo inti_get_dropdown_social_links(); ?>
-														</div>
-												<?php 
-													endif; ?>
 											</div>
 										</div>
-									</div>
-									<div class="top-bar-right hide-for-mlarge">
-										<div class="off-canvas-button">
-											<a data-toggle="inti-off-canvas-menu">
-												<div class="hamburger">
-													<span></span>
-													<span></span>
-													<span></span>
-												</div>
-											</a>
+										<div class="top-bar-right hide-for-mlarge">
+											<div class="off-canvas-button">
+												<a data-toggle="inti-off-canvas-menu">
+													<div class="hamburger">
+														<span></span>
+														<span></span>
+														<span></span>
+													</div>
+												</a>
+											</div>
 										</div>
-									</div>
 
-							</nav>
-						<?php endif; ?>
-					</div>
-
-				</div>
+								</nav>
+							<?php endif; ?>
+						</div>
+					</div><!-- .grid-x . grid-margin-x -->
+				</div><!-- .grid-container -->
 			</div><!-- .site-banner -->	
 		</div>
 	</div>

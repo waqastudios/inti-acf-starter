@@ -12,6 +12,7 @@ Main site skeleton, major containers etc
 }
 .site-content {
 	#content {
+		overflow-x: hidden;
 		@include layout-spacing();
 	}
 }
