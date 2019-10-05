@@ -7,7 +7,7 @@
 
 // Import foundation.scss from vendor files
 @import "../../../node_modules/foundation-sites/scss/foundation";
-@include foundation-global-styles;
+// @include foundation-global-styles;
 
 @include foundation-xy-grid-classes;
 @include foundation-typography;
@@ -70,6 +70,9 @@ p {
 		// Special styles for individual blocks
 		.inti-carousel {
 			.slide { float: left; } // quick fix
+		}
+		&.testimonials {
+			blockquote { background-color: $white; border: none; padding: $global-padding; }
 		}
 }
 
