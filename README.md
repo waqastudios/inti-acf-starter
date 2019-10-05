@@ -32,7 +32,7 @@ From functions.php
 > locate_template() will first check the child theme for a file in that location, and if not found, will search the parent theme. Override parent theme files by giving the child theme versions the same name, set a unique name or add a prefix to load them in addition to parent theme files.
 
 ### Options
-You must install ACF PRO. [Download here]](https://www.advancedcustomfields.com/pro/). You can then import the include JSON settings file to experiement with example content blocks using ACF PRO layouts. If you'd perfer to avoid premium plugins, see [inti-kitchen-sink]](https://github.com/waqastudios/inti-kitchen-sink)
+You must install ACF PRO. [Download here](https://www.advancedcustomfields.com/pro/). You can then import the include JSON settings file to experiement with example content blocks using ACF PRO layouts. If you'd perfer to avoid premium plugins, see [inti-kitchen-sink](https://github.com/waqastudios/inti-kitchen-sink)
 
 The theme can be also configured, and more options can be added as you develop your own theme, with either an Options page or with Customizer in live preview mode. Both methods have been added by default in Inti Foundation so that you can choose which you'd prefer to you for your own options. By default, options that are more to do with global settings have been added to an Options page called "Inti Options" and options that are more to do with visual elements have been added in Customizer. Feel free to modify these as you see fit.
 
