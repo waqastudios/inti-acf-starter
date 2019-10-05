@@ -90,6 +90,8 @@ function childtheme_override_setup() {
 	add_theme_support('menus');
 
 	add_theme_support('editor-styles');
+
+	add_theme_support('align-wide');
 	
 	// different post formats for tumblog style posting
 	add_theme_support(

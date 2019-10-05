@@ -85,10 +85,10 @@ p {
  
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
-    max-width: 1080px;
+    max-width: 90%; margin-left: auto; margin-right: auto;
 }
  
 /* Width of "full-wide" blocks */
 .wp-block[data-align="full"] {
-    max-width: none;
+    max-width: 99%; margin-left: auto; margin-right: auto;
 }

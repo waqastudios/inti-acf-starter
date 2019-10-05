@@ -17,7 +17,7 @@ if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 
 if ($style) $style = ' style="' . $style . '"';
 
-$classes .= $block['align'] ? 'align' . $block['align'] : '';
+$classes .= $block['align'] ? ' align' . $block['align'] : '';
 $id = 'paragraph-block-' . $block['id'];
 
 

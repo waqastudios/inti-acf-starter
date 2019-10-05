@@ -128,6 +128,25 @@ field group in ACF and the blocks themselves in /framework/content/child-acf-blo
 		padding: $global-padding*3 0;
 	}
 
+
+	// Alignment
+	[class*="wp-block-"].alignwide { 
+		// CSS for alignwide if activated in functions.php
+		// margin-left: calc(50% - 50vw);
+		// margin-right: calc(50% - 50vw);
+	}	
+	[class*="wp-block-"].alignfull { 
+		// CSS for alignfull if activated in functions.php
+		margin-left: calc(50% - 50vw);
+  		margin-right: calc(50% - 50vw);
+
+  			&.withscroll {
+  				padding-left: 8px;
+  				padding-right: 8px;
+  			}
+	}
+
+
 	/** Text and Images */	
 	p {
 		&.has-background {

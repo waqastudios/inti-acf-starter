@@ -32,7 +32,31 @@ $(window).scroll(function() {
 		else 
 			$('#inti-scroll-to-top').fadeOut(400);
 });
-	
+
+
+
+// Detect if the scrollbar is visible, perform actions
+$(document).ready(function(){
+	// say it
+	function addPaddingGutenbergFull() {
+		if ($(document).height() > $(window).height()) {
+			$('.alignfull').addClass('withscroll');
+			console.log('Added padding for gutenberg blocks set to full');
+		} else {
+			$('.alignfull').removeClass('withscroll');
+			console.log('removed');
+		}
+	}
+
+	// do it
+	addPaddingGutenbergFull();
+
+	// do it again
+	$( window ).resize(function() {
+		addPaddingGutenbergFull();
+	});
+});
+
 
 
 // In View Animations
