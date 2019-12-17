@@ -16,7 +16,7 @@ if (!function_exists('inti_xy_grid_open')) {
 		switch ( $layout ) { 
 			case '1c': ?>
 
-			<div class="grid-container">
+			<div class="grid-container layout-1c">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 medium-12 large-12 cell">
 			
@@ -25,7 +25,7 @@ if (!function_exists('inti_xy_grid_open')) {
 		<?php break;
 			case '2c-l': ?>
 
-			<div class="grid-container">
+			<div class="grid-container layout-2c-l">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 medium-7 large-8 cell">
 			
@@ -34,7 +34,7 @@ if (!function_exists('inti_xy_grid_open')) {
 		<?php break;
 			case '2c-r': ?>
 
-			<div class="grid-container">
+			<div class="grid-container layout-2c-r">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 medium-7 medium-order-2 large-8 cell">
 			
@@ -43,7 +43,7 @@ if (!function_exists('inti_xy_grid_open')) {
 		<?php break;
 			case '1c-thin': ?>
 
-			<div class="grid-container">
+			<div class="grid-container layout-1c-thin">
 				<div class="grid-x grid-margin-x align-center-middle">
 					<div class="small-12 medium-10 large-9 cell">
 			
@@ -51,14 +51,14 @@ if (!function_exists('inti_xy_grid_open')) {
 		<?php break;
 			case 'blog': ?>
 
-			<div class="grid-container">
+			<div class="grid-container blog layout-blog">
 				<div class="grid-x grid-margin-x grid-margin-y mlarge-up-2 large-up-3" id="loadposts">
 			
 
 		<?php break;
 			case 'full-grid': ?>
 
-			<div class="grid-container full">
+			<div class="grid-container full layout-full-grid">
 				<div class="grid-x">
 					<div class="cell">
 			
@@ -66,7 +66,7 @@ if (!function_exists('inti_xy_grid_open')) {
 		<?php break;
 			case 'fluid-grid': ?>
 
-			<div class="grid-container fluid">
+			<div class="grid-container fluid layout-fluid-grid">
 				<div class="grid-x">
 					<div class="cell">
 

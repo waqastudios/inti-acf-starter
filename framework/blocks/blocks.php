@@ -150,7 +150,7 @@ function child_register_content_acf_blocks() {
 			'description'		=> __('A custom services block.', 'inti-child'),
 			'render_callback'	=> 'inti_content_block_render_callback',
 			'category'			=> 'inti-content-blocks',
-			'icon'				=> 'smiley',
+			'icon'				=> 'money',
 			'keywords'			=> array( 'services' ),
 		));
 		
@@ -161,7 +161,7 @@ function child_register_content_acf_blocks() {
 			'description'		=> __('Similar to the Media & Text block, this is for displaying a bio, photo and link to about page.', 'inti-child'),
 			'render_callback'	=> 'inti_content_block_render_callback',
 			'category'			=> 'inti-content-blocks',
-			'icon'				=> 'businesswoman',
+			'icon'				=> 'admin-users',
 			'keywords'			=> array( 'bio', 'about', 'personal', 'welcome', 'profile' ),
 		));
 

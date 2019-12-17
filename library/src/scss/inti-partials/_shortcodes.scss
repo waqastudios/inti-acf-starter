@@ -75,7 +75,7 @@ ul.tabs {
 		}
 }
 
-.tabs-content { margin: 0 0 $global-margin 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
+.tabs-content { margin: 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
 .tabs-wrapper > p { display: none; }
 
 a span.label { color: $primary-color; background-color: $light-gray; cursor: pointer; }

@@ -40,13 +40,18 @@ field group in ACF and the blocks themselves in /framework/content/child-acf-blo
 /**
  *	1. Content Blocks
  */
+ .layout-1c, .layout-1c-thin, .layout-full-grid, .layout-fluid-grid {
+ 	.inti-content-block {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+ }
 .inti-content-block {
-	width: 100vw;
 	position: relative;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;	
 
 	@include layout-spacing();
 
@@ -125,7 +130,7 @@ field group in ACF and the blocks themselves in /framework/content/child-acf-blo
 .entry-content, .entry-summary {
 
 	.inti-gutenberg-block {
-		padding: $global-padding*3 0;
+		margin: $global-margin*3 0;
 	}
 
 
