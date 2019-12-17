@@ -333,7 +333,6 @@ function inti_initialize_general_options() {
 				'options'   =>  array (
 									'twitter'   =>  'Twitter',
 									'facebook'   =>  'Facebook',
-									'google'   =>  'Google+',
 									'linkedin'   =>  'LinkedIn',
 									'pinterest'   =>  'Pinterest',
 									'tumblr'   =>  'Tumblr',
