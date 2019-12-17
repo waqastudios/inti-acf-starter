@@ -28,7 +28,7 @@ $id = 'icon-buttons-' . $block['id'];
 
 
 ?>
-<section class="inti-content-block paragraph-grid <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		
+<section class="inti-content-block icon-buttons <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		
 	<div class="grid-container">
 		<div class="grid-x grid-margin-x grid-padding-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 			

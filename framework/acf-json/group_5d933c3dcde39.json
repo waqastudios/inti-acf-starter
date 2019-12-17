@@ -292,7 +292,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/recent-posts"
             }
         ]
     ],
@@ -304,5 +304,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570212599
+    "modified": 1576593662
 }

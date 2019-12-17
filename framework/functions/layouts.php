@@ -59,7 +59,8 @@ if (!function_exists('inti_get_layout')) {
 
 		// this is the frontpage
 		if ( is_front_page() ) { 
-			$layout = "full-grid";	// see framework/functions/xy-grid.php 
+			$layout = "1c";	
+			// $layout = "full-grid";	// see framework/functions/xy-grid.php 
 		}
 
 
