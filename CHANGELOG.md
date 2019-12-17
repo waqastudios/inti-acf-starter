@@ -57,3 +57,10 @@
 - Changed default topbar menu colors for ease, made small improvements
 - Added GDPR fields to opt-in forms based on MailChimp
 - Added three new content block examples
+
+
+### 1.3.0 (Dec 17, 2019)
+- Added compatibility with Gutenberg – allows previous 'Content Blocks' to be used within Gutenberg, but still allows Gutenberg to be avoided. Separation between 'Gutenberg Blocks' and 'Content Blocks' with the later mimicking the old style (but still available) Flexible Content blocks using the Flexible Content field in ACF Pro
+- New structure to account for Gutenberg and ACF Gutenberg blocks
+- Various bug fixes
+- GDPR commented out by default
