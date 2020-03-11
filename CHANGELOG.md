@@ -64,3 +64,6 @@
 - New structure to account for Gutenberg and ACF Gutenberg blocks
 - Various bug fixes
 - GDPR commented out by default
+
+### 1.4.0 (Mar 11, 2020)
+- Updated Foundation for Sites to 6.6.1
