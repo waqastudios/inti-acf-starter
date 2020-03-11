@@ -220,7 +220,6 @@ function child_flexible_content_blocks() {
 				elseif( get_row_layout() == 'content_block_grid' ):
 
 					$title = get_sub_field('title');
-					$description = get_sub_field('description');
 
 					$small = get_sub_field('post_columns_small');
 					$medium = get_sub_field('post_columns_medium');
@@ -856,6 +855,197 @@ function child_flexible_content_blocks() {
 						</div>
 
 					</section>
+
+
+
+
+
+				<?php
+				/**
+				 * Accordion Content
+				 */
+				elseif( get_row_layout() == 'accordion' ):
+					$title = get_sub_field('title');
+					$description = get_sub_field('description');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invite_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+
+			
+					if( have_rows('items') ):
+						?>
+						<section class="inti-block accordion-block<?php echo $classes; ?>"<?php echo $style; ?>>
+						<?php if ($title || $description) : ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
+											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>
+							<div class="grid-container to-animate">
+								<div class="grid-x">
+									<div class="cell">
+										<?php $id = md5(uniqid(rand(), true)); ?>
+										<ul class="accordion" data-accordion role="tablist" id="accordion-<?php echo $id; ?>" data-multi-expand="true" data-allow-all-closed="true">
+										<?php while ( have_rows('items') ) : the_row(); ?>
+											<li class="accordion-item" data-accordion-item>
+												<?php $id = md5(uniqid(rand(), true)); ?>
+												<a href="#accordion-panel-<?php echo $id; ?>" 
+													role="tab" id="accordion-panel-<?php echo $id; ?>-heading" 
+													class="accordion-title" aria-controls="accordion-panel-<?php echo $id; ?>">
+														<?php the_sub_field('title') ?>
+												</a>
+												<div class="accordion-content" roll="tabpanel" data-tab-content aria-labelledby="accordion-panel-heading">
+													<?php the_sub_field('content') ?>
+												</div>
+											</li>
+										<?php endwhile; ?>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+					<?php endif; ?>
+
+
+
+
+
+				<?php
+				/**
+				 * Tabs Content
+				 */
+				elseif( get_row_layout() == 'tabs' ):
+
+					$tabs = get_sub_field('items');
+					$tab_count = count($tabs);
+					$orientation = get_sub_field('orientation');
+
+					$title = get_sub_field('title');
+					$description = get_sub_field('description');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+
+					if( have_rows('items') ):
+						?>
+						<section class="inti-block tabs-block<?php echo $classes; ?>"<?php echo $style; ?>>
+						<?php if ($title || $description) : ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
+											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>
+							<div class="grid-container to-animate">
+
+								<?php $id = md5(uniqid(rand(), true)); ?>
+
+								<?php if ($orientation = "horizontal") : ?>
+									<div class="grid-x grid-margin-x">
+										<div class="cell tabs-wrapper">
+											<ul class="tabs <?php echo $orientation ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
+												<?php  
+													$c = 0;
+													while ( have_rows('items') ) : the_row();
+												?>
+													<li class="tabs-title<?php if ($c == 0) echo " is-active" ?>">
+														<a href="#tabpanel-<?php echo $id; ?>-<?php echo $c; ?>"><?php the_sub_field('title') ?></a>
+													</li>
+													
+												<?php 
+													$c++;
+													endwhile; 
+												?>
+											</ul>
+											<div class="tabs-content" data-tabs-content="inti-tabs-<?php echo $id; ?>">
+												<?php 
+													$c = 0;
+													while ( have_rows('items') ) : the_row(); 
+												?>
+													<div class="tabs-panel <?php echo $orientation ?><?php if ($c == 0) echo " is-active" ?> <?php echo $orientation ?>" id="tabpanel-<?php echo $id; ?>-<?php echo $c; ?>">
+														<?php the_sub_field('content') ?>
+													</div>
+												<?php 
+													$c++;
+													endwhile; 
+												?>
+											</div>
+										</div>
+									</div>
+
+								<?php else : ?>
+
+									<div class="grid-x tabs-wrapper">
+										<div class="small-4 medium-3 cell">
+											<ul class="tabs <?php echo $orientation ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
+												<?php  
+													$c = 0;
+													while ( have_rows('items') ) : the_row();
+												?>
+													<li class="tabs-title<?php if ($c == 0) echo " is-active" ?>">
+														<a href="#tabpanel-<?php echo $id; ?>-<?php echo $c; ?>"><?php the_sub_field('title') ?></a>
+													</li>
+													
+												<?php 
+													$c++;
+													endwhile; 
+												?>
+											</ul>
+										</div>
+										<div class="small-8 medium-9 cell">
+											<div class="tabs-content <?php echo $orientation ?>" data-tabs-content="inti-tabs-<?php echo $id; ?>">
+												<?php 
+													$c = 0;
+													while ( have_rows('items') ) : the_row(); 
+												?>
+													<div class="tabs-panel<?php if ($c == 0) echo " is-active" ?>" id="tabpanel-<?php echo $id; ?>-<?php echo $c; ?>">
+														<?php the_sub_field('content') ?>
+													</div>
+												<?php 
+													$c++;
+													endwhile; 
+												?>
+											</div>
+										</div>
+									</div>
+
+								<?php endif; ?>
+
+
+							</div>
+						</section>
+					<?php endif; ?>
 
 
 

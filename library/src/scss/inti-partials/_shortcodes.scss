@@ -16,42 +16,42 @@ ul.accordion {
 			> p { display: none; }
 			
 			a.accordion-title { 
-				color: $primary-color;
+				color: $anchor-color;
 
-				&::before, &::after {
-					background-color: $primary-color; color: $white; padding: 0px;
-					text-align: center; line-height: 32px;
+					&::before {
+						font-family: 'Font Awesome 5 Free';	font-weight: 900; // content: ""; from $accordion-plus-content, $accordion-minus-content
 
-					position: absolute;
-					right: inherit;
-					// left: $global-margin/2;
-					right: $global-margin/2;
-				}
+						color: $anchor-color;
+						text-align: center;
 
-				&::before {
-					font-family: 'Font Awesome 5 Free';
-					content: '\f067'; font-weight: 900;
-					font-size: 12px; line-height: 1.8;
-					width: 20px; height: 20px; border-radius: 50%; margin-top: -.8em;
-				}
+						font-size: $accordion-title-font-size;
+						
+						position: absolute;
+						right: $global-margin;
+					}
 
-				&:hover {
-					background-color: $primary-color; color: $white;
-				}
-				&:focus {  }
+					&:hover {
+						background-color: $anchor-color !important; color: $white !important;
+
+							&::before {
+								color: $white !important;
+							}
+					}
+					&:focus { 
+						background-color: $white; color: $anchor-color;
+					}
 
 			}
 
 			&.is-active {
-				
 				a { 
-					background-color: $primary-color; color: $white;
+					background-color: $anchor-color; color: $white;
 
-
-					&::before {
-						font-family: 'Font Awesome 5 Free';
-						content: '\f068'; font-weight: 900;
-					}
+						&::before {
+							font-family: 'Font Awesome 5 Free';
+							font-weight: 900;
+							color: $white;
+						}
 				}
 			}
 		}
@@ -61,7 +61,6 @@ ul.tabs {
 		li.tabs-title {
 			&:before { display: none; } // hide standard bullet formatting
 			a { 
-				font-weight: 600; text-transform: uppercase; 
 				&:hover { 
 					background-color: $tab-background-active; //: $light-gray;
 					
@@ -76,11 +75,12 @@ ul.tabs {
 }
 
 .tabs-content { margin: 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
-.tabs-wrapper > p { display: none; }
+.tabs-wrapper {
+	margin-bottom: $global-margin;
+		> p { display: none; }
+}
 
 a span.label { color: $primary-color; background-color: $light-gray; cursor: pointer; }
 a:hover span.label { color: $primary-color; background-color: smart-scale($light-gray); }
 span.label.category, span.label.tag { background-color: $light-gray; }
 
-
-.tabs-wrapper > p { display: none; }
