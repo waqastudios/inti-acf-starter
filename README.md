@@ -2,10 +2,10 @@
 
 [![GitHub version](https://badge.fury.io/gh/waqastudios%2Finti-acf-starter.svg)](https://badge.fury.io/gh/waqastudios%2Finti-acf-starter)
 
-An Inti Foundation 1.6 child theme, like inti-kitchen-sink but built for Advanced Custom Fields Pro
+An Inti Foundation 1.9 child theme, like inti-kitchen-sink but built for Advanced Custom Fields Pro. Uses [Foundation 6.6](https://get.foundation/sites/). Works with ACF Repeatable fields and/or Gutenberg blocks.
 
 ## Built for Foundation 6.4.x and the XY Grid
-[Inti Foundation](https://github.com/waqastudios/inti-foundation) is a WordPress parent theme that uses Foundation for Sites 6.4, the most advanced responsive front-end framework in the world. Foundation for Sites 6.4, unlike earlier versions, uses a flexbox based grid system called [XY Grid](http://foundation.zurb.com/sites/docs/xy-grid.html).
+[Inti Foundation](https://github.com/waqastudios/inti-foundation) is a WordPress parent theme that uses Foundation for Sites 6.4, the most advanced responsive front-end framework in the world. Foundation for Sites 6.4, unlike earlier versions, uses a flexbox based grid system called [XY Grid](https://get.foundation/sites/docs/xy-grid.html).
 
 ## Built for Advanced Custom Fields Pro (ACF)
 [ACF PRO](https://www.advancedcustomfields.com/pro/) is a WordPress plugin that allows developers to rapidly develop backends with complex custom fields without having to manually code them or their interfaces.
