@@ -35,6 +35,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'recent-posts-' . $block['id'];
 
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;

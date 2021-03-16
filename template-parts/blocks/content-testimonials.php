@@ -29,7 +29,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'testimonials-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block testimonials <?php echo $display_as; ?> <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>				

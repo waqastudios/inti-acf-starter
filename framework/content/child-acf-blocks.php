@@ -53,7 +53,7 @@ function child_flexible_content_blocks() {
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
-									<article  id="post-<?php echo $selected->ID; ?>" class="entry-body <?php echo $selected->post_type; ?>">
+									<article id="post-<?php echo $selected->ID; ?>" class="inti-block-entry <?php echo $selected->post_type; ?>">
 										<div class="entry-body">
 
 											<?php inti_hook_page_header_before(); ?>
@@ -123,7 +123,7 @@ function child_flexible_content_blocks() {
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
-									<article class="entry-body">
+									<article class="inti-block-entry">
 										<div class="entry-body">
 
 											<div class="entry-content">
@@ -188,10 +188,12 @@ function child_flexible_content_blocks() {
 								<div class="grid-container to-animate">
 									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
-									<?php while ( have_rows('content_column') ) : the_row(); ?>
+									<?php
+										$c = 1; 
+										while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
 											
-											<article class="entry-body">
+											<article id="inti-block-entry-<?php echo $c; ?>" class="inti-block-entry">
 												<div class="entry-body">
 
 													<div class="entry-content">
@@ -204,7 +206,7 @@ function child_flexible_content_blocks() {
 											</article><!-- #post -->
 
 										</div>
-									<?php endwhile; ?>
+									<?php $c++; endwhile; ?>
 
 									</div>
 								</div>
@@ -257,10 +259,12 @@ function child_flexible_content_blocks() {
 								<div class="grid-container to-animate">
 									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
-									<?php while ( have_rows('content_column') ) : the_row(); ?>
+									<?php
+										$c = 1; 
+										while ( have_rows('content_column') ) : the_row(); ?>
 										<div class="small-12 cell">
 											
-											<article id="" class="entry-body">
+											<article id="inti-block-entry-<?php echo $c; ?>" class="inti-block-entry">
 												<div class="entry-body">
 
 													<div class="entry-content">
@@ -273,7 +277,7 @@ function child_flexible_content_blocks() {
 											</article><!-- #post -->
 
 										</div>
-									<?php endwhile; ?>
+									<?php $c++; endwhile; ?>
 
 									</div>
 								</div>

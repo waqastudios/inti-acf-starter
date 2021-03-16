@@ -24,7 +24,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'video-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block video <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		

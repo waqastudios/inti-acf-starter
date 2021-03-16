@@ -25,7 +25,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'icon-buttons-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block icon-buttons <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		

@@ -25,7 +25,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'paragraph-grid-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block paragraph-grid <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		
@@ -36,10 +36,12 @@ $id = 'paragraph-grid-' . $block['id'];
 		<div class="grid-container to-animate">
 			<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
-			<?php while ( have_rows('paragraph_items') ) : the_row(); ?>
+			<?php 
+				$c = 1;
+				while ( have_rows('paragraph_items') ) : the_row(); ?>
 				<div class="small-12 cell">
 					
-					<article id="" class="entry-body">
+					<article id="inti-block-entry-<?php echo $c; ?>" class="inti-block-entry">
 						<div class="entry-body">
 
 							<div class="entry-content">
@@ -52,7 +54,7 @@ $id = 'paragraph-grid-' . $block['id'];
 					</article><!-- #post -->
 
 				</div><!-- .cell -->
-			<?php endwhile; ?>
+			<?php $c++; endwhile; ?>
 
 
 			</div><!-- .grid-x .grid-container-x -->

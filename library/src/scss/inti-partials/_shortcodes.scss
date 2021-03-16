@@ -76,7 +76,6 @@ ul.tabs {
 
 .tabs-content { margin: 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
 .tabs-wrapper {
-	margin-bottom: $global-margin;
 		> p { display: none; }
 }
 

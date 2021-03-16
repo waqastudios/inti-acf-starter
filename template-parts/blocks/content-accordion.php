@@ -14,7 +14,7 @@ $classes = "";
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'accordion-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <ul 

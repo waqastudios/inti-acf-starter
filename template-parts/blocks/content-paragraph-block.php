@@ -20,7 +20,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? ' align' . $block['align'] : '';
 $id = 'paragraph-block-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block paragraph-block <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		
@@ -30,7 +30,7 @@ $id = 'paragraph-block-' . $block['id'];
 		<div class="grid-x grid-margin-x">
 			<div class="small-12 cell">
 				
-				<article class="entry-body">
+				<article class="inti-block-entry">
 					<div class="entry-body">
 
 						<div class="entry-content">

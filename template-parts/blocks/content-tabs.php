@@ -13,6 +13,7 @@ $classes = "";
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'tabs-' . $block['id'];
 
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 if ( $orientation == 'horizontal' ) : ?>
 	<div class="inti-gutenberg-block tabs<?php echo $classes; ?>" id="<?php echo $id; ?>">

@@ -22,7 +22,7 @@ if ($style) $style = ' style="' . $style . '"';
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'personal-bio-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <section class="inti-content-block personal-bio <?php echo $classes; ?>" id="<?php echo $id; ?>"<?php echo $style; ?>>		

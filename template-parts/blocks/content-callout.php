@@ -11,13 +11,13 @@ $style = get_field('style');
 $closeable = get_field('closeable');
 
 $classes = "";
-if ($type) $classes .= " type";	
-if ($style) $classes .= " style";	
+if ($type) $classes .= " " . $type;	
+if ($style) $classes .= " " . $style;	
 
 $classes .= $block['align'] ? 'align' . $block['align'] : '';
 $id = 'callout-' . $block['id'];
 
-
+if( !empty($block['className']) ) $classes .= " " . $block['className'];
 
 ?>
 <div class="inti-gutenberg-block callout<?php echo $classes; ?>" id="<?php echo $id; ?>"<?php if ($closeable) echo ' data-closeable' ?>>		
