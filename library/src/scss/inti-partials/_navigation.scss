@@ -87,6 +87,18 @@ ul.site-navigation {
 		&.site-navigation-footer {} // overwritten in _site-footer.scss
 		&.site-navigation-widget {} // overwritten in _sidebar.scss
 
+		&.site-navigation-terms {
+			@include flex-align(left, middle); width: 100%;
+
+			li {
+				a { color: $anchor-color; line-height: $paragraph-lineheight; padding: 0; margin-right: 8px; background-color: transparent; }
+
+				&.is-active > a { color: $anchor-color-hover; background-color: transparent; }
+				&.current-menu-item > a { color: $anchor-color-hover; background-color: transparent; }
+				&.current-menu-parent > a, &.current-menu-ancestor > a { color: $global-menu-color-hover; background-color: $global-menu-color-background-hover; }
+			}
+		} 
+
 
 }
 

@@ -975,7 +975,7 @@ function child_flexible_content_blocks() {
 
 								<?php $id = md5(uniqid(rand(), true)); ?>
 
-								<?php if ($orientation = "horizontal") : ?>
+								<?php if ($orientation == "horizontal") : ?>
 									<div class="grid-x grid-margin-x">
 										<div class="cell tabs-wrapper">
 											<ul class="tabs <?php echo $orientation ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">

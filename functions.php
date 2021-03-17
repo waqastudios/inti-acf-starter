@@ -44,12 +44,12 @@ function childtheme_override_setup() {
 
 	add_theme_support(
 		'inti-menus',
-		array('dropdown-menu', 'off-canvas-menu', 'footer-menu')
+		array('dropdown-menu', 'off-canvas-menu', 'footer-menu', 'terms-menu')
 	);
 	
 	add_theme_support(
 		'inti-sidebars',
-		array('primary', 'frontpage', 'footer')
+		array('primary')
 	);
 
 	add_theme_support('inti-customizer');
@@ -142,6 +142,7 @@ function childtheme_override_setup() {
 	require_once locate_template('/framework/theme-options/child-theme-options.php');
 	require_once locate_template('/framework/acf-json/acf-points.php');
 	require_once locate_template('/framework/extensions/child-typography.php');
+	require_once locate_template('/framework/extensions/child-menus.php');
 
 	require_once locate_template('/framework/post-types/taxonomies.php');
 

@@ -35,10 +35,25 @@ footer can be wide or contained.
 		}
 }
 .footer-info {
+	padding: $global-padding 0;
 	background-color: $light-gray; 
 
-		span.copyright {}
-		span.site-credits {}
+		.footer-info-body {
+			ul.footer-info-items {
+				list-style: none;
+				margin: 0;
+
+				li {
+					span {}
+				}
+
+				li.copyright {}
+				li.site-credits {}
+				li.terms-menu {
+					nav {}
+				}
+			}
+		}
 }
 
 a#inti-scroll-to-top {
