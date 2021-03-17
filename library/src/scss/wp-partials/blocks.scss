@@ -48,6 +48,10 @@ field group in ACF and the blocks themselves in /framework/content/child-acf-blo
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+
+			&.withscroll {
+				width: calc(100vw - 8px);
+			}
 	}
  }
 .inti-content-block {

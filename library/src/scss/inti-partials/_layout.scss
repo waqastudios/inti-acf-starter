@@ -12,7 +12,12 @@ Main site skeleton, major containers etc
 }
 .site-content {
 	#content {
-		overflow-x: hidden;
+		// overflow-x: hidden;
 		@include layout-spacing();
+	}
+}
+.home.page, .page-template-acf-page {
+	#page #content {
+		padding: 0 !important;
 	}
 }

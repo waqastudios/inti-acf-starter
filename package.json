@@ -10,7 +10,7 @@
   "license": "GPL-2.0",
   "homepage": "https://github.com/waqastudios/inti-acf-starter",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-free": "^5.12.2",
     "animatewithsass": "^3.2.1",
     "foundation-sites": "^6.6.1",
     "jquery": "^3.3.1",

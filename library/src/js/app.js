@@ -15,10 +15,10 @@ $(document).foundation();
 
 
 // Hamburger Menu active state
-$(document).on( "opened.zf.offcanvas", function(){
+$(document).on( "opened.zf.offCanvas", function(){
 	$('.hamburger').addClass('is-active');
 });
-$(document).on( "closed.zf.offcanvas", function(){
+$(document).on( "closed.zf.offCanvas", function(){
 	$('.hamburger').removeClass('is-active');
 });
 	
@@ -41,9 +41,11 @@ $(document).ready(function(){
 	function addPaddingGutenbergFull() {
 		if ($(document).height() > $(window).height()) {
 			$('.alignfull').addClass('withscroll');
+			$('.inti-content-block').addClass('withscroll');
 			console.log('Added padding for gutenberg blocks set to full');
 		} else {
 			$('.alignfull').removeClass('withscroll');
+			$('.inti-content-block').removeClass('withscroll');
 			console.log('removed');
 		}
 	}
@@ -237,7 +239,7 @@ $('.inti-carousel').slick({
 	initialSlide: 0,
 	pauseOnHover: true,
 	pauseOnDotsHover: false,
-		variableWidth: false,
+	variableWidth: false,
 	slidesToShow: 5, 
 	slidesToScroll: 1,
 	speed: 600,
@@ -280,7 +282,7 @@ $('.inti-slider').slick({
 	initialSlide: 0,
 	pauseOnHover: true,
 	pauseOnDotsHover: false,
-		variableWidth: false,
+	variableWidth: false,
 	slidesToShow: 1, 
 	slidesToScroll: 1,
 	speed: 600,
@@ -315,7 +317,7 @@ $('.inti-main-slider').slick({
 	initialSlide: 0,
 	pauseOnHover: true,
 	pauseOnDotsHover: false,
-		variableWidth: false,
+	variableWidth: false,
 	slidesToShow: 1, 
 	slidesToScroll: 1,
 	speed: 600,
@@ -349,7 +351,7 @@ $('.inti-testimonial-widget').slick({
 	initialSlide: 0,
 	pauseOnHover: true,
 	pauseOnDotsHover: false,
-		variableWidth: false,
+	variableWidth: false,
 	slidesToShow: 1, 
 	slidesToScroll: 1,
 	speed: 600,
@@ -384,7 +386,7 @@ $('.inti-instagram-carousel').slick({
 	initialSlide: 0,
 	pauseOnHover: true,
 	pauseOnDotsHover: false,
-		variableWidth: false,
+	variableWidth: false,
 	slidesToShow: 5, 
 	slidesToScroll: 1,
 	speed: 600,
