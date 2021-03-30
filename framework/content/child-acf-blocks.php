@@ -479,7 +479,7 @@ function child_flexible_content_blocks() {
 												<div class="grid-x grid-margin-x">
 													<div class="cell">
 														<div class="entry-thumbnail">
-															<?php echo get_the_post_thumbnail($service, 'service-thumbnail', array( 'class' => 'service-thumbnail', 'alt' => $final_action_text ) ); ?>
+															<?php echo get_the_post_thumbnail($service, 'square-medium', array( 'class' => 'square-medium', 'alt' => $final_action_text ) ); ?>
 														</div>
 													</div>
 												</div>
@@ -750,7 +750,7 @@ function child_flexible_content_blocks() {
 													<?php if ($link) : ?>
 														<a href="<?php echo $link_url; ?>">
 													<?php endif; ?>
-													<?php echo wp_get_attachment_image( $img, 'thumbnail-300', true, array('alt' => $icon_title) ); ?>
+													<?php echo wp_get_attachment_image( $img, 'square-small', true, array('alt' => $icon_title) ); ?>
 													<?php if ($link) : ?>
 														</a>
 													<?php endif; ?>
@@ -1170,11 +1170,11 @@ function child_flexible_content_blocks() {
 														$logo_url = get_field('logo_link', $logo->ID);
 														if ( $logo_url ) : ?>
 															<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
-																<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class' => 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+																<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class' => 'square-small', 'alt' => $logo->post_title ) ); ?>
 															</a>
 														<?php 
 														else : ?>
-															<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class' => 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+															<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class' => 'square-small', 'alt' => $logo->post_title ) ); ?>
 														<?php 
 														endif; ?>
 													<?php 
@@ -1210,11 +1210,11 @@ function child_flexible_content_blocks() {
 															$logo_url = get_field('logo_link', $logo->ID);
 															if ( $logo_url ) : ?>
 																<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
-																	<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class'	=> 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+																	<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class'	=> 'square-small', 'alt' => $logo->post_title ) ); ?>
 																</a>
 															<?php 
 															else : ?>
-																<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class'	=> 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+																<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class'	=> 'square-small', 'alt' => $logo->post_title ) ); ?>
 															<?php 
 															endif; ?>
 														<?php 
@@ -1344,7 +1344,7 @@ function child_flexible_content_blocks() {
 																			echo $link;
 																		} 
 																	?>
-																		<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																		<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 																	<?php 
 																		if ($link) {
 																			echo '</a>';
@@ -1437,7 +1437,7 @@ function child_flexible_content_blocks() {
 													<div class="grid-x grid-margin-x">
 														<div class="medium-5 mlarge-4 cell">
 															<div class="testimonial-image">
-																<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 															</div>
 														</div>
 														<div class="medium-7 mlarge-8 cell">
@@ -1485,7 +1485,7 @@ function child_flexible_content_blocks() {
 													<div class="grid-x grid-margin-x">
 														<div class="medium-5 medium-order-2 mlarge-4 cell">
 															<div class="testimonial-image">
-																<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 															</div>
 														</div>
 														<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -1533,7 +1533,7 @@ function child_flexible_content_blocks() {
 														<div class="grid-x grid-margin-x">
 															<div class="medium-5 medium-order-2 mlarge-4 cell">
 																<div class="testimonial-image">
-																	<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																	<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 																</div>
 															</div>
 															<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -1577,7 +1577,7 @@ function child_flexible_content_blocks() {
 													<div class="grid-x grid-margin-x">
 														<div class="medium-5 mlarge-4 cell">
 															<div class="testimonial-image">
-																<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+																<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 															</div>
 														</div>
 														<div class="medium-7 mlarge-8 cell">

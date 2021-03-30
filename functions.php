@@ -101,14 +101,14 @@ function childtheme_override_setup() {
 	
 	add_theme_support('post-thumbnails');
 
-	add_image_size('thumbnail-300', 300, 300, true);
-	add_image_size('blog-thumbnail', 800, 600, true);
-	add_image_size('logo-thumbnail', 200, 150, true);
-	add_image_size('testimonial-thumbnail', 800, 800, true);
-	add_image_size('service-thumbnail', 800, 800, true);
+	// Some image sizes to use throughout the theme
+	add_image_size('square-small', 300, 300, true);
+	add_image_size('square-medium', 600, 600, true);
+	add_image_size('wide-small', 600, 257, true); // 21x9
+	add_image_size('wide-medium', 1200, 514, true); // 21x9
+	add_image_size('wide-large', 2560, 1097, true); // 21x9
 	add_image_size('background', 2560, 1440, true);
-	
-	
+
 	// RSS feed links to header.php for posts and comments.
 	add_theme_support('automatic-feed-links');
 

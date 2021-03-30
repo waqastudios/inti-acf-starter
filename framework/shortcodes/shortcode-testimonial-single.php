@@ -23,7 +23,7 @@ function inti_shortcode_testimonial_single( $atts, $content = null ) {
 				'title'	=> $testimonial_object->post_title
 			);
 			if (has_post_thumbnail($testimonial_object->ID)) {
-				$image_html = get_the_post_thumbnail($testimonial_object->ID, 'testimonial-thumbnail', $default_attr);
+				$image_html = get_the_post_thumbnail($testimonial_object->ID, 'square-medium', $default_attr);
 			}
 
 ?>

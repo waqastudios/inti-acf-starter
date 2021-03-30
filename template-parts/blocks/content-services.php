@@ -72,7 +72,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 								<div class="grid-x grid-margin-x">
 									<div class="cell">
 										<div class="entry-thumbnail">
-											<?php echo get_the_post_thumbnail($service, 'service-thumbnail', array( 'class' => 'service-thumbnail', 'alt' => $final_action_text ) ); ?>
+											<?php echo get_the_post_thumbnail($service, 'square-medium', array( 'class' => 'square-medium', 'alt' => $final_action_text ) ); ?>
 										</div>
 									</div>
 								</div>

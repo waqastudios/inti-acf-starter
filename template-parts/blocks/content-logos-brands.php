@@ -54,11 +54,11 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 										$logo_url = get_field('logo_link', $logo->ID);
 										if ( $logo_url ) : ?>
 											<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
-												<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class' => 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+												<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class' => 'square-small', 'alt' => $logo->post_title ) ); ?>
 											</a>
 										<?php 
 										else : ?>
-											<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class' => 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+											<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class' => 'square-small', 'alt' => $logo->post_title ) ); ?>
 										<?php 
 										endif; ?>
 									<?php 
@@ -94,11 +94,11 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 											$logo_url = get_field('logo_link', $logo->ID);
 											if ( $logo_url ) : ?>
 												<a href="<?php echo esc_url($logo_url); ?>" target="_blank">
-													<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class'	=> 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+													<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class'	=> 'square-small', 'alt' => $logo->post_title ) ); ?>
 												</a>
 											<?php 
 											else : ?>
-												<?php echo get_the_post_thumbnail( $logo, 'logo-thumbnail', array( 'class'	=> 'logo-thumbnail', 'alt' => $logo->post_title ) ); ?>
+												<?php echo get_the_post_thumbnail( $logo, 'square-small', array( 'class'	=> 'square-small', 'alt' => $logo->post_title ) ); ?>
 											<?php 
 											endif; ?>
 										<?php 

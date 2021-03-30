@@ -47,7 +47,7 @@ function inti_shortcode_testimonials( $atts, $content = null ) {
 						<div class="grid-x grid-margin-x">
 							<div class="medium-5 mlarge-4 cell">
 								<div class="testimonial-image">
-									<?php the_post_thumbnail('testimonial-thumbnail'); ?>
+									<?php the_post_thumbnail('square-medium'); ?>
 								</div>
 							</div>
 							<div class="medium-7 mlarge-8 cell">
@@ -82,7 +82,7 @@ function inti_shortcode_testimonials( $atts, $content = null ) {
 						<div class="grid-x grid-margin-x">
 							<div class="medium-5 medium-order-2 mlarge-4 cell">
 								<div class="testimonial-image">
-									<?php the_post_thumbnail('testimonial-thumbnail'); ?>
+									<?php the_post_thumbnail('square-medium'); ?>
 								</div>
 							</div>
 							<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -117,7 +117,7 @@ function inti_shortcode_testimonials( $atts, $content = null ) {
 								<div class="grid-x grid-margin-x">
 									<div class="medium-5 medium-order-2 mlarge-4 cell">
 										<div class="testimonial-image">
-											<?php the_post_thumbnail('testimonial-thumbnail'); ?>
+											<?php the_post_thumbnail('square-medium'); ?>
 										</div>
 									</div>
 									<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -148,7 +148,7 @@ function inti_shortcode_testimonials( $atts, $content = null ) {
 							<div class="grid-x grid-margin-x">
 								<div class="medium-5 mlarge-4 cell">
 									<div class="testimonial-image">
-										<?php the_post_thumbnail('testimonial-thumbnail'); ?>
+										<?php the_post_thumbnail('square-medium'); ?>
 									</div>
 								</div>
 								<div class="medium-7 mlarge-8 cell">
@@ -185,7 +185,7 @@ function inti_shortcode_testimonials( $atts, $content = null ) {
 						<div class="grid-x grid-margin-x">
 							<div class="cell">
 								<div class="testimonial-image">
-									<?php the_post_thumbnail('testimonial-thumbnail'); ?>
+									<?php the_post_thumbnail('square-medium'); ?>
 								</div>
 							</div>
 							<div class="cell">

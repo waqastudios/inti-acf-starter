@@ -74,7 +74,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 															echo $link;
 														} 
 													?>
-														<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+														<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 													<?php 
 														if ($link) {
 															echo '</a>';
@@ -167,7 +167,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 									<div class="grid-x grid-margin-x">
 										<div class="medium-5 mlarge-4 cell">
 											<div class="testimonial-image">
-												<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+												<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 											</div>
 										</div>
 										<div class="medium-7 mlarge-8 cell">
@@ -215,7 +215,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 									<div class="grid-x grid-margin-x">
 										<div class="medium-5 medium-order-2 mlarge-4 cell">
 											<div class="testimonial-image">
-												<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+												<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 											</div>
 										</div>
 										<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -263,7 +263,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 										<div class="grid-x grid-margin-x">
 											<div class="medium-5 medium-order-2 mlarge-4 cell">
 												<div class="testimonial-image">
-													<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+													<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 												</div>
 											</div>
 											<div class="medium-7 medium-order-1 mlarge-8 cell">
@@ -307,7 +307,7 @@ if( !empty($block['className']) ) $classes .= " " . $block['className'];
 									<div class="grid-x grid-margin-x">
 										<div class="medium-5 mlarge-4 cell">
 											<div class="testimonial-image">
-												<?php echo get_the_post_thumbnail($testimonial->ID, 'testimonial-thumbnail'); ?>
+												<?php echo get_the_post_thumbnail($testimonial->ID, 'square-medium'); ?>
 											</div>
 										</div>
 										<div class="medium-7 mlarge-8 cell">
