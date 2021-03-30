@@ -48,6 +48,7 @@ if (!function_exists('inti_xy_grid_open')) {
 					<div class="small-12 medium-10 large-9 cell">
 			
 
+
 		<?php break;
 			case 'blog': ?>
 
@@ -55,16 +56,18 @@ if (!function_exists('inti_xy_grid_open')) {
 				<div class="grid-x grid-margin-x grid-margin-y mlarge-up-2 large-up-3" id="loadposts">
 			
 
+
 		<?php break;
-			case 'full-grid': ?>
+			case 'full-xygrid': ?>
 
 			<div class="grid-container full layout-full-grid">
 				<div class="grid-x">
 					<div class="cell">
 			
 
+
 		<?php break;
-			case 'fluid-grid': ?>
+			case 'fluid-xygrid': ?>
 
 			<div class="grid-container fluid layout-fluid-grid">
 				<div class="grid-x">
@@ -90,14 +93,14 @@ if (!function_exists('inti_xy_grid_close')) {
 			
 
 		<?php break;
-			case 'full-grid': ?>
+			case 'full-xygrid': ?>
 					</div><!-- .cell -->
 				</div><!-- .grid-x -->
 			</div><!-- .grid-container -->	
 			
 
 		<?php break;
-			case 'fluid-grid': ?>
+			case 'fluid-xygrid': ?>
 					</div><!-- .cell -->
 				</div><!-- .grid-x -->
 			</div><!-- .grid-container -->	

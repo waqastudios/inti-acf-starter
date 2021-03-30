@@ -303,6 +303,7 @@ function child_flexible_content_blocks() {
 					$large = get_sub_field('post_columns_large');
 
 					$order = get_sub_field('order');
+					$post_category = '';
 					if (get_sub_field('only_show_posts_from')) {
 						$post_category = implode(',', get_sub_field('only_show_posts_from'));
 					}
@@ -357,83 +358,11 @@ function child_flexible_content_blocks() {
 								
 									<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); global $more; $more = 0; ?>
 										
-										
 										<div class="cell">
-											
-											<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
-												<?php // inti_hook_post_before(); ?>
-												<div class="entry-body">
-													<?php  if ( has_post_thumbnail() ) : ?>
-													<div class="grid-x grid-margin-x">
-														<div class="cell">
-															<div class="entry-thumbnail">
-																<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-																	<?php the_post_thumbnail( 'blog-thumbnail', array( 'class' => 'blog-thumbnail', 'alt' => get_the_title() ) ); ?>
-																</a>
-															</div>
-														</div>
-													</div>
-													<?php endif; ?>
-													<div class="grid-x grid-margin-x">
-														<div class="cell"> 
-
-															
-															<header class="entry-header">
-																	
-																<?php 
-																	$args = array( 
-																		'show_author' => false,
-																		'show_date'   => false,
-																		'show_cat'    => true,
-																		'show_tag'    => false,
-																		'show_icons'  => false,
-																		'show_uncategorized' => false,
-																	 );
-																	echo inti_get_post_header_meta($args); 
-																?>
-																
-																<h3 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-																<div class="grid-x grid-margin-x">
-																	<div class="medium-6 cell">
-																		<?php 
-																			$args = array( 
-																				'show_author' => false,
-																				'show_date'   => true,
-																				'show_cat'    => false,
-																				'show_tag'    => false,
-																				'show_icons'  => false,
-																				'show_uncategorized' => false,
-																			);
-																			echo inti_get_post_header_meta($args); 
-																		?>
-																	</div>
-																	<div class="medium-6 cell">
-																		<?php 
-																			echo inti_get_post_page_footer_comments_link();
-																		?>
-																	</div>
-																</div>
-															</header><!-- .entry-header -->
-															
-
-															<div class="entry-summary">
-																<?php the_excerpt(); ?>
-																<a href="<?php the_permalink(); ?>" class="button read-more"><?php echo get_inti_option('read_more_text', 'inti_general_options', __('Read more >', 'inti')); ?></a>
-															</div><!-- .entry-content -->               
-
-															<footer class="entry-footer">
-																
-															</footer><!-- .entry-footer -->
-
-														</div>
-													</div>
-
-
-												</div><!-- .entry-body -->
-												<?php // inti_hook_post_after(); ?>
-											</article><!-- #post -->
-											
-										</div><!-- .cell -->
+											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+												<?php include(locate_template('template-parts/part-post-mini.php')); ?>
+											</a>
+										</div><!-- .cell -->										
 
 									<?php endwhile; // end of the loop 
 										wp_reset_query(); ?>

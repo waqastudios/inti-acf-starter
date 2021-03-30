@@ -7,7 +7,6 @@
  *
  * @package Inti
  * @subpackage Templates
- * @since 1.0.0
  */
 
 

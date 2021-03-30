@@ -73,14 +73,14 @@ if (!function_exists('inti_get_layout')) {
 
 
 		// this is the traditional inti-block template
-		if (is_page_template( 'page-templates/grid-fluid.php' ) ) { 
-			$layout = "fluid-grid";	// see framework/functions/xy-grid.php 
+		if (is_page_template( 'page-templates/xygrid-fluid.php' ) ) { 
+			$layout = "fluid-xygrid";	// see framework/functions/xy-grid.php 
 		}
 
 
 		// this is the traditional inti-block template
-		if (is_page_template( 'page-templates/grid-full.php' ) ) { 
-			$layout = "full-grid";	// see framework/functions/xy-grid.php 
+		if (is_page_template( 'page-templates/xygrid-full.php' ) ) { 
+			$layout = "full-xygrid";	// see framework/functions/xy-grid.php 
 		}
 
 
