@@ -335,7 +335,7 @@ function inti_initialize_general_options() {
 									'facebook'   =>  'Facebook',
 									'linkedin'   =>  'LinkedIn',
 									'pinterest'   =>  'Pinterest',
-									'tumblr'   =>  'Tumblr',
+									'telegram'   =>  'Telegram',
 
 								)
 			)

@@ -121,6 +121,8 @@ function childtheme_override_setup() {
 	// load child theme translations
 	load_child_theme_textdomain( 'inti-child' , get_stylesheet_directory() . '/languages');
 
+	// Keep Yoast SEO metabox last on page
+	add_filter( 'wpseo_metabox_prio', function() { return 'low'; } );
 		
 	/**
 	 * Load framework files from child theme's framework directory
