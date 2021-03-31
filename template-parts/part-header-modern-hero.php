@@ -13,7 +13,7 @@
 	$dynamic_bg = '';
 
 	// default size
-	$size = 'large-21x9';
+	$size = 'background';
 
 	$hero_bgs = get_field('hero_backgrounds');
 	if (is_array($hero_bgs)) {
@@ -185,7 +185,7 @@
 							$hero_button_url = esc_url(get_sub_field('hero_button_url'));
 							$hero_button_text = get_sub_field('hero_button_text');
 
-							$size = 'large-21x9';
+							$size = 'background';
 						?>
 							
 								<div class="slide" style="background-image: url(<?php echo wp_get_attachment_image_url( $dynamic_bg, $size ); ?>);" data-equalizer-watch>
@@ -219,7 +219,7 @@
 				$hero_button_url = esc_url(get_sub_field('hero_button_url'));
 				$hero_button_text = get_sub_field('hero_button_text');
 
-				$size = 'large-21x9';
+				$size = 'background';
 			 ?>
 
 				<div class="site-hero frontpage static" style="background-image: url(<?php echo wp_get_attachment_image_url( $static_bg, $size ); ?>);">

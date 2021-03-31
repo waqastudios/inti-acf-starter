@@ -946,7 +946,7 @@ function child_flexible_content_blocks() {
 													<?php if ($link) : ?>
 														<a href="<?php echo $link_url; ?>">
 													<?php endif; ?>
-													<?php echo wp_get_attachment_image( $img, 'square-200', true, array('alt' => $icon_title) ); ?>
+													<?php echo wp_get_attachment_image( $img, 'square-small', true, array('alt' => $icon_title) ); ?>
 													<?php if ($link) : ?>
 														</a>
 													<?php endif; ?>
