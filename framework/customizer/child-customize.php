@@ -312,7 +312,7 @@ function child_new_section($wp_customize) {
 	 * Section: inti_customizer_general
 	 */
 		$wp_customize->add_setting('inti_customizer_options[header_hero_bg]', array( 
-			'default'    => 1,
+			'default'    => '',
 			'type'       => 'option',
 			'capability' => 'manage_options',
 		 ) );	

@@ -78,10 +78,20 @@ normally includes a logo, or a full width hero image.
 // ---------
 #site-header-modern-hero {
 	background-color: $medium-gray; background-size: cover;
-	.site-banner {
-		padding: $global-padding 0;
 
-			.site-logo {}
+	// display banner
+	.site-banner-overlay-container {
+		position: absolute; width: 100%;
+	}
+	.site-banner {
+		position: relative;
+		padding: $global-padding 0;
+		background-color: rgba($light-gray, .75);
+		@include slideInDown();
+
+			.site-logo {
+				img {}
+			}
 			.site-logo.sticky-logo {
 				display: none;
 			}
@@ -94,14 +104,116 @@ normally includes a logo, or a full width hero image.
 	}
 
 	.site-hero {
-		padding: ($global-padding * 3) 0;
+		background-color: $light-gray;
+		background-size: cover; background-position: 50%;
 
-		@include breakpoint(mlarge up) {
-			padding: ($global-padding * 6) 0;
+
+		// General Hero styles for all heros site-wide that are static
+		&.static {
+			position: relative; z-index: 1;
+			padding: ($global-padding * 8) 0 ($global-padding * 3);
+
+			@include breakpoint(medium up) {
+				padding: ($global-padding * 8) 0 ($global-padding * 3);
+			}
+			@include breakpoint(mlarge up) {
+				padding: ($global-padding * 9) 0 ($global-padding * 4);
+			}
+			@include breakpoint(large up) {
+				padding: ($global-padding * 10) 0 ($global-padding * 4) 0;
+			}
+
+			.hero-container {
+				position: relative;
+				z-index: 1020;
+				
+				.hero-message {
+					header.entry-header {
+						.entry-title { color: $white; }
+					}
+				}
+			}
+			.overlay {
+				background: rgba($black, .6);
+				background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.15) 100%); 
+				position: absolute; top: 0; bottom: 0; right: 0; left: 0;
+
+				z-index: 1010;
+			}
 		}
 
 		// styles for particular post types/archives
-		&.frontpage {}
+		&.frontpage {
+			// Frontpage Hero styles, dynamic
+			&.dynamic {
+
+				.inti-main-slider {
+					.slide {
+						position: relative; display: block !important; background-position: 50%; background-size: cover;
+						padding: ($global-padding * 8) 0 ($global-padding * 2);
+
+						@include breakpoint(medium up) {
+							padding: ($global-padding * 9) 0 ($global-padding * 3);
+						}
+						@include breakpoint(mlarge up) {
+							padding: ($global-padding * 10) 0 ($global-padding * 4);
+						}
+						@include breakpoint(large up) {
+							padding: ($global-padding * 13) 0 ($global-padding * 5);
+						}
+						@include breakpoint(xlarge up) {
+							padding: ($global-padding * 14) 0 ($global-padding * 5);
+						}
+					}
+				}
+
+			}
+			// Frontpage Hero styles, static
+			&.static {
+				position: relative; z-index: 1;
+				padding: ($global-padding * 9) 0 ($global-padding * 2);
+
+				@include breakpoint(medium up) {
+					padding: ($global-padding * 10) 0 ($global-padding * 3);
+				}
+				@include breakpoint(mlarge up) {
+					padding: ($global-padding * 11) 0 ($global-padding * 4);
+				}
+				@include breakpoint(large up) {
+					padding: ($global-padding * 11) 0 ($global-padding * 6);
+				}
+				@include breakpoint(xlarge up) {
+					padding: ($global-padding * 15) 0 ($global-padding * 8);
+				}
+			}
+
+
+
+			.overlay {
+				background: rgba($black, .6);
+				background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.15) 100%); 
+				position: absolute; top: 0; bottom: 0; right: 0; left: 0;
+
+				z-index: 1010;
+			}
+			.hero-container {
+				position: relative;
+				z-index: 1020;
+
+					.hero-message {
+						p { @extend h1; font-size: rem-calc(30); color: $white; }
+
+						@include breakpoint(medium up) {
+							p { font-size: rem-calc(40); }
+						}
+						@include breakpoint(mlarge up) {
+							p { font-size: rem-calc(50); }
+						}
+
+						margin-bottom: $global-margin*2;
+					}
+			}
+		}
 		&.page {}
 		&.post {}
 		&.archive {}

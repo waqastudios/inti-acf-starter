@@ -1,13 +1,13 @@
 {
     "key": "group_596c7682ee02d",
-    "title": "Front Page - Hero Area",
+    "title": "Site Banner - Front Page",
     "fields": [
         {
-            "key": "field_596c7688285c2",
-            "label": "Hero Area (Left)",
-            "name": "hero_area_left",
-            "type": "wysiwyg",
-            "instructions": "Left text area",
+            "key": "field_5fd8d9794dc0b",
+            "label": "Hero Backgrounds",
+            "name": "hero_backgrounds",
+            "type": "repeater",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,18 +15,101 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Hero",
+            "sub_fields": [
+                {
+                    "key": "field_5eb953da2739e",
+                    "label": "Background Image",
+                    "name": "background_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5fd8d8eb4dc08",
+                    "label": "Hero Message",
+                    "name": "hero_message",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_5fd8d9114dc09",
+                    "label": "Hero Button URL",
+                    "name": "hero_button_url",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5fd8d9424dc0a",
+                    "label": "Hero Button Text",
+                    "name": "hero_button_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         },
         {
-            "key": "field_596c76c9285c3",
-            "label": "Hero Area (Right)",
-            "name": "hero_area_right",
+            "key": "field_5ebc1b9dec1e6",
+            "label": "Welcome Message",
+            "name": "welcome_message",
             "type": "wysiwyg",
-            "instructions": "Right Hero Area",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,7 +120,7 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1,
+            "media_upload": 0,
             "delay": 0
         }
     ],
@@ -50,13 +133,15 @@
             }
         ]
     ],
-    "menu_order": 0,
-    "position": "normal",
+    "menu_order": 2,
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
     "description": "",
-    "modified": 1570212755
+    "modified": 1608054352
 }
