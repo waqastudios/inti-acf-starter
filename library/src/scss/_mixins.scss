@@ -24,9 +24,12 @@ COLORS
 *********************/
 // Make something look like an anchor
 @mixin anchor {
-	color: $anchor-color;
-	&:hover {
-		color: scale-color($anchor-color, $lightness: -14%); //$anchor-color-hover;
+	&:not(.button):not(button) {
+		color: $anchor-color;
+		&:hover {
+			//color: scale-color($anchor-color, $lightness: $anchor-color-hover-scale); 
+			color: $anchor-color-hover;
+		}
 	}
 }
 
@@ -36,7 +39,7 @@ COLORS
 	color: $color;
 	&:hover {
 		@if $hover-color == $color {
-			color: scale-color($hover-color, $lightness: -14%);
+			color: scale-color($hover-color, $lightness: $anchor-color-hover-scale);
 		} 
 		@else {
 			color: $hover-color;
@@ -45,28 +48,35 @@ COLORS
 }
 
 // Set a button to have a different color than the default
-@mixin button-color($color, $hover-color: $color) {
+@mixin button-color($bg-color, $bg-hover-color: $bg-color, $font-color: $button-color, $hover-font-color: $font-color ) {
 	transition: $global-transition;
-	color: $color !important;
+	background-color: $bg-color;
+	color: $font-color;
+
 	&:hover {
-		@if $hover-color == $white {
-			color: scale-color($hover-color, $lightness: -14%);
+		@if $bg-hover-color == $bg-color {
+			background-color: scale-color($bg-hover-color, $lightness: $button-background-hover-scale);
 		} 
 		@else {
-			color: $hover-color;
+			background-color: $bg-hover-color;
+		}
+		@if $hover-font-color == $font-color {
+			// do nothing
+		} 
+		@else {
+			color: $hover-font-color;
 		}
 	}
+}
+@mixin button-hollow-color($border-color, $border-hover-color: $border-color) {
+	transition: $global-transition;
+	border: $button-hollow-border-width $border-color solid !important;
+	background-color: transparent;
+	color: $border-color;
 
-	&.hollow {
-		border-color: $color !important;
-		&:hover {
-			@if $hover-color == $color {
-				border-color: scale-color($color, $lightness: -15%);
-			} 
-			@else {
-				border-color: scale-color($hover-color, $lightness: -15%);
-			}
-		}
+	&:hover {
+		border: $button-hollow-border-width scale-color($border-hover-color, $lightness: $button-background-hover-scale) solid !important;
+		color: scale-color($border-hover-color, $lightness: $button-background-hover-scale) !important;
 	}
 }
 
@@ -89,7 +99,66 @@ LAYOUT
 		padding: $global-padding*$large 0;
 	}
 }
+@mixin layout-spacing-bottom($small:2.5, $medium:3, $mlarge:3, $large:3) {
+	padding: 0 0 $global-padding*$small 0;
 
+	@include breakpoint(medium up) {
+		padding: 0 0 $global-padding*$medium 0;
+	}
+
+	@include breakpoint(mlarge up) {
+		padding: 0 0 $global-padding*$mlarge 0;
+	}
+
+	@include breakpoint(large up) {
+		padding: 0 0 $global-padding*$large 0;
+	}
+}
+@mixin layout-spacing-top($small:2.5, $medium:3, $mlarge:3, $large:3) {
+	padding: $global-padding*$small 0 0 0;
+
+	@include breakpoint(medium up) {
+		padding: $global-padding*$medium 0 0 0;
+	}
+
+	@include breakpoint(mlarge up) {
+		padding: $global-padding*$mlarge 0 0 0;
+	}
+
+	@include breakpoint(large up) {
+		padding: $global-padding*$large 0 0 0;
+	}
+}
+@mixin layout-spacing-margin($small:2.5, $medium:3, $mlarge:3, $large:3) {
+	margin: $global-margin*$small 0;
+
+	@include breakpoint(medium up) {
+		margin: $global-margin*$medium 0;
+	}
+
+	@include breakpoint(mlarge up) {
+		margin: $global-margin*$mlarge 0;
+	}
+
+	@include breakpoint(large up) {
+		margin: $global-margin*$large 0;
+	}
+}
+@mixin layout-spacing-margin-bottom($small:2.5, $medium:3, $mlarge:3, $large:3) {
+	margin: 0 0 $global-margin*$small 0;
+
+	@include breakpoint(medium up) {
+		margin: 0 0 $global-margin*$medium 0;
+	}
+
+	@include breakpoint(mlarge up) {
+		margin: 0 0 $global-margin*$mlarge 0;
+	}
+
+	@include breakpoint(large up) {
+		margin: 0 0 $global-margin*$large 0;
+	}
+}
 
 /*********************
 TYPOGRAPHY
@@ -106,10 +175,105 @@ TYPOGRAPHY
 	}
 */
 
+@mixin icon-button() {
+	font-size: 1.6rem; padding: rem-calc(6.71) 0;
+}
+
+// FontAwesome
+@mixin fa() {
+	font-family: 'Font Awesome 5 Free'; font-weight: 900;
+}
+
 //Use the best ampersand - http://simplebits.com/notebook/2008/08/14/ampersands-2/
 span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
+}
+
+// arrows for links
+@mixin arrow-link($dir) {
+	@if $dir == 'right' {
+		&::after {
+			font-family: "Font Awesome 5 Free"; font-weight: 900;
+			content: $arrow-right; margin-left: 4px; vertical-align: top;
+		}
+	}
+	@else {
+		&::before {
+			font-family: "Font Awesome 5 Free"; font-weight: 900;
+			content: $arrow-left; margin-right: 4px; vertical-align: top;
+		}
+	}
+}
+@mixin arrow-button($dir) {
+	@if $dir == 'right' {
+		&::after {
+			font-family: "Font Awesome 5 Free"; font-weight: 900;
+			content: $arrow-right; margin-left: 8px; vertical-align: middle;
+		}
+	}
+	@else {
+		&::before {
+			font-family: "Font Awesome 5 Free"; font-weight: 900;
+			content: $arrow-left; margin-right: 8px; vertical-align: middle;
+		}
+	}
+}
+
+// Fancy bullets
+@mixin ul-check ($color: $primary-color) {
+	& {
+		list-style: none;
+
+		li {
+			position: relative;
+			&:before {
+				font-family: "Font Awesome 5 Free";
+				content: "\f00c"; font-size: 12px; font-weight: 600;
+				color: $color;
+				display: block;
+				position: absolute;
+				top: 4px; left: -$global-margin*1.2;
+			}
+		}
+	}
+
+}
+@mixin ul-circle ($color: $primary-color) {
+	& {
+		list-style: none;
+
+		li {
+			position: relative;
+			&:before {
+				font-family: "Font Awesome 5 Free";
+				content: "\f111"; font-size: 8px; font-weight: 600;
+				color: $color;
+				display: block;
+				position: absolute;
+				top: 8px; left: -$global-margin;
+			}
+		}
+	}
+
+}
+@mixin ul-chevron ($color: $primary-color) {
+	& {
+		list-style: none;
+
+		li {
+			position: relative;
+			&:before {
+				font-family: "Font Awesome 5 Free";
+				content: "\f054"; font-size: 12px; font-weight: 600;
+				color: $color;
+				display: block;
+				position: absolute;
+				top: 6px; left: -$global-margin*1.3;
+			}
+		}
+	}
+
 }
 
 /*********************

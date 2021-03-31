@@ -11,14 +11,89 @@ h1, h2, h3, h4, h5, h6 {
 	// text-transform: uppercase;
 }
 
-.button, button, input[type="submit"], input[type="button"] {
-	// text-transform: uppercase; font-weight: 900;
+a { transition: $global-transition; }
+
+.button, button, input[type=submit], input[type=button] {
+	text-transform: uppercase; font-weight: 700; text-decoration: none !important; 
+	&:hover { background-color: $black; }
+
+
+	//&:not(.secondary):not(.white):not(.hollow):not(.cta):not(.slick-arrow):not(.close-button), 
+	&.primary:not(.hollow) {
+		@include button-color($primary-color, $primary-color, $white, $white);
+	}
+	&.secondary:not(.hollow), &.white:not(.hollow) {
+		@include button-color($secondary-color, $secondary-color, $white, $white);
+	}
+
+
+	&.hollow {
+		&:hover {
+			color: $black !important; border-color: $black !important;
+		}
+	}
+	&.hollow.primary {
+		background-color: transparent !important; color: $primary-color !important;
+		&:hover {
+			color: $black !important; border-color: $black !important;
+		}
+	}
+	&.hollow.secondary {
+		color: $secondary-color; border-color: $secondary-color !important;
+		background-color: transparent !important; color: $secondary-color !important;
+		&:hover {
+			color: $black !important; border-color: $black !important;
+		}
+	}
+
+
+	&.white:not(.slick-arrow) {
+		color: $white !important; border-color: $white !important; background-color: transparent !important;
+		&:hover {
+			color: $body-font-color !important; border-color: $white !important; background-color: $white !important;
+		}
+
+		&.hollow {
+			color: $white !important;
+				&:hover {
+					color: $body-font-color !important;
+				}
+		}
+	}
+
+	&.black:not(.slick-arrow) {
+		color: $black !important; border-color: $black !important; background-color: transparent !important;
+		&:hover {
+			color: $white !important; border-color: $black !important; background-color: $black !important;
+		}
+
+		&.hollow {
+			color: $black !important;
+				&:hover {
+					color: $white !important;
+				}
+		}
+	}
+
+}
+input[type=submit], input[type=button] {
+	@extend .button;
 }
 
 .entry-content, .entry-summary {
 
+	p, blockquote, li, h1, h2, h3 {}
+	h4, h5, h6 { }
+
+	a {  }
+	a:not(.button) { &::after { content: '+'; opacity: .75; } }
+
 	ul, ol {
 		margin: 0 0 $global-margin ($global-margin * 2);
+	}
+
+	ul {
+		@include ul-check($primary-color);
 	}
 	/**
 	 * Accordion and Tabs are shortcodes that should not 

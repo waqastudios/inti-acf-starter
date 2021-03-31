@@ -86,3 +86,43 @@ if (inti_current_theme_supports('inti-post-types', 'service') ) {
 	    register_taxonomy( 'inti-service-category', 'inti-service', $args);
 	}
 }
+
+
+/**
+ * Taxonomy: Person Category
+ * Related Post Type: inti-person
+ * Description: Split persons into types that will let us do things like
+ * devide them by person offered, product purchased, or page they appear on etc. 
+ * @since 1.5.0
+ */
+
+if (inti_current_theme_supports('inti-post-types', 'person') ) {
+	add_action( 'init', 'person_taxonomies', 0 );  
+	function person_taxonomies() {  
+		$labels = array(
+			'name'              => _x( 'Categories', 'taxonomy general name', 'inti-child'),
+			'singular_name'     => _x( 'Category', 'taxonomy singular name', 'inti-child'),
+			'search_items'      => __( 'Search Person Categories', 'inti-child'),
+			'all_items'         => __( 'All Person Categories', 'inti-child'),
+			'parent_item'       => __( 'Parent Category', 'inti-child'),
+			'parent_item_colon' => __( 'Parent Category', 'inti-child') . ":",
+			'edit_item'         => __( 'Edit Category', 'inti-child'),
+			'update_item'       => __( 'Update Category', 'inti-child'),
+			'add_new_item'      => __( 'Add New Person Category', 'inti-child'),
+			'new_item_name'     => __( 'New Category Name', 'inti-child'),
+			'menu_name'         => __( 'Categories', 'inti-child'),
+		);
+
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'publicly_queryable' => false,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => false,
+		);
+
+	    register_taxonomy( 'inti-person-category', 'inti-person', $args);
+	}
+}

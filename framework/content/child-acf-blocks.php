@@ -29,91 +29,40 @@ function child_flexible_content_blocks() {
 
 
 				/**
-				 * Page/Post  - Add a publihed page or post as a section of this page
-				 */
-				if( get_row_layout() == 'page_post' ):
-
-					$selected = get_sub_field('page_post_selected');
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';	
-				?>
-					<section class="inti-block page-post<?php echo $classes; ?>"<?php echo $style; ?>>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 cell">
-									
-									<article id="post-<?php echo $selected->ID; ?>" class="inti-block-entry <?php echo $selected->post_type; ?>">
-										<div class="entry-body">
-
-											<?php inti_hook_page_header_before(); ?>
-
-											<header class="entry-header">
-												<h1 class="entry-title"><?php echo $selected->post_title; ?></h1>
-											</header><!-- .entry-header -->
-											
-											<?php inti_hook_page_header_after(); ?>
-													
-											<div class="entry-content">
-												<?php inti_hook_page_content_before_the_content(); ?>
-												<?php echo apply_filters('the_content', $selected->post_content); ?>
-												<?php inti_hook_page_content_after_the_content(); ?>
-											</div><!-- .entry-content -->
-											
-											<footer class="entry-footer">
-												<?php inti_hook_page_footer(); ?>
-											</footer><!-- .entry-footer -->
-											
-										</div><!-- .entry-body -->
-									</article><!-- #post -->
-
-								</div>
-							</div>
-						</div>
-					</section>
-
-
-
-
-
-				<?php
-				/**
 				 * Content Block  - Add standard HTML through a wysiwyg interface
 				 */
-				elseif( get_row_layout() == 'content_block' ): 
+				if( get_row_layout() == 'content_block' ): 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$content = get_sub_field('content');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block content-block<?php echo $classes; ?>"<?php echo $style; ?>>
-						<?php if ($title) : ?>	
+						<?php if ($title || $subtitle) : ?>	
 							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
-											<h3><?php echo $title; ?></h3>
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
 										</header>
 									</div><!-- .cell -->
 								</div><!-- .grid-x .grid-container-x -->
@@ -123,12 +72,12 @@ function child_flexible_content_blocks() {
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
 									
-									<article class="inti-block-entry">
+									<article class="entry-body">
 										<div class="entry-body">
 
 											<div class="entry-content">
 												<?php inti_hook_page_content_before_the_content(); ?>
-												<?php echo apply_filters('the_content', $content); ?>
+												<?php the_sub_field('content');; ?>
 												<?php inti_hook_page_content_after_the_content(); ?>
 											</div><!-- .entry-content -->
 											
@@ -138,80 +87,40 @@ function child_flexible_content_blocks() {
 								</div>
 							</div>
 						</div>
-					</section>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
 
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
 
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
 
-
-
-				<?php
-				/**
-				 * Content Block Columns - Add standard HTML through a wysiwyg interface
-				 * but in multiple columns.
-				 */
-				elseif( get_row_layout() == 'content_block_columns' ):
-
-					$title = get_sub_field('title');
-
-					$small = get_sub_field('post_columns_small');
-					$medium = get_sub_field('post_columns_medium');
-					$mlarge = get_sub_field('post_columns_mlarge');
-					$large = get_sub_field('post_columns_large');
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';
-
-					if( have_rows('content_column') ):
-						?>
-							<section class="inti-block content-block columns<?php echo $classes; ?>"<?php echo $style; ?>>
-								<?php if ($title) : ?>	
-									<div class="grid-container to-animate">
-										<div class="grid-x grid-margin-x">
-											<div class="small-12 cell">
-												<header class="block-header">
-													<h3><?php echo $title; ?></h3>
-												</header>
-											</div><!-- .cell -->
-										</div><!-- .grid-x .grid-container-x -->
-									</div><!-- .grid-container -->
-								<?php endif; ?>
-								<div class="grid-container to-animate">
-									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
-
-									<?php
-										$c = 1; 
-										while ( have_rows('content_column') ) : the_row(); ?>
-										<div class="small-12 cell">
-											
-											<article id="inti-block-entry-<?php echo $c; ?>" class="inti-block-entry">
-												<div class="entry-body">
-
-													<div class="entry-content">
-														<?php inti_hook_page_content_before_the_content(); ?>
-														<?php the_sub_field('content'); ?>
-														<?php inti_hook_page_content_after_the_content(); ?>
-													</div><!-- .entry-content -->
-													
-												</div><!-- .entry-body -->
-											</article><!-- #post -->
-
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
 										</div>
-									<?php $c++; endwhile; ?>
 
-									</div>
+								<?php
+									endwhile; ?>
 								</div>
-							</section>
-					<?php endif; ?>
+							</div>
+						</div>
+						<?php
+							endif; ?>
+					</section>
 
 
 
@@ -222,6 +131,7 @@ function child_flexible_content_blocks() {
 				elseif( get_row_layout() == 'content_block_grid' ):
 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 
 					$small = get_sub_field('post_columns_small');
 					$medium = get_sub_field('post_columns_medium');
@@ -231,60 +141,95 @@ function child_flexible_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 
 			
-					if( have_rows('content_column') ):
-						?>
-							<section class="inti-block paragraph-grid<?php echo $classes; ?>"<?php echo $style; ?>>
-								<?php if ($title) : ?>	
-									<div class="grid-container to-animate">
-										<div class="grid-x grid-margin-x">
-											<div class="small-12 cell">
-												<header class="block-header">
-													<h3><?php echo $title; ?></h3>
-												</header>
-											</div><!-- .cell -->
-										</div><!-- .grid-x .grid-container-x -->
-									</div><!-- .grid-container -->
-								<?php endif; ?>
+					if( have_rows('content_column') ): ?>
+						<section class="inti-block paragraph-grid<?php echo $classes; ?>"<?php echo $style; ?>>
+							<?php if ($title || $subtitle) : ?>	
 								<div class="grid-container to-animate">
-									<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
-
-									<?php
-										$c = 1; 
-										while ( have_rows('content_column') ) : the_row(); ?>
+									<div class="grid-x grid-margin-x">
 										<div class="small-12 cell">
-											
-											<article id="inti-block-entry-<?php echo $c; ?>" class="inti-block-entry">
-												<div class="entry-body">
+											<header class="block-header">
+												<?php if ($title) : ?>
+													<span class="entry-title"><?php echo $title; ?></span>
+												<?php endif; ?>
+												<?php if ($subtitle) : ?>
+													<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+												<?php endif; ?>
+											</header>
+										</div><!-- .cell -->
+									</div><!-- .grid-x .grid-container-x -->
+								</div><!-- .grid-container -->
+							<?php endif; ?>
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
-													<div class="entry-content">
-														<?php inti_hook_page_content_before_the_content(); ?>
-														<?php the_sub_field('content'); ?>
-														<?php inti_hook_page_content_after_the_content(); ?>
-													</div><!-- .entry-content -->
-													
-												</div><!-- .entry-body -->
-											</article><!-- #post -->
+								<?php while ( have_rows('content_column') ) : the_row(); ?>
+									<div class="small-12 cell">
+										
+										<article id="" class="entry-body">
+											<div class="entry-body">
 
-										</div>
-									<?php $c++; endwhile; ?>
+												<div class="entry-content">
+													<?php inti_hook_page_content_before_the_content(); ?>
+													<?php the_sub_field('content'); ?>
+													<?php inti_hook_page_content_after_the_content(); ?>
+												</div><!-- .entry-content -->
+												
+											</div><!-- .entry-body -->
+										</article><!-- #post -->
 
 									</div>
+								<?php endwhile; ?>
+
 								</div>
-							</section>
+							</div>
+							<?php 
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
+									?>
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+									<div class="cta-buttons">
+
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
+
+											<div class="cell">
+												<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
+
+								<?php
+										endwhile; ?>
+									</div>
+								</div>
+							</div>
+							<?php
+								endif; ?>
+						</section>
 					<?php endif; ?>
-
-
 
 
 
@@ -303,27 +248,28 @@ function child_flexible_content_blocks() {
 					$large = get_sub_field('post_columns_large');
 
 					$order = get_sub_field('order');
-					$post_category = '';
+					$post_category = "";
 					if (get_sub_field('only_show_posts_from')) {
 						$post_category = implode(',', get_sub_field('only_show_posts_from'));
 					}
-					$showlinktoblog = get_sub_field('show_link_to_blog_index');
-					$blogindexurl = get_sub_field('select_page_set_as_blog_index');
-					$bloglinktext = get_sub_field('text_for_the_button_to_view');
 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
+					$titlelink = get_sub_field('title_link');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
-					$classes = ""; $style = "";
+					$classes = ""; $style = "";	
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 
@@ -344,7 +290,16 @@ function child_flexible_content_blocks() {
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
-											<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
+											<?php if ($title) : ?>
+												<?php if ($titlelink) : ?>
+													<a href="<?php echo $titlelink; ?>">
+														<span class="entry-title title-link"><?php echo $title; ?></span>
+													</a>
+												<?php else : ?>
+													<span class="entry-title"><?php echo $title; ?></span>
+												<?php endif; ?>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?><div class="entry-subtitle"><?php echo $subtitle; ?></div><?php endif; ?>
 											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
 										</header>
 									</div><!-- .cell -->
@@ -354,20 +309,22 @@ function child_flexible_content_blocks() {
 						<div class="grid-container to-animate">
 							<?php if ( $recent_posts_query->have_posts() ) : ?>
 							
-								<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+								<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?> colored<?php if ($number_posts > 3) : echo " many"; else: echo " normal"; endif;?>">
 								
-									<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); global $more; $more = 0; ?>
+								<?php while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post(); ?>
 										
-										<div class="cell">
-											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-												<?php include(locate_template('template-parts/part-post-mini.php')); ?>
-											</a>
-										</div><!-- .cell -->										
+										
+									<div class="cell">
+										<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+											<?php include(locate_template('template-parts/part-post-mini.php')); ?>
+										</a>
+									</div><!-- .cell -->
 
-									<?php endwhile; // end of the loop 
-										wp_reset_query(); ?>
+								<?php endwhile; // end of the loop 
+									wp_reset_query(); ?>
 									
 								</div><!-- .grid-x -->
+								
 								
 							<?php else: ?>
 								<div class="grid-container">
@@ -379,20 +336,41 @@ function child_flexible_content_blocks() {
 									</div>
 								</div>
 							<?php endif; // end have_posts() check ?>
-							<?php if ($showlinktoblog) : ?>
-								<div class="grid-container">
-									<nav class="content-navigation block-blog-posts-navigation" role="navigation">
-										<div class="grid-x grid-margin-x">
-											<div class="small-12 cell">
-												<a href="<?php echo $bloglinkurl; ?>" class="button"><?php echo $bloglinktext; ?></a>
-											</div>
-										</div><!-- .grid-x -->
-									</nav>
-								</div>
-							<?php endif; ?>
 						</div><!-- .grid-container -->
-					</section>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
 
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
+					</section>
 
 
 
@@ -408,34 +386,41 @@ function child_flexible_content_blocks() {
 					$large = get_sub_field('post_columns_large');
 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block services<?php echo $classes; ?>"<?php echo $style; ?>>		
-					<?php if ($title || $description) : ?>	
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 cell">
-									<header class="block-header">
-										<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
-										<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-									</header>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
-					<?php endif; ?>					
+						<?php if ($title || $subtitle) : ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>				
 						<div class="grid-container fluid to-animate">
 							<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
@@ -522,60 +507,40 @@ function child_flexible_content_blocks() {
 						?>
 		
 						</div>
-					</section>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
 
-
-
-
-
-				<?php
-				/**
-				 * Personal Bio - a content area with a second column for a featured image on that post.
-				 * Useful for for things like personal bios. Add featured image as a img element or place
-				 * it in the div as a background image
-				 */
-				elseif( get_row_layout() == 'personal_bio' ): 
-					$title = get_sub_field('title');
-					$image = get_sub_field('featured_image');
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';
-				?>
-					<section class="inti-block personal-bio<?php echo $classes; ?>"<?php echo $style; ?>>	
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
 						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 mlarge-6 cell">
-									<article class="entry-body">
-										<?php if ($title) : ?>	
-											<header class="block-header">
-												<h3><?php echo $title; ?></h3>
-											</header>
-										<?php endif; ?>
-										<div class="entry-content">
-											<?php the_sub_field('content'); ?>
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
 										</div>
-									</article>
+
+							<?php
+									endwhile; ?>
 								</div>
-								<div class="small-12 mlarge-6 cell">
-									<div class="entry-thumbnail" <?php // if($image) echo 'style="height:100%;background-image: url('. $image .');"' ?>>
-										<?php echo wp_get_attachment_image( $image, 'large', true, array('alt' => get_sub_field('title')) ); ?>
-									</div>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
+							</div>
+						</div>
+						<?php
+							endif; ?>
 					</section>
-
-
 
 
 
@@ -584,24 +549,54 @@ function child_flexible_content_blocks() {
 				 * Featured Image
 				 */
 				elseif( get_row_layout() == 'featured_image' ): 
+
+					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
+					$description = get_sub_field('description');
+
 					$image = get_sub_field('image');
+					$display_as = get_sub_field('display_as');
 					$loc = get_sub_field('image_location');
 					$alt = get_sub_field('image_alt');
 
 					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
+					$bgimg = wp_get_attachment_image_url( $image, 'background' );
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
+					if ($display_as == 'bg') $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
-					<section class="inti-block featured-image<?php echo $classes; ?>"<?php echo $style; ?>>							
+					<section class="inti-block featured-image<?php echo $classes; ?>"<?php echo $style; ?>>	
+
+					<?php if ($display_as == 'block') : ?>
+						<?php if ($title || $description) : ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?>
+													<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+											<?php if ($description) : ?>
+												<div class="entry-summary"><?php echo $description; ?></div>
+											<?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>	
+					<?php endif; ?>							
 						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 
@@ -609,14 +604,65 @@ function child_flexible_content_blocks() {
 									switch ($loc) {
 										case "left" : ?>
 											<div class="small-12 mlarge-4 cell">
+												<?php if ($display_as == 'block') : ?>
 												<div class="entry-thumbnail">
 													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
 												</div>
+												<?php endif; ?>
 											</div>
 											<div class="small-12 mlarge-8 cell">
-												<article class="entry-body">
+												<?php if ($display_as == 'bg') : ?>
+												<header class="block-header">
+													<?php if ($title) : ?>
+														<?php if ($titlelink) : ?>
+															<a href="<?php echo $titlelink; ?>">
+																<span class="entry-title title-link"><?php echo $title; ?></span>
+															</a>
+														<?php else : ?>
+															<span class="entry-title"><?php echo $title; ?></span>
+														<?php endif; ?>
+													<?php endif; ?>
+													<?php if ($subtitle) : ?><div class="entry-subtitle"><?php echo $subtitle; ?></div><?php endif; ?>
+													<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+												</header>
+												<?php endif; ?>
+												<article class="entry-body image-left<?php if ($display_as == 'bg') echo ' padded'; ?>">
 													<div class="entry-content">
 														<?php the_sub_field('content'); ?>
+
+														<?php 
+															$column_count = get_sub_field('call_to_action_buttons');
+															if (is_array($column_count)) {
+																$column_count = count($column_count);
+															} 
+
+															if( have_rows('call_to_action_buttons') ): 
+																
+																?>
+														<div class="grid-container full">
+															<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+																<div class="cta-buttons">
+
+																<?php
+																	while ( have_rows('call_to_action_buttons') ) : the_row(); 
+																		$url = get_sub_field('button_url');
+																		$txt = get_sub_field('button_text');
+																		$blank = get_sub_field('new_tab');
+																?>
+
+																		<div class="cell">
+																			<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+																				<?php echo $txt; ?>
+																			</a>
+																		</div>
+
+															<?php
+																	endwhile; ?>
+																</div>
+															</div>
+														</div>
+														<?php
+															endif; ?>
 													</div>
 												</article>
 											</div><!-- .cell -->
@@ -626,56 +672,75 @@ function child_flexible_content_blocks() {
       									break;
 										case "right" : ?>
 											<div class="small-12 mlarge-8 cell">
-												<article class="entry-body">
+												<?php if ($display_as == 'bg') : ?>
+												<header class="block-header">
+													<?php if ($title) : ?>
+														<?php if ($titlelink) : ?>
+															<a href="<?php echo $titlelink; ?>">
+																<span class="entry-title title-link"><?php echo $title; ?></span>
+															</a>
+														<?php else : ?>
+															<span class="entry-title"><?php echo $title; ?></span>
+														<?php endif; ?>
+													<?php endif; ?>
+													<?php if ($subtitle) : ?><div class="entry-subtitle"><?php echo $subtitle; ?></div><?php endif; ?>
+													<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+												</header>
+												<?php endif; ?>
+												<article class="entry-body image-right<?php if ($display_as == 'bg') echo ' padded'; ?>">
 													<div class="entry-content">
 														<?php the_sub_field('content'); ?>
+
+														<?php 
+															$column_count = get_sub_field('call_to_action_buttons');
+															if (is_array($column_count)) {
+																$column_count = count($column_count);
+															} 
+
+															if( have_rows('call_to_action_buttons') ): 
+																
+																?>
+														<div class="grid-container full">
+															<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+																<div class="cta-buttons">
+
+																<?php
+																	while ( have_rows('call_to_action_buttons') ) : the_row(); 
+																		$url = get_sub_field('button_url');
+																		$txt = get_sub_field('button_text');
+																		$blank = get_sub_field('new_tab');
+																?>
+
+																		<div class="cell">
+																			<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+																				<?php echo $txt; ?>
+																			</a>
+																		</div>
+
+															<?php
+																	endwhile; ?>
+																</div>
+															</div>
+														</div>
+														<?php
+															endif; ?>
 													</div>
 												</article>
 											</div>
 											<div class="small-12 mlarge-4 cell">
+												<?php if ($display_as == 'block') : ?>
 												<div class="entry-thumbnail">
 													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
 												</div>
+												<?php endif; ?>
 											</div><!-- .cell -->
 
 
+									
 									<?php
-      									break;
-										case "top" : ?>
-											<div class="small-12 cell">
-												<div class="entry-thumbnail">
-													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
-												</div>
-											</div>
-											<div class="small-12 cell">
-												<article class="entry-body">
-													<div class="entry-content">
-														<?php the_sub_field('content'); ?>
-													</div>
-												</article>
-											</div><!-- .cell -->
-
-
-									<?php
-      									break;
-										case "bottom" : ?>
-											<div class="small-12 cell">
-												<article class="entry-body">
-													<div class="entry-content">
-														<?php the_sub_field('content'); ?>
-													</div>
-												</article>
-											</div>
-											<div class="small-12 cell">
-												<div class="entry-thumbnail">
-													<?php echo wp_get_attachment_image( $image, 'large', false, array('alt' => get_sub_field('image_alt')) ); ?>
-												</div>
-											</div><!-- .cell -->
-
-									<?php
-      									break;
+										break;
 									}
-								 ?>
+								?>
 								
 							
 							</div><!-- .grid-x .grid-container-x -->
@@ -683,6 +748,127 @@ function child_flexible_content_blocks() {
 					</section>
 
 
+
+				<?php
+				/**
+				 * Staff Members, Board - Shows inti-person post types
+				 */
+				elseif( get_row_layout() == 'people_grid' ):				
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
+
+					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
+					$description = get_sub_field('description');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+				?>
+					<section class="inti-block persons<?php echo $classes; ?>"<?php echo $style; ?>>		
+					<?php if ($title || $description) : ?>	
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x">
+								<div class="small-12 cell">
+									<header class="block-header">
+										<?php if ($title) : ?>
+											<span class="entry-title"><?php echo $title; ?></span>
+										<?php endif; ?>
+										<?php if ($subtitle) : ?>
+											<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+										<?php endif; ?>
+										<?php if ($description) : ?>
+											<div class="entry-summary"><?php echo $description; ?></div>
+										<?php endif; ?>
+									</header>
+								</div><!-- .cell -->
+							</div><!-- .grid-x .grid-container-x -->
+						</div><!-- .grid-container -->
+					<?php endif; ?>					
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+
+						<?php
+							if( have_rows('persons_selected') ): 
+								// loop through the rows of data
+								while ( have_rows('persons_selected') ) : the_row(); 
+									$person = get_sub_field('person');
+
+									$jobtitle = get_field('job_role', $person->ID);
+									$linkedin = get_field('linkedin_profile', $person->ID);
+									$twitter = get_field('twitter_profile', $person->ID);
+
+									$allow_access = get_field('allow_access', $person->ID);
+								?>
+								<div class="cell">
+									<?php if ($allow_access) : ?>
+									<a href="<?php echo get_permalink($person->ID); ?>" 
+										rel="bookmark" 
+										title="<?php echo $person->post_title; ?>">
+									<?php endif; ?>
+										<?php 
+											// Here we can add a html for People, or we can reference a template as with posts
+											// include(locate_template('template-parts/part-inti-person-mini.php')); ?>
+									<?php if ($allow_access) : ?>
+									</a>
+									<?php endif; ?>
+								</div><!-- .cell -->
+														
+								<?php
+								endwhile;
+
+							endif;
+						?>
+		
+						</div>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
+
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
+					</section>
 
 
 
@@ -692,6 +878,7 @@ function child_flexible_content_blocks() {
 				 */
 				elseif( get_row_layout() == 'icon_buttons' ): 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
 
 					$small = get_sub_field('post_columns_small');
@@ -702,32 +889,41 @@ function child_flexible_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block icon-buttons<?php echo $classes; ?>"<?php echo $style; ?>>	
 						<?php if ($title || $description) : ?>	
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x align-center">
-								<div class="small-12 cell">
-									<header class="block-header">
-										<?php if ($title) : ?><h3 class="default"><?php echo $title; ?></h3><?php endif; ?>
-										<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-									</header>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
-						<?php endif; ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+											<?php if ($description) : ?>
+												<div class="entry-summary"><?php echo $description; ?></div>
+											<?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>
 					
 						<div class="grid-container">
-							<div class="grid-x grid-margin-x grid-padding-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+							<div class="grid-x grid-margin-x grid-padding-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?><?php if ($center) echo " align-center"; ?>">
 								
 								<?php if( have_rows('icons') ): ?>
 
@@ -750,14 +946,14 @@ function child_flexible_content_blocks() {
 													<?php if ($link) : ?>
 														<a href="<?php echo $link_url; ?>">
 													<?php endif; ?>
-													<?php echo wp_get_attachment_image( $img, 'square-small', true, array('alt' => $icon_title) ); ?>
+													<?php echo wp_get_attachment_image( $img, 'square-200', true, array('alt' => $icon_title) ); ?>
 													<?php if ($link) : ?>
 														</a>
 													<?php endif; ?>
 												</div>
 												<?php if ($icon_title || $icon_text) : ?>	
 												<div class="entry-header">
-													<h3>
+													<span class="entry-title">
 													<?php if ($link) : ?>
 														<a href="<?php echo $link_url; ?>">
 													<?php endif; ?>
@@ -765,13 +961,17 @@ function child_flexible_content_blocks() {
 													<?php if ($link) : ?>
 														</a>
 													<?php endif; ?>
-													</h3>
+													</span>
 													<?php if ($icon_text) : ?><div class="entry-summary"><?php echo $icon_text; ?></div><?php endif; ?>
 													<?php if ($link) : ?>
 														<?php if ($make_button != "no") : ?>
-															<a href="<?php echo $link_url ?>" class="button <?php echo $make_button; ?>"><?php echo $link_text; ?></a>
+															<?php if ($invert) : ?>
+																<a href="<?php echo $link_url ?>" class="button white hollow"><?php echo $link_text; ?></a>
+															<?php else : ?>
+																<a href="<?php echo $link_url ?>" class="button <?php echo $make_button; ?>"><?php echo $link_text; ?></a>
+															<?php endif; ?>
 														<?php else : ?>
-															<a href="<?php echo $link_url; ?>"><?php echo $link_text; ?></a>
+															<a href="<?php echo $link_url; ?>" class="clear"><?php echo $link_text; ?></a>
 														<?php endif; ?>
 													<?php endif; ?>
 												</div>
@@ -786,10 +986,7 @@ function child_flexible_content_blocks() {
 								<?php endif; ?>
 							</div>
 						</div>
-
 					</section>
-
-
 
 
 
@@ -799,18 +996,22 @@ function child_flexible_content_blocks() {
 				 */
 				elseif( get_row_layout() == 'accordion' ):
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invite_text');
+					$big = get_sub_field('make_big');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 
@@ -823,8 +1024,15 @@ function child_flexible_content_blocks() {
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
-											<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
-											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+											<?php if ($description) : ?>
+												<div class="entry-summary"><?php echo $description; ?></div>
+											<?php endif; ?>
 										</header>
 									</div><!-- .cell -->
 								</div><!-- .grid-x .grid-container-x -->
@@ -852,6 +1060,39 @@ function child_flexible_content_blocks() {
 									</div>
 								</div>
 							</div>
+							<?php 
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
+									?>
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+									<div class="cta-buttons">
+
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
+
+											<div class="cell">
+												<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
+
+								<?php
+										endwhile; ?>
+									</div>
+								</div>
+							</div>
+							<?php
+								endif; ?>
 						</section>
 					<?php endif; ?>
 
@@ -864,24 +1105,26 @@ function child_flexible_content_blocks() {
 				 * Tabs Content
 				 */
 				elseif( get_row_layout() == 'tabs' ):
-
 					$tabs = get_sub_field('items');
 					$tab_count = count($tabs);
 					$orientation = get_sub_field('orientation');
 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 
@@ -893,14 +1136,21 @@ function child_flexible_content_blocks() {
 								<div class="grid-x grid-margin-x">
 									<div class="small-12 cell">
 										<header class="block-header">
-											<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
-											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+											<?php if ($description) : ?>
+												<div class="entry-summary"><?php echo $description; ?></div>
+											<?php endif; ?>
 										</header>
-									</div><!-- .cell -->
+									</div><!
 								</div><!-- .grid-x .grid-container-x -->
 							</div><!-- .grid-container -->
 						<?php endif; ?>
-							<div class="grid-container to-animate">
+							<div class="grid-container full to-animate">
 
 								<?php $id = md5(uniqid(rand(), true)); ?>
 
@@ -975,8 +1225,40 @@ function child_flexible_content_blocks() {
 
 								<?php endif; ?>
 
-
 							</div>
+							<?php 
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
+									?>
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+									<div class="cta-buttons">
+
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
+
+											<div class="cell">
+												<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
+
+								<?php
+										endwhile; ?>
+									</div>
+								</div>
+							</div>
+							<?php
+								endif; ?>
 						</section>
 					<?php endif; ?>
 
@@ -990,6 +1272,7 @@ function child_flexible_content_blocks() {
 				 */
 				elseif( get_row_layout() == 'video' ): 
 					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
 					$aspect = get_sub_field('aspect_ratio');
 					$source = get_sub_field('video_source');
@@ -998,29 +1281,38 @@ function child_flexible_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
+					if ($invert) $classes .= " invert-text";
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block video<?php echo $classes; ?>"<?php echo $style; ?>>
-					<?php if ($title || $description) : ?>	
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x">
-								<div class="small-12 cell">
-									<header class="block-header">
-										<?php if ($title) : ?><h3><?php echo $title; ?></h3><?php endif; ?>
-										<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-									</header>
-								</div><!-- .cell -->
-							</div><!-- .grid-x .grid-container-x -->
-						</div><!-- .grid-container -->
-					<?php endif; ?>								
+						<?php if ($title || $description) : ?>	
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x">
+									<div class="small-12 cell">
+										<header class="block-header">
+											<?php if ($title) : ?>
+												<span class="entry-title"><?php echo $title; ?></span>
+											<?php endif; ?>
+											<?php if ($subtitle) : ?>
+												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+											<?php endif; ?>
+											<?php if ($description) : ?>
+												<div class="entry-summary"><?php echo $description; ?></div>
+											<?php endif; ?>
+										</header>
+									</div><!-- .cell -->
+								</div><!-- .grid-x .grid-container-x -->
+							</div><!-- .grid-container -->
+						<?php endif; ?>							
 						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 								<div class="small-12 cell">
@@ -1056,6 +1348,39 @@ function child_flexible_content_blocks() {
 								</div><!-- .cell -->
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
+
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
 					</section>
 
 
@@ -1106,6 +1431,39 @@ function child_flexible_content_blocks() {
 								</div><!-- .cell -->
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
+
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
 					</section>
 
 
@@ -1254,6 +1612,39 @@ function child_flexible_content_blocks() {
 							</div>
 						</div>
 					<?php endif; ?>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
+
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
 				</section>				
 
 
@@ -1640,6 +2031,39 @@ function child_flexible_content_blocks() {
 						<?php endif; ?>
 
 					<?php endif; ?>
+						<?php 
+							$column_count = get_sub_field('call_to_action_buttons');
+							if (is_array($column_count)) {
+								$column_count = count($column_count);
+							} 
+
+							if( have_rows('call_to_action_buttons') ): 
+								
+								?>
+						<div class="grid-container to-animate">
+							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								<div class="cta-buttons">
+
+								<?php
+									while ( have_rows('call_to_action_buttons') ) : the_row(); 
+										$url = get_sub_field('button_url');
+										$txt = get_sub_field('button_text');
+										$blank = get_sub_field('new_tab');
+								?>
+
+										<div class="cell">
+											<a href="<?php echo $url; ?>" class="button primary hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+												<?php echo $txt; ?>
+											</a>
+										</div>
+
+							<?php
+									endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							endif; ?>
 				</section>
 
 

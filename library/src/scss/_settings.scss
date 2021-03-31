@@ -65,7 +65,7 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 112.5%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -80,6 +80,10 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
+$tw-color: #1DA1F2;
+$fb-color: #3b5998;
+$li-color: #0072b1;
+$yt-color: #c4302b;
 $body-background: $white;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
@@ -174,7 +178,9 @@ $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $enable-code-inline: true;
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+  $anchor-color-hover: $secondary-color;
+  $anchor-color-hover-scale: -44%;
+  // $anchor-color-hover: scale-color($anchor-color, $lightness: $anchor-color-hover-scale);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -301,7 +307,10 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+  $button-background-hover: $secondary-color;
+  $button-background-hover-scale: $anchor-color-hover-scale;
+  // $button-background-hover: scale-color($button-background, $lightness: $button-background-hover-scale);
+  // $button-background-hover: $lacre;
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;

@@ -23,6 +23,7 @@ body.single.single-post {
 }
 
 // Article - the page/post meat
+// Posts
 article {
 	.entry-body { }
 	.entry-header {}
@@ -69,6 +70,72 @@ article {
 
 	&.featured {
 		@include callout($primary-color);
+	}
+}
+
+// Person
+article.inti-person {
+	.entry-body {}
+	.entry-thumbnail {}
+	.entry-header {
+		margin-bottom: $global-margin;
+
+		.entry-title {
+			margin-bottom: 0;
+
+			.linkedin { 
+				display: inline-block;
+				margin-left: 2px;
+				@extend .h3;
+						
+					a { @include anchor-color($body-font-color, $li-color); }
+			}
+
+			.twitter { 
+				display: inline-block;
+				margin-left: 2px;
+				@extend .h3;
+						
+					a { @include anchor-color($body-font-color, $tw-color); }
+			}
+		}
+		span.job-title {
+			display: block; @extend .h6;
+		}
+	}
+
+	&.mini {
+		.entry-body { margin-bottom: $global-margin; }
+		.entry-thumbnail {
+			margin-bottom: $global-margin;
+		}
+		.entry-header {
+			span.entry-title {
+				display: block; @extend .h4; margin-bottom: 0;
+
+					.linkedin, .twitter { 
+						 font-size: rem-calc(14); margin-bottom: 0; font-weight: 400;
+						i.fab { padding: 0 2px 2px;  }
+					}
+			}
+
+		}
+
+		a &:hover {
+			.entry-thumbnail { opacity: 0.9; }
+		}
+		&:hover {
+			.entry-header {
+				span.entry-title {
+					.linkedin {
+						color: $li-color;
+					}
+					.twitter {
+						color: $tw-color;
+					}
+				}
+			}
+		}
 	}
 }
 

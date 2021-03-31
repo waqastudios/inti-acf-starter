@@ -26,6 +26,10 @@ function change_post_type_titles( $title ){
         $title = __('Enter person\'s name', 'inti-child');
     }
 
+    if  ( 'inti-person' == $screen->post_type && inti_current_theme_supports('inti-post-types', 'person') ) {
+        $title = __('Enter person\'s name', 'inti-child');
+    }
+
     if  ( 'inti-opt-in' == $screen->post_type && inti_current_theme_supports('inti-post-types', 'opt-in') ) {
         $title = __('Purpose/Name', 'inti-child');
     }
@@ -38,7 +42,6 @@ function change_post_type_titles( $title ){
  * Post Type - Slide
  * @since 1.1.0
  * Related Taxonomy: None
- * Related Metaboxes: None
  */
 if (inti_current_theme_supports('inti-post-types', 'slide') ) {
 	add_action('init', 'slide_post_type_init');
@@ -86,7 +89,6 @@ if (inti_current_theme_supports('inti-post-types', 'slide') ) {
  * Post Type - Logo
  * @since 1.0.3
  * Related Taxonomy: None
- * Related Metaboxes: inti_register_logo_metabox
  */
 if (inti_current_theme_supports('inti-post-types', 'logo') ) {
 	add_action('init', 'logo_post_type_init');
@@ -133,7 +135,6 @@ if (inti_current_theme_supports('inti-post-types', 'logo') ) {
  * Post Type - Testimonial
  * @since 1.0.3
  * Related Taxonomy: inti-testimonial-group
- * Related Metaboxes: inti_register_testimonial_metabox
  */
 if (inti_current_theme_supports('inti-post-types', 'testimonial') ) {
 	add_action('init', 'testimonial_post_type_init');
@@ -181,7 +182,6 @@ if (inti_current_theme_supports('inti-post-types', 'testimonial') ) {
  * Post Type - Service
  * @since 1.0.3
  * Related Taxonomy: inti-service-category
- * Related Metaboxes: inti_register_service_metabox
  */
 if (inti_current_theme_supports('inti-post-types', 'service') ) {
 	add_action('init', 'service_post_type_init');
@@ -222,6 +222,54 @@ if (inti_current_theme_supports('inti-post-types', 'service') ) {
 			)
 		);
 		register_post_type('inti-service',$args);
+	}
+}
+
+
+/**
+ * Post Type - Person
+ * @since 1.5.0
+ * Related Taxonomy: inti-person-category
+ */
+if (inti_current_theme_supports('inti-post-types', 'person') ) {
+	add_action('init', 'person_post_type_init');
+	function person_post_type_init() {
+		$labels = array(
+			'name' => _x('People', 'post type general name', 'inti-child'),
+			'singular_name' => _x('Person', 'post type singular name', 'inti-child'),
+			'add_new' => __('Add New', 'Person', 'inti-child'),
+			'add_new_item' => __('Add New Person', 'inti-child'),
+			'edit_item' => __('Edit Person', 'inti-child'),
+			'new_item' => __('New Person', 'inti-child'),
+			'view_item' => __('View Person', 'inti-child'),
+			'search_items' => __('Search People', 'inti-child'),
+			'not_found' =>  __('No Person found', 'inti-child'),
+			'not_found_in_trash' => __('No Person found in Trash', 'inti-child'), 
+			'parent_item_colon' => '',
+			'menu_name' => _x('People', '', 'inti-child')
+		);
+		$args = array(
+			'labels' => $labels,
+			'public' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true, 
+			'rewrite' => array( 'slug' => 'people' ),
+			'has_archive' => true,
+			'query_var' => true,
+			'capability_type' => 'page',
+			'hierarchical' => true,
+			'show_in_nav_menus' => true,
+			'menu_position' => 35,
+			'menu_icon' => 'dashicons-businesswoman', 
+			'taxonomies' => array('inti-person-category'),
+			'supports' => array(
+				'title',
+				'thumbnail',
+				'editor',
+				'page-attributes'
+			)
+		);
+		register_post_type('inti-person',$args);
 	}
 }
 

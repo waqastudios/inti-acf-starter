@@ -10,13 +10,13 @@ ul.accordion {
 	margin: 0 0 $global-margin;
 
 		li.accordion-item {
-			background-color: $white;
+			background-color: $white; transition: $global-transition;
 			&:before { display: none; } // hide standard bullet formatting
 
 			> p { display: none; }
 			
 			a.accordion-title { 
-				color: $anchor-color;
+				color: $anchor-color; transition: $global-transition;
 
 					&::before {
 						font-family: 'Font Awesome 5 Free';	font-weight: 900; // content: ""; from $accordion-plus-content, $accordion-minus-content
@@ -44,7 +44,7 @@ ul.accordion {
 			}
 
 			&.is-active {
-				a { 
+				a.accordion-title { 
 					background-color: $anchor-color; color: $white;
 
 						&::before {
@@ -54,28 +54,51 @@ ul.accordion {
 						}
 				}
 			}
+
+			.accordion-content {
+				border-radius: 0;
+			}
 		}
+
+	//Large
+	&.large {
+		li.accordion-item {
+			a.accordion-title {
+				font-size: $accordion-title-font-size*1.5;
+			}
+		}
+	}
 }
 ul.tabs {
-	margin: 0;
+	margin: 0; display: flex; flex-wrap: wrap; flex-direction: row;
 		li.tabs-title {
+			flex: 1 1 0px;
+			transition: $global-transition;
+
 			&:before { display: none; } // hide standard bullet formatting
 			a { 
+				transition: $global-transition;
+
 				&:hover { 
-					background-color: $tab-background-active; //: $light-gray;
-					
-					color: $white; 
+					background-color: $tab-background-active; text-decoration: none;
+					color: $white !important; 
 				} 
+				&:focus { 
+					background-color: $tab-background-active;
+					color: $white !important; 
+				}
 			}
 
 			&.is-active {
 				background-color: $tab-active-color; //: $primary-color;
+				a { color: $white !important; }
 			}
 		}
 }
 
 .tabs-content { margin: 0; border-width: 1px; &.vertical { border-left: 1px solid $tab-content-border; } }
 .tabs-wrapper {
+	margin-bottom: $global-margin;
 		> p { display: none; }
 }
 

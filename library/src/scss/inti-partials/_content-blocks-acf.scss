@@ -17,11 +17,45 @@ section.inti-block {
 
 		// Header/Intro sections in each block
 		header.block-header {
-			h3 {
-				@extend .h1;
+			margin-bottom: $global-margin*1.5; 
+
+				.entry-title {
+					@extend .h1;
+					display: block; color: $body-font-color;
+					margin-bottom: $global-margin/3;
+				}
+				.entry-subtitle {
+					@extend .h5; color: $secondary-color; margin-bottom: $global-margin/3;
+				}
+
+				.entry-summary {
+					margin-top: $global-margin/2;
+
+					p {  }
+					h1, h2, h3, h4, h5, h6 {  }
+				}
+		}
+
+		.cta-buttons {
+			margin-top: $global-margin;
+			button, .button {
+				@extend .black; margin-bottom: 0;
 			}
-			.entry-summary {
-				p {}
+		}
+
+		&.centered {
+			header.block-header {
+				text-align: center;
+
+					.entry-title {
+
+					}
+					.entry-summary {
+						ul { display: inline flow-root list-item; }
+					}
+			}
+			.cta-buttons {
+				text-align: center;
 			}
 		}
 
@@ -49,6 +83,20 @@ section.inti-block {
 			background-position: 50%;
 		}
 
+		&.light-gray {
+			background-color: $light-gray;
+		}
+		&.medium-gray {
+			background-color: $medium-gray;
+		}
+		&.black {
+			background-color: $black;
+		}
+
+		&.padding-top-none { padding-top: 0; }
+		&.padding-bottom-none { padding-bottom: 0; }
+		&.padding-none { padding: 0; }
+
 
 		// Shows the content from any other page
 		&.page-post {}
@@ -56,14 +104,11 @@ section.inti-block {
 		// Shows the simple content
 		&.content-block {}
 
-		// Shows the simple content in multiple columns
-		&.content-block.columns {}
+		// Shows the simple content in multiple grid
+		&.content-block.grid {}
 
 		// Shows the a list of blog posts, usually in columns
 		&.recent-posts {}
-
-		// Shows the a list of blog posts, usually in columns
-		&.personal-bio {}
 
 		// Shows inti-service post types
 		&.services {
@@ -73,6 +118,80 @@ section.inti-block {
 				}
 			}
 		}
+
+		// Shows a featured image and text
+		&.featured-image {}
+
+		// Shows a grid of large clickable card-like buttons
+		&.shortcut-buttons {
+			article.icon {
+				padding: $global-padding;
+				background-color: $medium-gray;
+				transition: $global-transition;
+				height: 100%;
+
+				@include breakpoint(mlarge up) {
+					padding: $global-padding*2;
+				}
+
+				.icon-wrapper {
+					border: 1px solid; border-radius: 50%; transition: $global-transition;
+					border-color: $white;
+					width: 80px; height: 80px; display: block; text-align: center;
+
+						.icon-point {
+							font-size: 2rem; line-height: 72px; color: $white;
+						}
+				}
+				.entry-header {
+					.entry-title {
+						@extend h5; text-transform: uppercase;
+						color: $white;
+					}
+				}
+
+
+				&:hover {
+					background-color: $light-gray; color: $black;
+
+					.entry-title { color: $black; }
+
+					.icon-wrapper {
+						transform: scale(1.1); border-color: $black; .icon-point { color: $black; }
+					}
+				}
+
+					&.primary-color {
+						background-color: $primary-color;
+
+						.icon-wrapper { border-color: $white; .icon-point { color: $white; } }
+						.entry-title {
+							color: $white;
+						}
+
+						&:hover {
+							background-color: rgba($primary-color, 0.75);
+						}
+					}
+
+					&.secondary-color {
+						background-color: $secondary-color;
+
+						.icon-wrapper { border-color: $white; .icon-point { color: $white; } }
+						.entry-title {
+							color: $white;
+						}
+
+						&:hover {
+							background-color: rgba($secondary-color, 0.75);
+						}
+					}
+
+			}
+		}
+
+		// Shows a grid of typical icons
+		&.icon-buttons {}
 	
 		// Shows a video from a streaming service
 		&.video {}
@@ -106,6 +225,35 @@ section.inti-block {
 							&.slick-initialized { display: block; }
 					}
 			}
+
+			blockquote {
+				background-color: transparent;
+			}
+
+			&.invert-text {
+				blockquote {
+					background-color: transparent;
+					color: $white !important;
+					.testimonial-owner, p {
+						color: $white !important;
+					}
+				}
+
+
+				.slick-prev,
+				.slick-next {
+					&:before {
+						color: $white !important;
+					}
+				}
+			}
+
+			&.centered {
+				text-align: center;
+
+				.testimonial-owner { text-align: center; }
+			}
+
 		}
 
 }

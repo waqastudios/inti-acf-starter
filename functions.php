@@ -26,7 +26,7 @@ function childtheme_override_setup() {
 	 */ 
 	add_theme_support(
 		'inti-post-types',
-		array('slide', 'service', 'testimonial', 'logo', 'opt-in')
+		array('slide', 'service', 'person', 'testimonial', 'logo', 'opt-in')
 	);
 	
 	add_theme_support(
