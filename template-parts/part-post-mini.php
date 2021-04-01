@@ -6,7 +6,7 @@
 					<?php  if ( has_post_thumbnail() ) : ?>
 						<?php the_post_thumbnail( 'square-medium', array( 'class' => 'square-medium', 'alt' => get_the_title() ) ); ?>
 					<?php else : ?>
-						<?php inti_do_srcset_image(get_stylesheet_directory_uri() . '/library/dist/img/blank-post.png', esc_attr( get_the_title())); ?>
+						<?php inti_do_srcset_image(get_stylesheet_directory_uri() . '/library/dist/img/default_square-medium.jpg', esc_attr( get_the_title())); ?>
 					<?php endif; ?>
 				</div>
 			</div>

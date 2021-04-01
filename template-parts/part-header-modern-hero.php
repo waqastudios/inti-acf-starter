@@ -2,16 +2,16 @@
 
 <?php 
 	// default all
-	$hero_bg = get_inti_option('header_hero_bg', 'inti_customizer_options', get_stylesheet_directory_uri() . '/library/dist/img/dark_default_hero_background.png');
+	$hero_bg = get_inti_option('header_hero_bg', 'inti_customizer_options', get_stylesheet_directory_uri() . '/library/dist/img/default_background.jpg');
 
 	// default media/blog post archives
-	$hero_bg_archives = get_inti_option('header_hero_bg_archives', 'inti_customizer_options', get_stylesheet_directory_uri() . '/library/dist/img/dark_default_hero_background.png');
+	$hero_bg_archives = get_inti_option('header_hero_bg_archives', 'inti_customizer_options', get_stylesheet_directory_uri() . '/library/dist/img/default_background.jpg');
 
 	// dyanamic or static?
 	$banner_type = 'static';
 	$static_bg = '';
 	$dynamic_bg = '';
-
+	
 	// default size
 	$size = 'background';
 
