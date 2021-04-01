@@ -11,7 +11,7 @@
 	$banner_type = 'static';
 	$static_bg = '';
 	$dynamic_bg = '';
-	
+
 	// default size
 	$size = 'background';
 

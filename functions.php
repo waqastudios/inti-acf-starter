@@ -162,6 +162,45 @@ function childtheme_override_setup() {
 add_action('after_setup_theme', 'childtheme_override_setup', 15);
 
 
+/**
+ * ACF Options Page examples
+ */
+if( class_exists('acf') ) {
+
+	// Settings for Posts (Single)
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Posts Settings',
+		'menu_title'	=> 'Posts Settings',
+		'menu_slug' 	=> 'posts-config',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'post_id'		=> 'posts-config',
+		'parent_slug'   => 'edit.php'
+	));	
+
+	// Settings for Posts (Archives)
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Archive Settings',
+		'menu_title'	=> 'Archive Settings',
+		'menu_slug' 	=> 'posts-archives-config',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'post_id'		=> 'posts-archives-config',
+		'parent_slug'   => 'edit.php'
+	));	
+
+	// inti-person
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'People Settings',
+		'menu_title'	=> 'People Settings',
+		'menu_slug' 	=> 'persons-config',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'post_id'		=> 'persons-config',
+		'parent_slug'   => 'edit.php?post_type=inti-person'
+	));	
+
+}
 
 
 /**

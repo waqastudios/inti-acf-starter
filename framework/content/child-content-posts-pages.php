@@ -34,7 +34,7 @@ function child_do_page_header_title() {
 	if ( !is_front_page() ) : 
 		if ( !is_search() ) :
 		?>
-			<?php $acf_show = get_field('hide_main_page_title'); ?>
+			<?php $acf_show = get_field('hide_page_title'); ?>
 			<?php if (!$acf_show): ?>		
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php endif; ?>
