@@ -70,3 +70,14 @@
 
 ### 1.4.1 (Aug 16, 2020)
 - Refactored old JS
+
+### 1.5.0 (Apr 12, 2021)
+- Improved Flexible Content Blocks
+- Added additional example code, such as Person custom post type and corresponding Flexible Content Block
+- Minor bug fixes for Gutenberg Content Blocks
+- Improved functionality for adding additional menus
+- Changed XY Grid template names to XYGrid from Grid
+- Improved default image sizes and added blank image placeholders
+- Added social media profile for Telegram
+- Improved Modern Hero example header
+- Added example ACF options pages
