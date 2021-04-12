@@ -191,7 +191,23 @@ section.inti-block {
 		}
 
 		// Shows a grid of typical icons
-		&.icon-buttons {}
+		&.icon-buttons {
+			article.icon {
+				.entry-title {
+					@extend .h4; a { color: $body-font-color; }
+				}
+				.entry-summary { a { color: $body-font-color; } }
+				a.button {
+					&.clear {}
+				}
+			}
+
+			&.centered {
+				article.icon {
+					text-align: center;
+				}
+			}
+		}
 	
 		// Shows a video from a streaming service
 		&.video {}

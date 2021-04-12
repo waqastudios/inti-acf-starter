@@ -96,9 +96,10 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
+								
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -117,7 +118,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 					</section>
@@ -204,9 +205,9 @@ function child_flexible_content_blocks() {
 								if( have_rows('call_to_action_buttons') ): 
 									
 									?>
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-									<div class="cta-buttons">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 									<?php
 										while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -225,7 +226,7 @@ function child_flexible_content_blocks() {
 										endwhile; ?>
 									</div>
 								</div>
-							</div>
+							</div><!-- .cta-buttons -->
 							<?php
 								endif; ?>
 						</section>
@@ -346,9 +347,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -367,7 +368,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 					</section>
@@ -378,7 +379,7 @@ function child_flexible_content_blocks() {
 				/**
 				 * Services - Shows inti-service post types
 				 */
-				elseif( get_row_layout() == 'services' ):				
+				elseif( get_row_layout() == 'featured_services' ):				
 
 					$small = get_sub_field('post_columns_small');
 					$medium = get_sub_field('post_columns_medium');
@@ -474,9 +475,9 @@ function child_flexible_content_blocks() {
 
 														
 														<header class="entry-header">
-															<h3 class="entry-title">
+															<span class="entry-title">
 																<?php echo $service->post_title; ?>
-															</h3>
+															</span>
 														</header><!-- .entry-header -->
 														
 
@@ -516,9 +517,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -537,7 +538,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 					</section>
@@ -639,9 +640,10 @@ function child_flexible_content_blocks() {
 															if( have_rows('call_to_action_buttons') ): 
 																
 																?>
-														<div class="grid-container full">
-															<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-																<div class="cta-buttons">
+
+														<div class="cta-buttons">
+															<div class="grid-container full">
+																<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 																<?php
 																	while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -660,7 +662,7 @@ function child_flexible_content_blocks() {
 																	endwhile; ?>
 																</div>
 															</div>
-														</div>
+														</div><!-- .cta-buttons -->
 														<?php
 															endif; ?>
 													</div>
@@ -700,9 +702,9 @@ function child_flexible_content_blocks() {
 															if( have_rows('call_to_action_buttons') ): 
 																
 																?>
-														<div class="grid-container full">
-															<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-																<div class="cta-buttons">
+														<div class="cta-buttons">
+															<div class="grid-container full">
+																<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 																<?php
 																	while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -721,7 +723,7 @@ function child_flexible_content_blocks() {
 																	endwhile; ?>
 																</div>
 															</div>
-														</div>
+														</div><!-- .cta-buttons -->
 														<?php
 															endif; ?>
 													</div>
@@ -751,7 +753,7 @@ function child_flexible_content_blocks() {
 
 				<?php
 				/**
-				 * Staff Members, Board - Shows inti-person post types
+				 * Staff Members, Board etc - Shows inti-person post types
 				 */
 				elseif( get_row_layout() == 'people_grid' ):				
 
@@ -821,7 +823,7 @@ function child_flexible_content_blocks() {
 										title="<?php echo $person->post_title; ?>">
 									<?php endif; ?>
 										<?php 
-											// Here we can add a html for People, or we can reference a template as with posts
+											// Here we could add html for People, or we can reference a template as with posts
 											// include(locate_template('template-parts/part-inti-person-mini.php')); ?>
 									<?php if ($allow_access) : ?>
 									</a>
@@ -844,9 +846,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -865,9 +867,93 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
+					</section>
+
+
+
+				<?php
+				/**
+				 * Shortcut Buttons
+				 */
+				elseif( get_row_layout() == 'shortcut_buttons' ): 
+
+					$small = get_sub_field('post_columns_small');
+					$medium = get_sub_field('post_columns_medium');
+					$mlarge = get_sub_field('post_columns_mlarge');
+					$large = get_sub_field('post_columns_large');
+
+					$bgcolor = get_sub_field('background_color');
+					$bgimg = get_sub_field('background_image');
+					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
+					$cssclass = get_sub_field('css_class');
+
+					$classes = ""; $style = "";
+					if ($invert) $classes .= " invert-text";	
+					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
+					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
+					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
+					if ($style) $style = ' style="' . $style . '"';
+				?>
+					<section class="inti-block shortcut-buttons<?php echo $classes; ?>"<?php echo $style; ?>>	
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x grid-padding-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
+								
+								<?php if( have_rows('buttons') ): ?>
+
+										<?php 
+										// loop through the rows of data
+										while ( have_rows('buttons') ) : the_row();  
+											$icon = get_sub_field('icon');
+											$title = get_sub_field('title');
+											$subtitle = get_sub_field('subtitle');
+											$link = get_sub_field('link');
+											$colorcode = get_sub_field('color_code');
+										?>	
+
+										<div class="cell to-animate">
+											<?php if ($link) : ?>
+												<a href="<?php echo $link; ?>">
+											<?php endif; ?>
+												<article class="icon <?php echo $colorcode; ?>">
+
+													<div class="grid-x grid-margin-x align-middle">
+														<div class="cell shrink">
+															<?php if ( substr($icon, 0, 2) == "fa" ) : ?>
+																<span class="icon-wrapper"><span class="icon-point fontawesome"><i class="<?php echo $icon; ?>"></i></span></span>
+															<?php else : ?>
+																<span class="icon-wrapper"><span class="icon-point normal>"><?php echo $icon; ?></span></span>
+															<?php endif; ?>
+														</div>
+														<div class="cell auto">
+															<div class="entry-header">
+																<span class="entry-title">
+																	<?php echo $title; ?>
+																</span>
+															</div>
+														</div>
+													</div>
+
+												</article>
+											<?php if ($link) : ?>
+												</a>
+											<?php endif; ?>
+
+										</div>
+
+										<?php
+										endwhile;
+										?>
+
+								<?php endif; ?>
+							</div>
+						</div>
+
 					</section>
 
 
@@ -1069,9 +1155,9 @@ function child_flexible_content_blocks() {
 								if( have_rows('call_to_action_buttons') ): 
 									
 									?>
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-									<div class="cta-buttons">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 									<?php
 										while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -1090,7 +1176,7 @@ function child_flexible_content_blocks() {
 										endwhile; ?>
 									</div>
 								</div>
-							</div>
+							</div><!-- .cta-buttons -->
 							<?php
 								endif; ?>
 						</section>
@@ -1235,9 +1321,9 @@ function child_flexible_content_blocks() {
 								if( have_rows('call_to_action_buttons') ): 
 									
 									?>
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-									<div class="cta-buttons">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 									<?php
 										while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -1256,7 +1342,7 @@ function child_flexible_content_blocks() {
 										endwhile; ?>
 									</div>
 								</div>
-							</div>
+							</div><!-- .cta-buttons -->
 							<?php
 								endif; ?>
 						</section>
@@ -1357,9 +1443,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -1378,7 +1464,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 					</section>
@@ -1405,7 +1491,7 @@ function child_flexible_content_blocks() {
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
@@ -1440,9 +1526,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -1461,7 +1547,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 					</section>
@@ -1490,7 +1576,7 @@ function child_flexible_content_blocks() {
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
@@ -1621,9 +1707,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -1642,7 +1728,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 				</section>				
@@ -1671,13 +1757,15 @@ function child_flexible_content_blocks() {
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
 					$invert = get_sub_field('invert_text');
+					$center = get_sub_field('center');
 					$cssclass = get_sub_field('css_class');
 
 					$classes = ""; $style = "";
 					if ($invert) $classes .= " invert-text";	
 					if ($bgimg) $classes .= " cover";
+					if ($center) $classes .= " centered";
 					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "#FFFFFF") $style = " background-color:" . $bgcolor . ";";
+					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
 				?>
@@ -2040,9 +2128,9 @@ function child_flexible_content_blocks() {
 							if( have_rows('call_to_action_buttons') ): 
 								
 								?>
-						<div class="grid-container to-animate">
-							<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
-								<div class="cta-buttons">
+						<div class="cta-buttons">
+							<div class="grid-container to-animate">
+								<div class="grid-x grid-margin-x medium-up-<?php echo $column_count; ?> align-middle">
 
 								<?php
 									while ( have_rows('call_to_action_buttons') ) : the_row(); 
@@ -2061,7 +2149,7 @@ function child_flexible_content_blocks() {
 									endwhile; ?>
 								</div>
 							</div>
-						</div>
+						</div><!-- .cta-buttons -->
 						<?php
 							endif; ?>
 				</section>

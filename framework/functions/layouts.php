@@ -60,15 +60,14 @@ if (!function_exists('inti_get_layout')) {
 		// this is the frontpage
 		if ( is_front_page() ) { 
 			$layout = "1c";	
-			// $layout = "full-grid";	// see framework/functions/xy-grid.php 
+			// $layout = "full-xygrid";	// see framework/functions/xy-grid.php 
 		}
 
 
 		// this is the traditional inti-block template
 		if (is_page_template( 'page-templates/acf-page.php' ) ) { 
-			if ($meta != "1c") {
-				$layout = "1c";
-			}
+			$layout = "1c";	
+			// $layout = "full-xygrid";
 		}
 
 

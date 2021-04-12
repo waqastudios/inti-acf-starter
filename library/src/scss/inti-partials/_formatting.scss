@@ -15,10 +15,8 @@ a { transition: $global-transition; }
 
 .button, button, input[type=submit], input[type=button] {
 	text-transform: uppercase; font-weight: 700; text-decoration: none !important; 
-	&:hover { background-color: $black; }
 
-
-	//&:not(.secondary):not(.white):not(.hollow):not(.cta):not(.slick-arrow):not(.close-button), 
+ 
 	&.primary:not(.hollow) {
 		@include button-color($primary-color, $primary-color, $white, $white);
 	}
@@ -86,7 +84,6 @@ input[type=submit], input[type=button] {
 	h4, h5, h6 { }
 
 	a {  }
-	a:not(.button) { &::after { content: '+'; opacity: .75; } }
 
 	ul, ol {
 		margin: 0 0 $global-margin ($global-margin * 2);
