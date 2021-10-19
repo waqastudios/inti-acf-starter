@@ -129,7 +129,9 @@
 												<?php endif; ?>
 												<div class="site-title"><?php bloginfo('name'); ?></div>
 											</div>
-
+										<?php
+										else : ?>
+											<div class="top-bar-left hide-for-mlarge no-mobile-logo"></div>
 										<?php 
 										endif; ?>
 
@@ -278,14 +280,37 @@
 	<?php endif; ?>
 
 
+<?php /***
+	elseif ( is_post_type_archive('inti-service') || is_tax('inti-service-category') ) : ?>
+	<div class="site-hero inti-service static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
+		<div class="overlay"></div>
+	
+		<div class="grid-container hero-container">
+			<div class="grid-x align-center">
+				<div class="cell mlarge-6">
+					<div class="hero-message">
+						<header class="entry-header">
+							<h1 class="entry-title"><?php the_field('section_title', 'services-config') ?></h1>
+						</header><!-- .entry-header -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>	
+	 */
+?>
+
+<?php elseif ( 'inti-service' == get_post_type() ) : ?>
+
 
 <?php elseif ( is_page() ) : ?>
 	<div class="site-hero page static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 	
-		<div class="hero-container">
+		<div class="grid-container hero-container">
 			<div class="grid-x align-center">
-				<div class="cell medium-10 mlarge-8 large-7">
+				<div class="cell">
 					<div class="hero-message">
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title() ?></h1>
@@ -298,14 +323,13 @@
 	</div>
 
 
-
 <?php elseif ( is_single() ) : ?>
 	<div class="site-hero post single static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 
-		<div class="hero-container">
+		<div class="grid-container hero-container">
 			<div class="grid-x align-center">
-				<div class="cell medium-10 mlarge-8 large-7">
+				<div class="cell">
 					<div class="hero-message">
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_field('section_title', 'posts-config') ?></h1>
@@ -322,9 +346,9 @@
 	<div class="site-hero post archive static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 	
-		<div class="hero-container">
+		<div class="grid-container hero-container">
 			<div class="grid-x align-center">
-				<div class="cell medium-10 mlarge-8 large-7">
+				<div class="cell">
 					<div class="hero-message">
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_field('section_title', 'posts-archives-config') ?></h1>
@@ -339,17 +363,16 @@
 	/**
 	 * Add header for specific post types and their archive pages – move before is_single() or is_archive()
 	 */
-	/** elseif ( 'inti-example-post-type' == get_post_type() || is_post_type_archive('inti-example-post-type') ) : ?>
+	/*** elseif ( 'inti-example-post-type' == get_post_type() || is_post_type_archive('inti-example-post-type') ) : ?>
 	<div class="site-hero inti-example-post-type inti-example-taxonomy">
-		<div class="grid-container">
-			<div class="grid-x grid-margin-x">
-				<div class="mlarge-6 cell">
+		<div class="overlay"></div>
+	
+		<div class="grid-container hero-container">
+			<div class="grid-x align-center">
+				<div class="cell">
 					<h1><?php _e('Example text', 'inti-child'); ?></h1>
 				</div>
-				<div class="mlarge-6 cell">
-					
-				</div>
-			</div><!-- .grid-x . grid-margin-x -->
+			</div><!-- .grid-x-->
 		</div><!-- .grid-container -->
 	</div> <?php */ ?>
 <?php endif; ?>

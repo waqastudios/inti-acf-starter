@@ -2898,13 +2898,46 @@
                             "button_label": "Add Service",
                             "sub_fields": [
                                 {
+                                    "key": "field_616db53550dbb",
+                                    "label": "Service Page or Override",
+                                    "name": "published_override",
+                                    "type": "select",
+                                    "instructions": "Show a published Service on WordPress or create a link to another site with Override",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "service": "service",
+                                        "override": "override"
+                                    },
+                                    "default_value": "service",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
                                     "key": "field_6027a5dd02925",
                                     "label": "Service",
                                     "name": "service",
                                     "type": "post_object",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_616db53550dbb",
+                                                "operator": "==",
+                                                "value": "service"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -2918,6 +2951,89 @@
                                     "multiple": 0,
                                     "return_format": "object",
                                     "ui": 1
+                                },
+                                {
+                                    "key": "field_616db62250dbc",
+                                    "label": "Custom Title",
+                                    "name": "custom_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_616db53550dbb",
+                                                "operator": "==",
+                                                "value": "override"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_616db64050dbd",
+                                    "label": "Custom Link",
+                                    "name": "custom_link",
+                                    "type": "url",
+                                    "instructions": "Like this service to a page on or off of this website.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_616db53550dbb",
+                                                "operator": "==",
+                                                "value": "override"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_616db65650dbe",
+                                    "label": "Custom Background",
+                                    "name": "custom_background",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_616db53550dbb",
+                                                "operator": "==",
+                                                "value": "override"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
                                 }
                             ]
                         },
@@ -3398,6 +3514,25 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_616e92d7eb9c2",
+                            "label": "Invert Text",
+                            "name": "invert_text",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Inverted",
+                            "ui_off_text": "Default"
+                        },
+                        {
                             "key": "field_5e917b6639c37",
                             "label": "Center",
                             "name": "center",
@@ -3736,6 +3871,25 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_616e92f2eb9c3",
+                            "label": "Invert Text",
+                            "name": "invert_text",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Inverted",
+                            "ui_off_text": "Default"
+                        },
+                        {
                             "key": "field_5e917b7139c38",
                             "label": "Center",
                             "name": "center",
@@ -4061,25 +4215,6 @@
                             "placeholder": ""
                         },
                         {
-                            "key": "field_5e917b7a39c39",
-                            "label": "Center",
-                            "name": "center",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
                             "key": "field_5fd7562e42930",
                             "label": "Invert Text",
                             "name": "invert_text",
@@ -4097,6 +4232,25 @@
                             "ui": 1,
                             "ui_on_text": "Inverted",
                             "ui_off_text": "Default"
+                        },
+                        {
+                            "key": "field_5e917b7a39c39",
+                            "label": "Center",
+                            "name": "center",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
                             "key": "field_5a5f18f181b0a",
@@ -4595,7 +4749,7 @@
                                         "id": ""
                                     },
                                     "post_type": [
-                                        "inti-partner"
+                                        "inti-logo"
                                     ],
                                     "taxonomy": "",
                                     "allow_null": 0,
@@ -5347,5 +5501,5 @@
     ],
     "active": true,
     "description": "Allows you to create a number of content rows and blocks and drop and drag them into place. A number of predetermined have been added to experiment with.",
-    "modified": 1617206114
+    "modified": 1634636631
 }

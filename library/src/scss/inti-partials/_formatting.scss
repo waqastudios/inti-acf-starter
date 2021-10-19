@@ -45,7 +45,7 @@ a { transition: $global-transition; }
 	}
 
 
-	&.white:not(.slick-arrow) {
+	&.invert:not(.slick-arrow) {
 		color: $white !important; border-color: $white !important; background-color: transparent !important;
 		&:hover {
 			color: $body-font-color !important; border-color: $white !important; background-color: $white !important;

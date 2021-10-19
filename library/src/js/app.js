@@ -75,6 +75,53 @@ $('.to-animate').one('inview', function(event, isInView) {
 });
 
 
+// Hide Menu on Scroll
+$(document).ready(function(){
+	var hasScrolled;
+	var lastScrollTop = 0;
+	var delta = 10;
+	var navbarHeight = $('.site-banner').outerHeight();
+
+	// Add the correct classes to begin - nav is down and shown
+	$('.site-banner').removeClass('nav-up').addClass('nav-down');
+	$('.site-header').removeClass('nav-up').addClass('nav-down');
+
+	$(window).scroll(function(event){
+		hasScrolled = true;
+	});
+
+	// Check condition every 250ms
+	setInterval(function() {
+		if (hasScrolled) {
+			yhasScrolled();
+			hasScrolled = false;
+		}
+	}, 250);
+
+	function yhasScrolled() {
+		var st = $(window).scrollTop();
+		
+		// Make sure they scroll more than delta, which may fix Safari scenario
+		if (Math.abs(lastScrollTop - st) <= delta)
+			return;
+		
+		// If they scrolled down and are past the navbar, add class .nav-up.
+		if (st > lastScrollTop && st > navbarHeight){
+			// Scroll Down
+			$('.site-banner').removeClass('nav-down').addClass('nav-up');
+			$('.site-header').removeClass('nav-down').addClass('nav-up');
+		} else {
+			// Scroll Up
+			if(st + $(window).height() < $(document).height()) {
+				$('.site-banner').removeClass('nav-up').addClass('nav-down');
+				$('.site-header').removeClass('nav-up').addClass('nav-down');
+			}
+		}
+		
+		lastScrollTop = st;
+	}
+});
+
 
 /** import Cookies from 'js-cookie';
 

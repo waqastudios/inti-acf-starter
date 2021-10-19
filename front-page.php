@@ -27,7 +27,7 @@ get_header(); ?>
 				<?php // get the main loop, 
 
 				// remove if ACF pages will not have normal content areas
-				get_template_part('loops/loop', 'frontpage-page');
+				// get_template_part('loops/loop', 'frontpage-page');
 				
 				// remove if Gutenberg ACF blocks will be used instead of Flexible Content ACF Blocks
 				child_hook_flexible_front_page_blocks() ?>

@@ -22,7 +22,7 @@ normally includes a logo, or a full width hero image.
 	position: relative;
 
 	.site-banner {
-		@include slideInDown();
+		
 			.site-logo {
 				img {}
 			}
@@ -39,7 +39,7 @@ normally includes a logo, or a full width hero image.
 #site-header-business-hero {
 	.site-banner {
 		padding: $global-padding 0;
-
+		
 			.site-logo {}
 
 			.title-area {}
@@ -79,6 +79,10 @@ normally includes a logo, or a full width hero image.
 #site-header-modern-hero {
 	background-color: $medium-gray; background-size: cover;
 
+	// show or hide whole .sticky based on scrolling 
+	&.nav-up .sticky { @include slideOutUp(); }
+	&.nav-down .sticky { @include slideInDown(); }
+
 	// display banner
 	.site-banner-overlay-container {
 		position: absolute; width: 100%;
@@ -87,7 +91,10 @@ normally includes a logo, or a full width hero image.
 		position: relative;
 		padding: $global-padding 0;
 		background-color: rgba($light-gray, .75);
-		@include slideInDown();
+		
+			// show or hide .site-banner based on scrolling 
+			&.nav-up { @include slideOutUp(); }
+			&.nav-down { @include slideInDown(); }
 
 			.site-logo {
 				img {}

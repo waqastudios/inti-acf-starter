@@ -8,6 +8,7 @@
 *.sublime-*
 *.swp
 *.swo
+.vscode
 .bundle
 .config
 .grunt

@@ -39,7 +39,7 @@ section.inti-block {
 		.cta-buttons {
 			margin-top: $global-margin;
 			button, .button {
-				@extend .black; margin-bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 
@@ -54,8 +54,13 @@ section.inti-block {
 						ul { display: inline flow-root list-item; }
 					}
 			}
+			article.entry-body .entry-content, article.entry-body .entry-summary { text-align: center; }
 			.cta-buttons {
 				text-align: center;
+				.grid-x {
+					@include flex-align(center, middle);
+					@extend .align-center;
+				}
 			}
 		}
 
@@ -64,7 +69,9 @@ section.inti-block {
 		&.invert-text {
 			color: $white;
 			header.block-header {
-				h3 { color: $white; }
+				.entry-pretitle { color: $white; }
+				.entry-title { color: $white; }
+				.entry-subtitle { color: $white; }
 				.entry-summary {
 					p { color: $white; }
 				}
@@ -73,8 +80,8 @@ section.inti-block {
 				p, li { color: $white !important; }
 			}
 
-			a.button, button {
-				@extend .secondary;
+			a.button, button, input[type=submit], input[type=button] {
+				@extend .invert;
 			}
 		}
 
@@ -96,10 +103,9 @@ section.inti-block {
 		&.padding-top-none { padding-top: 0; }
 		&.padding-bottom-none { padding-bottom: 0; }
 		&.padding-none { padding: 0; }
+		&.max-width-960 { .grid-container { max-width: 960px; } }
+		&.max-width-840 { .grid-container { max-width: 840px; } }
 
-
-		// Shows the content from any other page
-		&.page-post {}
 
 		// Shows the simple content
 		&.content-block {}
@@ -108,7 +114,15 @@ section.inti-block {
 		&.content-block.grid {}
 
 		// Shows the a list of blog posts, usually in columns
-		&.recent-posts {}
+		&.recent-posts {
+			&.invert-text {
+				header.block-header .entry-subtitle { color: $white !important; }
+
+				article.mini.post {
+					// .entry-summary p { color: $body-font-color !important; }
+				}
+			}
+		}
 
 		// Shows inti-service post types
 		&.services {
@@ -219,14 +233,44 @@ section.inti-block {
 
 		// Shows logos that are Featured Images of the Logo custom type, in two styles
 		&.logos {
-			&.list {}
+			&.list {
+				.inti-logo img {
+					width: 250px;
+				}
+			}
 			&.slides {
 				overflow: hidden;
 					.inti-logos-carousel {
 						position: relative; display: none;
 
-							&.slick-initialized { display: block; }
+						&.slick-initialized { display: block; }
+
+
+						.slide { 
+							padding: 0 20px; 
+						}
+
+						.slick-track {
+							display: flex !important; align-items: center;
+
+							.slick-slide {
+
+								> div {
+								
+								}
+							}
+						}
 					}
+				&.invert-text {
+					.inti-logos-carousel {
+						.slick-arrow.slick-prev {
+							&::before { color: $light-gray; }
+						}
+						.slick-arrow.slick-next {
+							&::before { color: $light-gray; }
+						}
+					}
+				}
 			}
 		}
 

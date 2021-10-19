@@ -6,7 +6,6 @@
  *
  * @package Inti
  * @since 1.0.0
- * @version 1.2.0
  */
 if (!function_exists('inti_get_layout')) {
 	function inti_get_layout( $meta ) {
@@ -59,15 +58,15 @@ if (!function_exists('inti_get_layout')) {
 
 		// this is the frontpage
 		if ( is_front_page() ) { 
-			$layout = "1c";	
-			// $layout = "full-xygrid";	// see framework/functions/xy-grid.php 
+			// $layout = "1c"; // Best for Gutenburg blocks	
+			$layout = "full-xygrid";	// see framework/functions/xy-grid.php 
 		}
 
 
 		// this is the traditional inti-block template
 		if (is_page_template( 'page-templates/acf-page.php' ) ) { 
-			$layout = "1c";	
-			// $layout = "full-xygrid";
+			// $layout = "1c";	// Best for Gutenburg blocks	
+			$layout = "full-xygrid";
 		}
 
 
