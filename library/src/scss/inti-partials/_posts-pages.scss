@@ -24,8 +24,8 @@ body.single.single-post {
 
 // Article - the page/post meat
 // Posts
-article {
-	.entry-body { }
+article.post {
+	.entry-body {}
 	.entry-header {}
 	.entry-content { 
 		margin: $global-margin 0; 
@@ -45,7 +45,10 @@ article {
 				font-size: rem-calc(11);
 			}
 	}
-
+		.entry-meta { 
+			margin-bottom: $global-margin; 
+			time { text-transform: uppercase; }
+		}
 	.post-meta {
 		//margin: 0 0 $global-margin 0;
 
@@ -70,6 +73,30 @@ article {
 
 	&.featured {
 		@include callout($primary-color);
+	}
+
+	&.mini {
+		.entry-header {
+			.post-meta-label { 
+				margin-bottom: $global-margin; width: 40%; 
+				background-color: $primary-color; 
+				color: $white; padding: $global-padding/4; font-size: rem-calc(14); 
+				text-transform: uppercase; line-height: 1;
+			}
+			.entry-title { @extend h5; text-transform: none; display: block; margin-bottom: 0; }
+		}
+		.entry-summary { 
+			padding-bottom: $global-padding;
+			p { color: $black; }
+		}
+		.entry-footer {
+			.social-sharing {}
+		}
+
+		&:hover {
+			.entry-thumbnail { opacity: 0.9; }
+			.entry-title { text-decoration: underline; }
+		}
 	}
 }
 

@@ -53,7 +53,19 @@ if (!function_exists('inti_get_layout')) {
 
 			// get customizer option for default archive layout, if none, use site layout default
 			// $layout = get_inti_option('archive_layout', 'inti_customizer_options', $layout);
-			$layout = "blog";	
+			
+			/**
+			 * In the Theme Options, users can choose whether post archives display the full posts
+			 * or a group of excerpts with a "read more" button to see the rest. 
+			 * 1 == standard (shown on singles or on archives when option is set to 1)
+			 * 2 == short (shown on archives when option is set to 2)
+			 */
+			$interface = get_inti_option('blog_interface', 'inti_general_options');
+			if ($interface == 1) {
+				$layout = "blog-standard";
+			} else {
+				$layout = "blog-grid";
+			}	
 		}		
 
 		// this is the frontpage

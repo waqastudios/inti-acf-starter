@@ -329,7 +329,7 @@ function child_flexible_content_blocks() {
 										
 									<div class="cell">
 										<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-											<?php include(locate_template('template-parts/part-post-mini.php')); ?>
+											<?php include(locate_template('template-parts/part-post-mini-1.php')); ?>
 										</a>
 									</div><!-- .cell -->
 

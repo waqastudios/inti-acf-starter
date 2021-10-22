@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('mini'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mini mini-type-1'); ?>>
 	<div class="entry-body">
 		<div class="grid-x grid-margin-x">
 			<div class="cell">

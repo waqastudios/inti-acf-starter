@@ -50,11 +50,19 @@ if (!function_exists('inti_xy_grid_open')) {
 
 
 		<?php break;
-			case 'blog': ?>
+			case 'blog-standard': ?>
+
+			<div class="grid-container blog layout-blog">
+				<div class="grid-x" id="loadposts">
+			
+
+
+		<?php break;
+			case 'blog-grid': ?>
 
 			<div class="grid-container blog layout-blog">
 				<div class="grid-x grid-margin-x grid-margin-y mlarge-up-2 large-up-3" id="loadposts">
-			
+
 
 
 		<?php break;
@@ -86,7 +94,14 @@ if (!function_exists('inti_xy_grid_close')) {
 
 		<?php 	
 		switch ( $layout ) { 
-			case 'blog': ?>
+			case 'blog-standard': ?>
+
+				</div><!-- .grid-x -->
+			</div><!-- .grid-container -->	
+			
+
+		<?php break;
+			case 'blog-grid': ?>
 
 				</div><!-- .grid-x -->
 			</div><!-- .grid-container -->	

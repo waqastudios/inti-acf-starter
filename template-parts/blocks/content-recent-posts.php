@@ -60,7 +60,7 @@ $recent_posts_query = new WP_Query( $args );
 					
 					<div class="cell">
 						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-							<?php include(locate_template('template-parts/part-post-mini.php')); ?>
+							<?php include(locate_template('template-parts/part-post-mini-2.php')); ?>
 						</a>
 					</div><!-- .cell -->
 

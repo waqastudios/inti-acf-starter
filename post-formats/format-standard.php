@@ -56,10 +56,8 @@ if ($interface == 1 || is_single()) : // standard interface
 <?php 
 else : // short interface with excerpt ?>
 
-	<div class="cell">
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
-			<?php include(locate_template('template-parts/part-post-mini.php')); ?>
-		</a>
-	</div>
+	<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo esc_attr( sprintf( __('%s', 'inti'), the_title_attribute('echo=0') ) ); ?>" rel="bookmark">
+		<?php include(locate_template('template-parts/part-post-mini-2.php')); ?>
+	</a>
 
 <?php endif; ?>
