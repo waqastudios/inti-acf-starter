@@ -439,7 +439,7 @@ function child_flexible_content_blocks() {
 								</div><!-- .grid-x .grid-container-x -->
 							</div><!-- .grid-container -->
 						<?php endif; ?>		
-						<div class="grid-container fluid to-animate">
+						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x grid-margin-y small-up-<?php echo $small ?> medium-up-<?php echo $medium ?> mlarge-up-<?php echo $mlarge ?> large-up-<?php echo $large ?>">
 
 							<?php
