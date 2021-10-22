@@ -283,11 +283,10 @@ CSS3 GRADIENTS.
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
 	background-color: $to;
-	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
-	background-image: -webkit-linear-gradient(top, $from, $to);
-	background-image: -moz-linear-gradient(top, $from, $to);
-	background-image: -o-linear-gradient(top, $from, $to);
 	background-image: linear-gradient(to bottom, $from, $to);
 }
 
-
+@mixin hero-overlay($color: $black) {
+	background: rgba($color, .6);
+	background: linear-gradient(180deg, rgba($color,0.15) 0%, rgba($color,0.7) 45%, rgba($color,0.15) 100%); 
+}

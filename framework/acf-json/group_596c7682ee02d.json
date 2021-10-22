@@ -15,18 +15,62 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5fd8d8eb4dc08",
             "min": 0,
             "max": 0,
             "layout": "block",
             "button_label": "Add Hero",
             "sub_fields": [
                 {
+                    "key": "field_616ed960713ab",
+                    "label": "Background Type",
+                    "name": "background_type",
+                    "type": "radio",
+                    "instructions": "Select the type of hero background you'd like to display.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "75",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "image": "Image",
+                        "local": "Video (Local)",
+                        "hosted": "Video (Hosted)"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_6171986df8c0b",
+                    "label": "Show",
+                    "name": "show",
+                    "type": "true_false",
+                    "instructions": "Show or Hide this Hero Background",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Show",
+                    "ui_off_text": "Hide"
+                },
+                {
                     "key": "field_5eb953da2739e",
                     "label": "Background Image",
                     "name": "background_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "(If you set a video, this becomes a still image while the video loads.)",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -44,6 +88,148 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_616ed9cd713ac",
+                    "label": "Background Video (Local)",
+                    "name": "background_video",
+                    "type": "repeater",
+                    "instructions": "Add a video in as many different web formats as you'd like.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616ed960713ab",
+                                "operator": "==",
+                                "value": "local"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_616ed9e9713ad",
+                            "label": "Video",
+                            "name": "video",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": 10,
+                            "mime_types": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_616edb5d713ae",
+                    "label": "Video ID (Hosted)",
+                    "name": "video_id",
+                    "type": "text",
+                    "instructions": "For Vimeo, enter into this box the part of the URL that is in bold:\r\nhttp:\/\/vimeo.com\/<b>147882979<\/b>\r\n\r\nFor YouTube, enter the part of the URL that is in bold:\r\nhttp:\/\/www.youtube.com\/watch?v=<b>dQw4w9WgXcQ<\/b>",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616ed960713ab",
+                                "operator": "==",
+                                "value": "hosted"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61712d7133a73",
+                    "label": "Aspect Ratio",
+                    "name": "aspect_ratio",
+                    "type": "select",
+                    "instructions": "Aspect Ratio of video",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616ed960713ab",
+                                "operator": "==",
+                                "value": "hosted"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "widescreen": "Widescreen (16:9)",
+                        "fourthree": "Ye Old Aspect (4:3)"
+                    },
+                    "default_value": "widescreen",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_61712dcf33a74",
+                    "label": "Video Source",
+                    "name": "video_source",
+                    "type": "select",
+                    "instructions": "Select one of these video services",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616ed960713ab",
+                                "operator": "==",
+                                "value": "hosted"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "youtube": "YouTube",
+                        "wistia": "Wistia",
+                        "vimeo": "Vimeo"
+                    },
+                    "default_value": "youtube",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5fd8d8eb4dc08",
@@ -68,20 +254,17 @@
                     "key": "field_5fd8d9114dc09",
                     "label": "Hero Button URL",
                     "name": "hero_button_url",
-                    "type": "text",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5fd8d9424dc0a",
@@ -92,7 +275,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -103,25 +286,6 @@
                     "maxlength": ""
                 }
             ]
-        },
-        {
-            "key": "field_5ebc1b9dec1e6",
-            "label": "Welcome Message",
-            "name": "welcome_message",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
         }
     ],
     "location": [
@@ -143,5 +307,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1608054352
+    "modified": 1634835441
 }

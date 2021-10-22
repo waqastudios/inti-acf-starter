@@ -11,18 +11,21 @@
 	$banner_type = 'static';
 	$static_bg = '';
 	$dynamic_bg = '';
+	$hero_bgs_count = 0;
 
 	// default size
 	$size = 'background';
 
 	$hero_bgs = get_field('hero_backgrounds');
 	if (is_array($hero_bgs)) {
-		$hero_bgs = count($hero_bgs); 
-		if ($hero_bgs > 1) {
+		while ( have_rows('hero_backgrounds') ) : the_row();  
+			if (get_sub_field('show')) $hero_bgs_count++;
+		endwhile;
+		if ($hero_bgs_count > 1) {
 			$banner_type = 'dynamic';
 		}
 	} else {
-		$hero_bgs = 0;
+		$hero_bgs_count = 0;
 	}
 
 	// check for a internal static page bg
@@ -175,109 +178,173 @@
 	</div>
 
 <?php if ( is_front_page() ) : ?>
-	<?php if ($banner_type == 'dynamic') : ?>
-		<div class="site-hero frontpage dynamic">
-			<div class="inti-main-slider clearfix" data-equalizer data-equalize-on="small">
 
-				<?php if( have_rows('hero_backgrounds') ): ?>
-					<?php 
-						// loop through the rows of data
-						while ( have_rows('hero_backgrounds') ) : the_row();  
-							$dynamic_bg = get_sub_field('background_image');
-							$hero_button_url = esc_url(get_sub_field('hero_button_url'));
-							$hero_button_text = get_sub_field('hero_button_text');
+	<div class="site-hero frontpage <?php echo $banner_type ?>"<?php 
+		if ( $hero_bgs_count == 0 ) {
+			// If there are no hero_backgrounds, add a default background here
+			echo ' style="background-image: url(' . $static_bg . ');"';
+		}
+	?>>
+		<?php 
+			// If there are multiple hero_backgrounds, make this a slider
+			if ( $banner_type == 'dynamic') {
+				echo '<div class="inti-main-slider clearfix" data-equalizer data-equalize-on="small">';
+			}
+		?>
 
-							$size = 'background';
-						?>
-							
-								<div class="slide" style="background-image: url(<?php echo wp_get_attachment_image_url( $dynamic_bg, $size ); ?>);" data-equalizer-watch>
-									<div class="overlay"></div>
-									<div class="hero-container">
-										<div class="grid-x grid-margin-x grid-padding-x align-center">
-											<div class="cell medium-10 mlarge-8 large-7">
+		<?php if( have_rows('hero_backgrounds') && $hero_bgs_count > 0 ): ?>
+			<?php 
+				// loop through the rows of data
+				while ( have_rows('hero_backgrounds') ) : the_row();  
+					$show = get_sub_field('show'); 
+					if (!$show) continue;
+
+					$media_type = get_sub_field('background_type'); 
+					$localvideo_bg = get_sub_field('background_video');
+					$videoid = get_sub_field('video_id');
+					$source = get_sub_field('video_source');
+					$aspect = get_sub_field('aspect_ratio');
+
+					$background = get_sub_field('background_image');
+					$hero_button_url = esc_url(get_sub_field('hero_button_url'));
+					$hero_button_text = get_sub_field('hero_button_text');
+
+					$size = 'background';
+				?>
+				<?php 
+					// Again, if there are multiple hero_backgrounds, make this a slider
+					if ( $banner_type == 'dynamic') {
+						echo '
+						<div class="slide">
+							<div class="site-hero-slide-background" style="background-image: url(' . wp_get_attachment_image_url( $background, $size ) . ');"  data-equalizer-watch>	
+						';
+					}
+				?>
+
+							<div class="site-hero-type <?php 
+								// Add a div and class to say whether this is an image or video
+								// and so turn on or off the hero-container position:absolute
+								if ( !$localvideo_bg || $media_type == "image" ) {
+									echo "image";
+								} else {
+									echo "video";
+								}
+							?>">
+
+								<div class="overlay"></div>
+
+								<?php if ( $localvideo_bg && $media_type == "local" ) : ?>
+									<div class="image-container hide-for-mlarge">&nbsp;</div>
+									<div class="video-container local show-for-mlarge remove-on-mobile">
+										<video id="header-hero" 
+											width="100%" height="100%" 
+											autoplay="" loop="" playsinline muted
+											class="hero-video<?php echo $classes; ?>" 
+											poster="<?php if ($static_bg) echo wp_get_attachment_image_url($static_bg); ?>">
+											<?php if( have_rows('background_video') ): ?>
+												<?php while ( have_rows('background_video') ) : the_row(); 
+													$file = get_sub_field('video');
+												?>
+													<source src="<?php echo $file['url']; ?>" type="<?php echo $file['mime_type']; ?>">
+												<?php endwhile; ?>
+											<?php endif; ?>
+											<?php if ($static_bg) :  ?>
+											<img src="<?php echo wp_get_attachment_image_url($static_bg); ?>" title="Your browser does not support the <video> tag">
+											<?php endif; ?>
+
+										</video>
+									</div>
+								<?php elseif ( $media_type == "hosted" ) : ?>
+									<div class="image-container hide-for-mlarge">&nbsp;</div>
+									<div class="video-container hosted">
+										<?php if ($videoid) : ?>
+											<div class="flex-video <?php echo $aspect; ?>">
+											<?php
+												switch ($source) {
+													case 'youtube':
+														?> 
+															<iframe src="//www.youtube.com/embed/<?php echo $videoid; ?>?wmode=opaque&loop=1&showsearch=0&rel=0&modestbranding=1&showinfo=0&controls=0&autoplay=1&mute=1&disablekb=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+														<?php
+														break;
+													case 'vimeo':
+														?>
+															<iframe src="//player.vimeo.com/video/<?php echo $videoid; ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179&amp;autoplay=1&amp;loop=1&amp;muted=1 " width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen"></iframe>
+														<?php
+														break;
+													case 'wistia':
+														?> 
+															<iframe src="//fast.wistia.net/embed/iframe/<?php echo $videoid; ?>?plugin%5Bsocialbar-v1%5D%5Bon%5D=false&autoPlay=true&loop=true" frameborder="0" allowtransparency="true" allowfullscreen scrolling="no" allow="autoplay; fullscreen"></iframe>
+														<?php
+														break;
+												}
+											?>
+											</div>
+										<?php endif; ?>
+									</div>
+								<?php else : // image ?>
+									<div class="image-container">
+										<img src="<?php echo wp_get_attachment_image_url( $background, $size ) ?>" alt="">
+									</div>
+								<?php endif; ?>
+
+								<div class="hero-container">
+									<div class="grid-container">
+										<div class="grid-x grid-margin-x align-middle align-center">
+											<div class="cell">
 												<div class="hero-message">
-													<?php the_sub_field('hero_message'); ?>
-												</div>
-												<?php if ($hero_button_url && $hero_button_text) : ?>
+													<header class="hero-header">
+														<?php the_sub_field('hero_message'); ?>
+													</header>
+													<?php if ($hero_button_url && $hero_button_text) : ?>
 													<div class="hero-button">
-														<a href="<?php echo $hero_button_url; ?>" class="button hollow white"><?php echo $hero_button_text; ?></a>
+														<a href="<?php echo $hero_button_url; ?>" class="button primary"><?php echo $hero_button_text; ?></a>
 													</div>
-												<?php endif; ?>
+													<?php endif; ?>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-						<?php 
-						endwhile; ?>
-				<?php endif; ?>
-
-			</div>
-		</div>
-	<?php else : // $banner_type == static ?>
-		<?php if( have_rows('hero_backgrounds') ): 
-			while ( have_rows('hero_backgrounds') ) : the_row();  
+							</div><!-- .site-hero-type -->
 				
-				$static_bg = get_sub_field('background_image');
-				$hero_button_url = esc_url(get_sub_field('hero_button_url'));
-				$hero_button_text = get_sub_field('hero_button_text');
+				<?php 
+					// Again, if there are multiple hero_backgrounds, make this a slider
+					if ( $banner_type == 'dynamic') {
+						echo '
+							</div><!-- .site-hero-slide-background -->
+						</div><!-- .slide -->';
+					}
+				?>
 
-				$size = 'background';
-			 ?>
+			<?php endwhile; ?>
+		
+		<?php else: // there are no backgrounds ?>
 
-				<div class="site-hero frontpage static" style="background-image: url(<?php echo wp_get_attachment_image_url( $static_bg, $size ); ?>);">
-					<div class="overlay"></div>
-					<div class="hero-container">
-						<div class="grid-x align-center">
-							<div class="cell medium-10 mlarge-8 large-7">
-								<div class="hero-message">
-									<?php the_sub_field('hero_message'); ?>
-								</div>
-								<?php if ($hero_button_url && $hero_button_text) : ?>
-									<div class="hero-button">
-										<a href="<?php echo $hero_button_url; ?>" class="button hollow white"><?php echo $hero_button_text; ?></a>
-									</div>
-								<?php endif; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			<?php 
-			endwhile; ?>
-		<?php else : ?>
-			<div class="site-hero frontpage static" style="background-image: url(<?php echo $static_bg; ?>);">
-				<div class="overlay"></div>
-				<div class="hero-container">
-					<div class="grid-x align-center">
-						<div class="cell medium-10 mlarge-8 large-7">
+			<div class="overlay"></div>
+			<div class="hero-container">
+				<div class="grid-container">
+					<div class="grid-x align-middle">
+						<div class="cell">
 							<div class="hero-message">
-								<?php // the_sub_field('hero_message'); ?>
+								<header class="hero-header">
+									<?php // the_sub_field('hero_message'); there is none ?>
+								</header>
 							</div>
 							
 						</div>
 					</div>
 				</div>
 			</div>
+
 		<?php endif; ?>
-	<?php endif; ?>
-	<?php if (inti_current_theme_supports( 'inti-post-types', 'opt-in' )) : 
-		get_template_part('template-parts/part-opt-in', 'header');
-	endif; ?>
-	<?php if (get_field('welcome_message')) : ?>
-	<div class="site-welcome">
-		<div class="grid-container">
-			<div class="grid-x align-center">
-				<div class="cell mlarge-10 large-9">
-					<article class="entry-body">
-						<div class="entry-content">
-							<?php the_field('welcome_message') ?>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div>
+
+		<?php 
+			// If there are multiple hero_backgrounds, make this a slider
+			if ( $banner_type == 'dynamic') {
+				echo '</div><!-- .slider -->';
+			}
+		?>
 	</div>
-	<?php endif; ?>
 
 
 <?php /***
@@ -285,13 +352,15 @@
 	<div class="site-hero inti-service static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 	
-		<div class="grid-container hero-container">
-			<div class="grid-x align-center">
-				<div class="cell mlarge-6">
-					<div class="hero-message">
-						<header class="entry-header">
-							<h1 class="entry-title"><?php the_field('section_title', 'services-config') ?></h1>
-						</header><!-- .entry-header -->
+		<div class="hero-container">
+			<div class="grid-container">
+				<div class="grid-x align-middle">
+					<div class="cell">
+						<div class="hero-message">
+							<header class="hero-header">
+								<h1 class="hero-title"><?php the_field('section_title', 'services-config') ?></h1>
+							</header><!-- .hero-header -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -308,17 +377,20 @@
 	<div class="site-hero page static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 	
-		<div class="grid-container hero-container">
-			<div class="grid-x align-center">
-				<div class="cell">
-					<div class="hero-message">
-						<header class="entry-header">
-							<h1 class="entry-title"><?php the_title() ?></h1>
-						</header><!-- .entry-header -->
+		<div class="hero-container">
+			<div class="grid-container">
+				<div class="grid-x align-middle">
+					<div class="cell">
+						<div class="hero-message">
+							<header class="hero-header">
+								<h1 class="hero-title"><?php the_title() ?></h1>
+							</header><!-- .hero-header -->
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 	</div>
 
@@ -327,13 +399,15 @@
 	<div class="site-hero post single static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 
-		<div class="grid-container hero-container">
-			<div class="grid-x align-center">
-				<div class="cell">
-					<div class="hero-message">
-						<header class="entry-header">
-							<h1 class="entry-title"><?php the_field('section_title', 'posts-config') ?></h1>
-						</header><!-- .entry-header -->
+		<div class="hero-container">
+			<div class="grid-container">
+				<div class="grid-x align-middle">
+					<div class="cell">
+						<div class="hero-message">
+							<header class="hero-header">
+								<h1 class="hero-title"><?php the_field('section_title', 'posts-config') ?></h1>
+							</header><!-- .hero-header -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -346,13 +420,15 @@
 	<div class="site-hero post archive static" <?php if ( $static_bg ) echo ' style="background-image: url('. $static_bg .');"'; ?>>
 		<div class="overlay"></div>
 	
-		<div class="grid-container hero-container">
-			<div class="grid-x align-center">
-				<div class="cell">
-					<div class="hero-message">
-						<header class="entry-header">
-							<h1 class="entry-title"><?php the_field('section_title', 'posts-archives-config') ?></h1>
-						</header><!-- .entry-header -->
+		<div class="hero-container">
+			<div class="grid-container">
+				<div class="grid-x align-middle">
+					<div class="cell">
+						<div class="hero-message">
+							<header class="hero-header">
+								<h1 class="hero-title"><?php the_field('section_title', 'posts-archives-config') ?></h1>
+							</header><!-- .hero-header -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -367,13 +443,20 @@
 	<div class="site-hero inti-example-post-type inti-example-taxonomy">
 		<div class="overlay"></div>
 	
-		<div class="grid-container hero-container">
-			<div class="grid-x align-center">
-				<div class="cell">
-					<h1><?php _e('Example text', 'inti-child'); ?></h1>
+		<div class="hero-container">
+			<div class="grid-container">
+				<div class="grid-x align-middle">
+					<div class="cell">
+						<div class="hero-message">
+							<header class="hero-header">
+								<h1 class="hero-title"><?php _e('Example text', 'inti-child'); ?></h1>
+							</header><!-- .hero-header -->
+						</div>
+					</div>
 				</div>
-			</div><!-- .grid-x-->
-		</div><!-- .grid-container -->
+			</div>
+		</div>
+
 	</div> <?php */ ?>
 <?php endif; ?>
 
