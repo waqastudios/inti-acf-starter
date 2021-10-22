@@ -81,3 +81,7 @@
 - Added social media profile for Telegram
 - Improved Modern Hero example header
 - Added example ACF options pages
+
+### 1.5.1 (Oct 22, 2021)
+- Improved Hero Header setup
+- Tweaks for posts
