@@ -36,12 +36,12 @@ add_action('inti_hook_footer_inside', 'child_do_footer_opt_in', 1);
 
 
 /**
- * Footer menu
- * Adds a menu to the footer
+ * Footer menus
+ * Adds a version of navigation menus to the footer
  * 
  * @since 1.0.5
  */
-function child_do_footer_menu() { 
+function child_do_footer_menu_simple() { 
 	if ( has_nav_menu('footer-menu') ) : ?>
 		<div class="footer-menu">
 			<div class="grid-container">
@@ -55,8 +55,70 @@ function child_do_footer_menu() {
 <?php
 	endif;
 }
-add_action('inti_hook_footer_inside', 'child_do_footer_menu', 2);
+add_action('inti_hook_footer_inside', 'child_do_footer_menu_simple', 2);
 
+function child_do_footer_menu_columns() { 
+	$menu_count = 0;
+	if ( has_nav_menu('footer-menu-1') ) $menu_count++;
+	if ( has_nav_menu('footer-menu-2') ) $menu_count++;
+	if ( has_nav_menu('footer-menu-3') ) $menu_count++;
+	if ( has_nav_menu('footer-menu-4') ) $menu_count++;
+	if ( has_nav_menu('footer-menu-5') ) $menu_count++;
+?>
+	<div class="footer-menu">
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x grid-padding-y grid-margin-y small-up-2 medium-up-2 mlarge-up-<?php echo $menu_count; ?>">
+				<?php if ( has_nav_menu('footer-menu-1') ) : ?>
+				<div class="cell">
+					<nav>
+						<?php $menu_obj = get_menu_by_location('footer-menu-1');  ?>
+						<div class="footer-title"><?php echo esc_html($menu_obj->name); ?></div>
+						<?php echo inti_get_footer_menu_1(); ?>
+					</nav>
+				</div>
+				<?php endif; ?>
+				<?php if ( has_nav_menu('footer-menu-2') ) : ?>
+				<div class="cell">
+					<nav>
+						<?php $menu_obj = get_menu_by_location('footer-menu-2');  ?>
+						<div class="footer-title"><?php echo esc_html($menu_obj->name); ?></div>
+						<?php echo inti_get_footer_menu_2(); ?>
+					</nav>
+				</div>
+				<?php endif; ?>
+				<?php if ( has_nav_menu('footer-menu-3') ) : ?>
+				<div class="cell">
+					<nav>
+						<?php $menu_obj = get_menu_by_location('footer-menu-3');  ?>
+						<div class="footer-title"><?php echo esc_html($menu_obj->name); ?></div>
+						<?php echo inti_get_footer_menu_3(); ?>
+					</nav>
+				</div>
+				<?php endif; ?>
+				<?php if ( has_nav_menu('footer-menu-4') ) : ?>
+				<div class="cell">
+					<nav>
+						<?php $menu_obj = get_menu_by_location('footer-menu-4');  ?>
+						<div class="footer-title"><?php echo esc_html($menu_obj->name); ?></div>
+						<?php echo inti_get_footer_menu_4();	?>
+					</nav>
+				</div>
+				<?php endif; ?>
+				<?php if ( has_nav_menu('footer-menu-5') ) : ?>
+				<div class="cell">
+					<nav>
+						<?php $menu_obj = get_menu_by_location('footer-menu-5');  ?>
+						<div class="footer-title"><?php echo esc_html($menu_obj->name); ?></div>
+						<?php echo inti_get_footer_menu_5();	?>
+					</nav>
+				</div>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div><!-- .footer-menu -->
+<?php
+}
+// add_action('inti_hook_footer_inside', 'child_do_footer_menu_columns', 2);
 
 /**
  * Footer info, copyright etc

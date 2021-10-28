@@ -44,12 +44,24 @@ function childtheme_override_setup() {
 
 	add_theme_support(
 		'inti-menus',
-		array('dropdown-menu', 'off-canvas-menu', 'footer-menu', 'terms-menu')
+		array(
+			'dropdown-menu', 
+			'off-canvas-menu', 
+			'footer-menu', 
+		//	'footer-menu-1', 
+		//	'footer-menu-2',
+		//	'footer-menu-3',
+		//	'footer-menu-4',
+		//	'footer-menu-5',
+			'terms-menu'
+		)
 	);
 	
 	add_theme_support(
 		'inti-sidebars',
-		array('primary')
+		array(
+			'primary'
+		)
 	);
 
 	add_theme_support('inti-customizer');
@@ -74,7 +86,7 @@ function childtheme_override_setup() {
 
 	add_theme_support('inti-scroll-to-top');	
 
-	/** add_theme_support(
+	/*** add_theme_support(
 		'inti-cookies',
 		array('NEEDED', 'FUNCTIONAL', 'OPTIONAL')
 	); */
