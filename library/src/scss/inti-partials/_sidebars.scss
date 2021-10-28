@@ -6,8 +6,29 @@ Styles for sidebars and the widgets they contain
 
 ******************************************************************/
 
+.sidebar {
+	// Gutenberg block widgets
+	.widget_block {
+		&.widget_search {
+			form {}
+			label.wp-block-search__label {}
+			.wp-block-search__inside-wrapper{
+				.wp-block-search__input {
+					margin-bottom: 0;
+					border: $input-border !important;
+				}
+				.wp-block-search__button {
+					@extend .button, .primary;
+				} 
+			}
+		}
+
+
+	}
+}
 
 .sidebar {
+	// Classic block widgets
 	.widget {
 		margin: $global-margin 0 ($global-margin * 2) 0; 
 

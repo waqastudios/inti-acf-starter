@@ -82,7 +82,30 @@ ul.site-navigation {
 			}
 
 		}
-		&.site-navigation-drilldown {}
+		// The mobile menu is usually a drilldown
+		&.site-navigation-drilldown {
+			li {
+				a { color: $global-menu-color; }
+				a:hover { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+
+				&.is-active > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+				&.current-menu-item > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+				&.current-menu-parent > a, &.current-menu-ancestor > a { color: $global-menu-color-hover; background: $global-menu-color-background-hover; }
+							
+				// Top level arrows
+				&.menu-item-has-children, &.is-dropdown-submenu-parent {
+					> a::after { border-color: transparent transparent transparent $dropdownmenu-arrow-color; }
+				}
+					// when active
+					&.is-active, &.current-menu-item, &.current-menu-parent, &.current-menu-ancestor {
+						> a::after { border-color: transparent transparent transparent $black; }
+					}
+					// when hover
+					&.menu-item-has-children, &.is-dropdown-submenu-parent {
+						> a:hover::after { border-color: transparent transparent transparent $black; }
+					}
+			}
+		}
 		&.site-navigation-accordion {}
 		&.site-navigation-footer {} // overwritten in _site-footer.scss
 		&.site-navigation-widget {} // overwritten in _sidebar.scss
