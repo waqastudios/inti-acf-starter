@@ -85,3 +85,8 @@
 ### 1.5.1 (Oct 22, 2021)
 - Improved Hero Header setup
 - Tweaks for posts
+
+### 1.6.0 (Oct 28, 2021)
+- Updated Foundation for Sites to 6.7.3
+- Updated some dependencies
+- Added structure for oft-used footer menu columns
