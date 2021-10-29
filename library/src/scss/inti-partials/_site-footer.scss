@@ -22,7 +22,15 @@ footer can be wide or contained.
 			a { @include anchor-color($white, $anchor-color); }
 			li { display: inline-block; }
 		}
-
+		&.columns {
+			.footer-title {
+				@extend .h5;
+				color: $light-gray;
+			}
+			ul.menu {
+				li { display: block; width: 100%; }
+			}
+		}
 }
 .footer-social { 
 	padding: $global-padding 0;

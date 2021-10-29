@@ -43,7 +43,7 @@ add_action('inti_hook_footer_inside', 'child_do_footer_opt_in', 1);
  */
 function child_do_footer_menu_simple() { 
 	if ( has_nav_menu('footer-menu') ) : ?>
-		<div class="footer-menu">
+		<div class="footer-menu simple">
 			<div class="grid-container">
 				<div class="grid-x grid-margin-x">
 					<div class="small-12 cell">
@@ -65,7 +65,7 @@ function child_do_footer_menu_columns() {
 	if ( has_nav_menu('footer-menu-4') ) $menu_count++;
 	if ( has_nav_menu('footer-menu-5') ) $menu_count++;
 ?>
-	<div class="footer-menu">
+	<div class="footer-menu columns">
 		<div class="grid-container">
 			<div class="grid-x grid-margin-x grid-padding-y grid-margin-y small-up-2 medium-up-2 mlarge-up-<?php echo $menu_count; ?>">
 				<?php if ( has_nav_menu('footer-menu-1') ) : ?>
