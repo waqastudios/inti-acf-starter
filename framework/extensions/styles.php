@@ -28,7 +28,7 @@ function child_register_styles() {
 	wp_register_style( 'fontawesome-free-regular', get_stylesheet_directory_uri() . '/library/dist/css/regular.min.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/regular.min.css') );
 	wp_register_style( 'fontawesome-free-solid', get_stylesheet_directory_uri() . '/library/dist/css/solid.min.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/solid.min.css') );
 	wp_register_style( 'fontawesome-free-brands', get_stylesheet_directory_uri() . '/library/dist/css/brands.min.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/brands.min.css') );
-	wp_register_style( 'fontawesome-free-v4-shims', get_stylesheet_directory_uri() . '/library/dist/css/v4-shims.min.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/v4-shims.min.css') );
+	wp_register_style( 'fontawesome-free-v5-font-face', get_stylesheet_directory_uri() . '/library/dist/css/v5-font-face.min.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/v5-font-face.min.css') );
 	wp_register_style( 'slick-carousel', get_stylesheet_directory_uri() . '/library/dist/css/slick.css', array(), filemtime(get_stylesheet_directory() . '/library/dist/css/slick.css') );
 	wp_register_style('style', get_stylesheet_directory_uri() . '/style.css', array(), filemtime(get_stylesheet_directory() . '/style.css'), 'all');
 }
@@ -41,7 +41,7 @@ function child_enqueue_styles() {
 		wp_enqueue_style('fontawesome-free-regular'); 
 		wp_enqueue_style('fontawesome-free-solid'); 
 		wp_enqueue_style('fontawesome-free-brands'); 
-		wp_enqueue_style('fontawesome-free-v4-shims'); 
+		wp_enqueue_style('fontawesome-free-v5-font-face'); 
 		wp_enqueue_style('slick-carousel'); 
 		
 		// add style.css with child themes
