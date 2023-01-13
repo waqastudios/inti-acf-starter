@@ -90,3 +90,7 @@
 - Updated Foundation for Sites to 6.7.3
 - Updated some dependencies
 - Added structure for oft-used footer menu columns
+
+### 1.6.1 (Jan 13, 2023)
+- Combined tabs/accordions blocks
+- Updated FontAwesome to 6.2.1

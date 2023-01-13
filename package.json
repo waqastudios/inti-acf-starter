@@ -1,7 +1,7 @@
 {
   "name": "inti-acf-starter",
-  "version": "1.6.0",
-  "description": "Child Theme of Inti Foundation 1.11.0+, like inti-kitchen-sink but built for Advanced Custom Fields Pro",
+  "version": "1.6.1",
+  "description": "Child Theme of Inti Foundation 1.11.1+, like inti-kitchen-sink but built for Advanced Custom Fields Pro",
   "repository": {
     "type": "git",
     "url": "https://github.com/waqastudios/inti-acf-starter.git"
