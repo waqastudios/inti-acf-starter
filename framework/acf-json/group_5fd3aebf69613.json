@@ -6,6 +6,7 @@
             "key": "field_596c7797c0f92",
             "label": "Blocks",
             "name": "blocks",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "Allows you to create a number of content rows\/blocks and drop and drag them into place. A number of predetermined have been added to experiment with.",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_5e8f68f938242",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -42,6 +44,7 @@
                             "key": "field_5b7e83fb44dfb",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -61,6 +64,7 @@
                             "key": "field_5fd3ad1d81dbc",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -80,6 +84,7 @@
                             "key": "field_596cad71770c6",
                             "label": "Content",
                             "name": "content",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add content as styled HTML",
                             "required": 0,
@@ -99,6 +104,7 @@
                             "key": "field_5e8f5c72a5a00",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -115,6 +121,7 @@
                             "key": "field_5a576305e41d7",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -142,6 +149,7 @@
                             "key": "field_602507042d9c8",
                             "label": "Background Image",
                             "name": "background_image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -166,6 +174,7 @@
                             "key": "field_5fd7571542937",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -185,6 +194,7 @@
                             "key": "field_5e91797439c30",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -204,6 +214,7 @@
                             "key": "field_5a5f130081b07",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -223,6 +234,7 @@
                             "key": "field_60269e0fbbcb9",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -239,6 +251,7 @@
                             "key": "field_60269f51bbcbe",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -253,11 +266,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_60269f24bbcbc",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -268,12 +283,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_60269f51bbcbe"
                                 },
                                 {
                                     "key": "field_60269f3bbbcbd",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -287,12 +304,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_60269f51bbcbe"
                                 },
                                 {
                                     "key": "field_6026a1cb0db47",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -306,7 +325,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_60269f51bbcbe"
                                 }
                             ]
                         }
@@ -324,6 +344,7 @@
                             "key": "field_5e8f69a7e2096",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -340,6 +361,7 @@
                             "key": "field_5c88df3416f27",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -359,6 +381,7 @@
                             "key": "field_5fd3ad5181dbe",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -378,6 +401,7 @@
                             "key": "field_5c88df3416f28",
                             "label": "Paragraphs",
                             "name": "content_column",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Add as many sets as you like, then select the number to appear per row.",
                             "required": 0,
@@ -392,11 +416,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Paragraph",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c88df3416f29",
                                     "label": "Content",
                                     "name": "content",
+                                    "aria-label": "",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -410,7 +436,8 @@
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 1,
-                                    "delay": 0
+                                    "delay": 0,
+                                    "parent_repeater": "field_5c88df3416f28"
                                 }
                             ]
                         },
@@ -418,6 +445,7 @@
                             "key": "field_5e8f69c7e2097",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -434,6 +462,7 @@
                             "key": "field_5c88dfbd16f2f",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -455,6 +484,7 @@
                             "key": "field_5c88e12416f32",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -476,6 +506,7 @@
                             "key": "field_5c88e0bf16f30",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -497,6 +528,7 @@
                             "key": "field_5c88e0de16f31",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -518,6 +550,7 @@
                             "key": "field_5e8f6a0ee209c",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -534,6 +567,7 @@
                             "key": "field_5c88df3416f2b",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -561,6 +595,7 @@
                             "key": "field_602508ea2d9c9",
                             "label": "Background Image",
                             "name": "background_image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -585,6 +620,7 @@
                             "key": "field_5fd756dd42935",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -604,6 +640,7 @@
                             "key": "field_5e9179b339c32",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -623,6 +660,7 @@
                             "key": "field_5c88df3416f2e",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -642,6 +680,7 @@
                             "key": "field_6026a7910d943",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -658,6 +697,7 @@
                             "key": "field_6026a7930d944",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -672,11 +712,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026a7930d945",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -687,12 +729,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026a7930d944"
                                 },
                                 {
                                     "key": "field_6026a7930d946",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -706,12 +750,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026a7930d944"
                                 },
                                 {
                                     "key": "field_6026a7930d947",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -725,7 +771,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026a7930d944"
                                 }
                             ]
                         }
@@ -743,6 +790,7 @@
                             "key": "field_5e8f6a09e209b",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -759,6 +807,7 @@
                             "key": "field_596ccf460f7f4",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -778,6 +827,7 @@
                             "key": "field_5fd3ad6c81dbf",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -797,6 +847,7 @@
                             "key": "field_596ccf6c0f7f5",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for this block",
                             "required": 0,
@@ -816,6 +867,7 @@
                             "key": "field_5ec537cd1dd1a",
                             "label": "Title Link",
                             "name": "title_link",
+                            "aria-label": "",
                             "type": "page_link",
                             "instructions": "Link this title to a section of the website. Leave blank to not add a link.",
                             "required": 0,
@@ -835,6 +887,7 @@
                             "key": "field_596ccc508dd19",
                             "label": "Only show posts from",
                             "name": "only_show_posts_from",
+                            "aria-label": "",
                             "type": "taxonomy",
                             "instructions": "Limit displayed posts to specific categories",
                             "required": 0,
@@ -857,6 +910,7 @@
                             "key": "field_5e8f6a06e209a",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -873,6 +927,7 @@
                             "key": "field_596cc70b8dd16",
                             "label": "Posts to Display",
                             "name": "number_posts",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "Number of posts to display",
                             "required": 1,
@@ -894,6 +949,7 @@
                             "key": "field_5c88e73653f1d",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -915,6 +971,7 @@
                             "key": "field_5c88e73f53f1e",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -936,6 +993,7 @@
                             "key": "field_5c88e74853f1f",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -957,6 +1015,7 @@
                             "key": "field_5c88e74d53f20",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -978,6 +1037,7 @@
                             "key": "field_596ccbc88dd18",
                             "label": "Order",
                             "name": "order",
+                            "aria-label": "",
                             "type": "checkbox",
                             "instructions": "",
                             "required": 1,
@@ -1004,6 +1064,7 @@
                             "key": "field_5e8f69d8e2098",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1020,6 +1081,7 @@
                             "key": "field_5a576599e41dd",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -1047,6 +1109,7 @@
                             "key": "field_5fd756be42934",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1066,6 +1129,7 @@
                             "key": "field_5e9179c139c33",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1085,6 +1149,7 @@
                             "key": "field_5a5f12fe81b06",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -1104,6 +1169,7 @@
                             "key": "field_6026a7b00d948",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1120,6 +1186,7 @@
                             "key": "field_6026a7b40d949",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -1134,11 +1201,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026a7b40d94a",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -1149,12 +1218,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026a7b40d949"
                                 },
                                 {
                                     "key": "field_6026a7b40d94b",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -1168,12 +1239,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026a7b40d949"
                                 },
                                 {
                                     "key": "field_6026a7b40d94c",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -1187,7 +1260,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026a7b40d949"
                                 }
                             ]
                         }
@@ -1205,6 +1279,7 @@
                             "key": "field_5e8f6b2de20a1",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1221,6 +1296,7 @@
                             "key": "field_5fb5302b4415d",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -1240,6 +1316,7 @@
                             "key": "field_5fd3ad9181dc0",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -1259,6 +1336,7 @@
                             "key": "field_5c88f4b35bbf6",
                             "label": "Content",
                             "name": "content",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -1278,6 +1356,7 @@
                             "key": "field_5c88f4b35bbf5",
                             "label": "Featured Image",
                             "name": "image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -1302,6 +1381,7 @@
                             "key": "field_602506182d9c7",
                             "label": "Display As",
                             "name": "display_as",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "Place the featured image as a background or as a block next to text. If you set it as a background, make sure the subject of the image is framed correctly.",
                             "required": 1,
@@ -1327,6 +1407,7 @@
                             "key": "field_5c88f5445bbfc",
                             "label": "Image Location",
                             "name": "image_location",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -1352,6 +1433,7 @@
                             "key": "field_5c88f5255bbfb",
                             "label": "Image Alt Text",
                             "name": "image_alt",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -1371,6 +1453,7 @@
                             "key": "field_5e8f6af1e20a0",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1387,6 +1470,7 @@
                             "key": "field_5c88f4b35bbf7",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -1414,6 +1498,7 @@
                             "key": "field_5fd756a642933",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1433,6 +1518,7 @@
                             "key": "field_5e9179d839c35",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1452,6 +1538,7 @@
                             "key": "field_5c88f4b35bbfa",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -1471,6 +1558,7 @@
                             "key": "field_6026a7cf0d94d",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1487,6 +1575,7 @@
                             "key": "field_6026a7d20d94e",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -1501,11 +1590,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026a7d20d94f",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -1516,12 +1607,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026a7d20d94e"
                                 },
                                 {
                                     "key": "field_6026a7d20d950",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -1535,12 +1628,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026a7d20d94e"
                                 },
                                 {
                                     "key": "field_6026a7d20d951",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -1554,7 +1649,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026a7d20d94e"
                                 }
                             ]
                         }
@@ -1572,6 +1668,7 @@
                             "key": "field_5fbcddcac67a4",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1588,6 +1685,7 @@
                             "key": "field_5fbcddcac67a5",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -1607,6 +1705,7 @@
                             "key": "field_5fd3adce81dc2",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -1626,6 +1725,7 @@
                             "key": "field_5fbcddcac67a6",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -1645,6 +1745,7 @@
                             "key": "field_5fbcddcac67a7",
                             "label": "Selected People",
                             "name": "persons_selected",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Select published people to display",
                             "required": 1,
@@ -1659,11 +1760,13 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Person",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5fbcddcac67a8",
                                     "label": "Person",
                                     "name": "person",
+                                    "aria-label": "",
                                     "type": "post_object",
                                     "instructions": "",
                                     "required": 0,
@@ -1680,12 +1783,14 @@
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "return_format": "object",
-                                    "ui": 1
+                                    "ui": 1,
+                                    "parent_repeater": "field_5fbcddcac67a7"
                                 },
                                 {
                                     "key": "field_5fbce8a9c67b8",
                                     "label": "Show LinkedIn",
                                     "name": "show_linkedin",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -1699,12 +1804,14 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_5fbcddcac67a7"
                                 },
                                 {
                                     "key": "field_5fbce8b7c67b9",
                                     "label": "Show Twitter",
                                     "name": "show_twitter",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -1718,7 +1825,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_5fbcddcac67a7"
                                 }
                             ]
                         },
@@ -1726,6 +1834,7 @@
                             "key": "field_5fbcddcac67af",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1742,6 +1851,7 @@
                             "key": "field_5fbcddcac67b0",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -1763,6 +1873,7 @@
                             "key": "field_5fbcddcac67b1",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -1784,6 +1895,7 @@
                             "key": "field_5fbcddcac67b2",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -1805,6 +1917,7 @@
                             "key": "field_5fbcddcac67b3",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -1826,6 +1939,7 @@
                             "key": "field_5fbcddcac67b4",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1842,6 +1956,7 @@
                             "key": "field_5fbcddcac67b5",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -1869,6 +1984,7 @@
                             "key": "field_5fd7564942931",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1888,6 +2004,7 @@
                             "key": "field_5fbcddcac67b6",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -1907,6 +2024,7 @@
                             "key": "field_5fbcddcac67b7",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -1926,6 +2044,7 @@
                             "key": "field_6026a7e70d952",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -1942,6 +2061,7 @@
                             "key": "field_6026a7ea0d953",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -1956,11 +2076,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026a7ea0d954",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -1971,12 +2093,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026a7ea0d953"
                                 },
                                 {
                                     "key": "field_6026a7ea0d955",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -1990,12 +2114,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026a7ea0d953"
                                 },
                                 {
                                     "key": "field_6026a7ea0d956",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -2009,7 +2135,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026a7ea0d953"
                                 }
                             ]
                         }
@@ -2027,6 +2154,7 @@
                             "key": "field_5f622088c8469",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2043,6 +2171,7 @@
                             "key": "field_5f622088c846d",
                             "label": "Buttons",
                             "name": "buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Create buttons and select where they link to.",
                             "required": 1,
@@ -2057,11 +2186,13 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Shortcut",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5f622088c846e",
                                     "label": "Icon",
                                     "name": "icon",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "Add an alphanumeric character (max. 2) or add as Font Awesome character name. (i.e. <code>fas fa-check<\/code> for 'check')",
                                     "required": 0,
@@ -2075,12 +2206,14 @@
                                     "placeholder": "i.e. 1 or   fas fa-check",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5f622088c846d"
                                 },
                                 {
                                     "key": "field_5f622cf0c847b",
                                     "label": "Title",
                                     "name": "title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -2094,12 +2227,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5f622088c846d"
                                 },
                                 {
                                     "key": "field_5f622d0ac847c",
                                     "label": "Link",
                                     "name": "link",
+                                    "aria-label": "",
                                     "type": "page_link",
                                     "instructions": "",
                                     "required": 0,
@@ -2113,12 +2248,14 @@
                                     "taxonomy": "",
                                     "allow_null": 0,
                                     "allow_archives": 1,
-                                    "multiple": 0
+                                    "multiple": 0,
+                                    "parent_repeater": "field_5f622088c846d"
                                 },
                                 {
                                     "key": "field_5f623945366d6",
                                     "label": "Color Code",
                                     "name": "color_code",
+                                    "aria-label": "",
                                     "type": "radio",
                                     "instructions": "Color code this block manually be selecting its theme.",
                                     "required": 0,
@@ -2138,7 +2275,8 @@
                                     "default_value": "default",
                                     "layout": "horizontal",
                                     "return_format": "value",
-                                    "save_other_choice": 0
+                                    "save_other_choice": 0,
+                                    "parent_repeater": "field_5f622088c846d"
                                 }
                             ]
                         },
@@ -2146,6 +2284,7 @@
                             "key": "field_5f622088c8470",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2162,6 +2301,7 @@
                             "key": "field_5f622088c8471",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -2183,6 +2323,7 @@
                             "key": "field_5f622088c8472",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -2204,6 +2345,7 @@
                             "key": "field_5f622088c8473",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -2225,6 +2367,7 @@
                             "key": "field_5f622088c8474",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -2246,6 +2389,7 @@
                             "key": "field_5f622088c8475",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2262,6 +2406,7 @@
                             "key": "field_5f622088c8476",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -2289,6 +2434,7 @@
                             "key": "field_5f622088c8479",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -2308,6 +2454,7 @@
                             "key": "field_5f622088c847a",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -2337,6 +2484,7 @@
                             "key": "field_5e8f6b47e20a2",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2353,6 +2501,7 @@
                             "key": "field_5c88f5f35bc06",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -2372,6 +2521,7 @@
                             "key": "field_5fd3ae1281dc5",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -2391,6 +2541,7 @@
                             "key": "field_5c88f5d95bbfe",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -2410,6 +2561,7 @@
                             "key": "field_5c88f7435bc0b",
                             "label": "Icons",
                             "name": "icons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -2424,11 +2576,13 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c88f78c5bc0c",
                                     "label": "Icon",
                                     "name": "icon",
+                                    "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
                                     "required": 0,
@@ -2447,12 +2601,14 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": ""
+                                    "mime_types": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f8915bc0d",
                                     "label": "Icon Title",
                                     "name": "icon_title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "Heading to appear next to icon.",
                                     "required": 0,
@@ -2466,12 +2622,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f8ba5bc0e",
                                     "label": "Icon Text",
                                     "name": "icon_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "Paragraph to appear below heading, next to icon.",
                                     "required": 0,
@@ -2485,12 +2643,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f8e45bc0f",
                                     "label": "Link?",
                                     "name": "link",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "Make this icon link somewhere.",
                                     "required": 0,
@@ -2504,12 +2664,14 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f9085bc10",
                                     "label": "Link URL",
                                     "name": "link_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "Link this icon to an internal page.",
                                     "required": 0,
@@ -2528,12 +2690,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f93a5bc11",
                                     "label": "Link Text",
                                     "name": "link_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -2555,12 +2719,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 },
                                 {
                                     "key": "field_5c88f9445bc12",
                                     "label": "Make button?",
                                     "name": "make_button",
+                                    "aria-label": "",
                                     "type": "select",
                                     "instructions": "Make the link appear as a button instead.",
                                     "required": 0,
@@ -2591,7 +2757,8 @@
                                     "ui": 0,
                                     "return_format": "value",
                                     "ajax": 0,
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_5c88f7435bc0b"
                                 }
                             ]
                         },
@@ -2599,6 +2766,7 @@
                             "key": "field_5e8f6b6ae20a3",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2615,6 +2783,7 @@
                             "key": "field_5c88f6595bc07",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -2636,6 +2805,7 @@
                             "key": "field_5c88f6635bc08",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -2657,6 +2827,7 @@
                             "key": "field_5c88f66e5bc09",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -2678,6 +2849,7 @@
                             "key": "field_5c88f6905bc0a",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -2699,6 +2871,7 @@
                             "key": "field_5e8f6b88e20a4",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2715,6 +2888,7 @@
                             "key": "field_5c88f5d95bc02",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -2742,6 +2916,7 @@
                             "key": "field_5fd777b88fa1a",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -2761,6 +2936,7 @@
                             "key": "field_5e9179e239c36",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -2780,6 +2956,7 @@
                             "key": "field_5c88f5d95bc05",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -2809,6 +2986,7 @@
                             "key": "field_6027a5dd02920",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -2825,6 +3003,7 @@
                             "key": "field_6027a5dd02921",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -2844,6 +3023,7 @@
                             "key": "field_6027a5dd02922",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -2863,6 +3043,7 @@
                             "key": "field_6027a5dd02923",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -2882,6 +3063,7 @@
                             "key": "field_6027a5dd02924",
                             "label": "Selected Services",
                             "name": "services_selected",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Select published services to display",
                             "required": 1,
@@ -2896,11 +3078,13 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Service",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_616db53550dbb",
                                     "label": "Service Page or Override",
                                     "name": "published_override",
+                                    "aria-label": "",
                                     "type": "select",
                                     "instructions": "Show a published Service on WordPress or create a link to another site with Override",
                                     "required": 0,
@@ -2920,12 +3104,14 @@
                                     "ui": 0,
                                     "return_format": "value",
                                     "ajax": 0,
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6027a5dd02924"
                                 },
                                 {
                                     "key": "field_6027a5dd02925",
                                     "label": "Service",
                                     "name": "service",
+                                    "aria-label": "",
                                     "type": "post_object",
                                     "instructions": "",
                                     "required": 0,
@@ -2950,12 +3136,14 @@
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "return_format": "object",
-                                    "ui": 1
+                                    "ui": 1,
+                                    "parent_repeater": "field_6027a5dd02924"
                                 },
                                 {
                                     "key": "field_616db62250dbc",
                                     "label": "Custom Title",
                                     "name": "custom_title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -2977,12 +3165,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6027a5dd02924"
                                 },
                                 {
                                     "key": "field_616db64050dbd",
                                     "label": "Custom Link",
                                     "name": "custom_link",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "Like this service to a page on or off of this website.",
                                     "required": 0,
@@ -3001,12 +3191,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6027a5dd02924"
                                 },
                                 {
                                     "key": "field_616db65650dbe",
                                     "label": "Custom Background",
                                     "name": "custom_background",
+                                    "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
                                     "required": 0,
@@ -3033,7 +3225,8 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": ""
+                                    "mime_types": "",
+                                    "parent_repeater": "field_6027a5dd02924"
                                 }
                             ]
                         },
@@ -3041,6 +3234,7 @@
                             "key": "field_6027a5dd02928",
                             "label": "Columns",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3057,6 +3251,7 @@
                             "key": "field_6027a5dd02929",
                             "label": "Columns (small)",
                             "name": "post_columns_small",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For small screens.",
                             "required": 1,
@@ -3078,6 +3273,7 @@
                             "key": "field_6027a5dd0292a",
                             "label": "Columns (medium)",
                             "name": "post_columns_medium",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium screens.",
                             "required": 1,
@@ -3099,6 +3295,7 @@
                             "key": "field_6027a5dd0292b",
                             "label": "Columns (mlarge)",
                             "name": "post_columns_mlarge",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For medium-large screens.",
                             "required": 1,
@@ -3120,6 +3317,7 @@
                             "key": "field_6027a5dd0292c",
                             "label": "Columns (large)",
                             "name": "post_columns_large",
+                            "aria-label": "",
                             "type": "number",
                             "instructions": "For large screens.",
                             "required": 1,
@@ -3141,6 +3339,7 @@
                             "key": "field_6027a5dd0292d",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3157,6 +3356,7 @@
                             "key": "field_6027a5dd0292e",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -3184,6 +3384,7 @@
                             "key": "field_6027a5dd0292f",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3203,6 +3404,7 @@
                             "key": "field_6027a5dd02930",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3222,6 +3424,7 @@
                             "key": "field_6027a5dd02931",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -3241,6 +3444,7 @@
                             "key": "field_6027a5dd02932",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3257,6 +3461,7 @@
                             "key": "field_6027a5dd02933",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -3271,11 +3476,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6027a5dd02934",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -3286,12 +3493,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6027a5dd02933"
                                 },
                                 {
                                     "key": "field_6027a5dd02935",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -3305,12 +3514,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6027a5dd02933"
                                 },
                                 {
                                     "key": "field_6027a5dd02936",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -3324,7 +3535,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6027a5dd02933"
                                 }
                             ]
                         }
@@ -3342,6 +3554,7 @@
                             "key": "field_5e8f6ba7e20a5",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3358,6 +3571,7 @@
                             "key": "field_5e69405adc597",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -3377,6 +3591,7 @@
                             "key": "field_5fd3ae1c81dc6",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -3396,6 +3611,7 @@
                             "key": "field_5e69405adc598",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for the video",
                             "required": 0,
@@ -3415,6 +3631,7 @@
                             "key": "field_5e694083dc5a0",
                             "label": "Items",
                             "name": "items",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -3429,11 +3646,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Item",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5e6940b7dc5a1",
                                     "label": "Title",
                                     "name": "title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -3447,12 +3666,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5e694083dc5a0"
                                 },
                                 {
                                     "key": "field_5e6940c6dc5a2",
                                     "label": "Content",
                                     "name": "content",
+                                    "aria-label": "",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -3466,7 +3687,8 @@
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 1,
-                                    "delay": 0
+                                    "delay": 0,
+                                    "parent_repeater": "field_5e694083dc5a0"
                                 }
                             ]
                         },
@@ -3474,6 +3696,7 @@
                             "key": "field_5e8f6bb4e20a6",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3490,6 +3713,7 @@
                             "key": "field_5e69405adc59c",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -3517,6 +3741,7 @@
                             "key": "field_616e92d7eb9c2",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3536,6 +3761,7 @@
                             "key": "field_5e917b6639c37",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3555,6 +3781,7 @@
                             "key": "field_5e69405adc59f",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -3574,6 +3801,7 @@
                             "key": "field_6026ab2dec853",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3590,6 +3818,7 @@
                             "key": "field_6026ab43ec854",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -3604,11 +3833,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026ab43ec855",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -3619,12 +3850,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026ab43ec854"
                                 },
                                 {
                                     "key": "field_6026ab43ec856",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -3638,12 +3871,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026ab43ec854"
                                 },
                                 {
                                     "key": "field_6026ab43ec857",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -3657,7 +3892,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026ab43ec854"
                                 }
                             ]
                         }
@@ -3675,6 +3911,7 @@
                             "key": "field_5e8f6be8e20a8",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3691,6 +3928,7 @@
                             "key": "field_5e694160dc5a4",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -3710,6 +3948,7 @@
                             "key": "field_5fd3ae3081dc7",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -3729,6 +3968,7 @@
                             "key": "field_5e694160dc5a5",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for the video",
                             "required": 0,
@@ -3748,6 +3988,7 @@
                             "key": "field_5e694160dc5a6",
                             "label": "Items",
                             "name": "items",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -3762,11 +4003,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Item",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5e694160dc5a7",
                                     "label": "Title",
                                     "name": "title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -3780,12 +4023,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5e694160dc5a6"
                                 },
                                 {
                                     "key": "field_5e694160dc5a8",
                                     "label": "Content",
                                     "name": "content",
+                                    "aria-label": "",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -3799,7 +4044,8 @@
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 1,
-                                    "delay": 0
+                                    "delay": 0,
+                                    "parent_repeater": "field_5e694160dc5a6"
                                 }
                             ]
                         },
@@ -3807,6 +4053,7 @@
                             "key": "field_5e694176dc5ad",
                             "label": "Orientation",
                             "name": "orientation",
+                            "aria-label": "",
                             "type": "radio",
                             "instructions": "",
                             "required": 0,
@@ -3831,6 +4078,7 @@
                             "key": "field_5e8f6bd7e20a7",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3847,6 +4095,7 @@
                             "key": "field_5e694160dc5a9",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -3874,6 +4123,7 @@
                             "key": "field_616e92f2eb9c3",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3893,6 +4143,7 @@
                             "key": "field_5e917b7139c38",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -3912,6 +4163,7 @@
                             "key": "field_5e694160dc5ac",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -3931,6 +4183,7 @@
                             "key": "field_6026ab08ec84e",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -3947,6 +4200,7 @@
                             "key": "field_6026ab0bec84f",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -3961,11 +4215,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026ab0bec850",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -3976,12 +4232,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026ab0bec84f"
                                 },
                                 {
                                     "key": "field_6026ab0bec851",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -3995,12 +4253,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026ab0bec84f"
                                 },
                                 {
                                     "key": "field_6026ab0bec852",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -4014,7 +4274,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026ab0bec84f"
                                 }
                             ]
                         }
@@ -4032,6 +4293,7 @@
                             "key": "field_5e8f6c18e20aa",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4048,6 +4310,7 @@
                             "key": "field_596cbdbbda18a",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -4067,6 +4330,7 @@
                             "key": "field_5fd3b4bd3fa73",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -4086,6 +4350,7 @@
                             "key": "field_596cbf7b0366e",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for the video",
                             "required": 0,
@@ -4105,6 +4370,7 @@
                             "key": "field_596cb24a04710",
                             "label": "Aspect Ratio",
                             "name": "aspect_ratio",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "Aspect Ratio of video",
                             "required": 1,
@@ -4130,6 +4396,7 @@
                             "key": "field_596cb10a0470f",
                             "label": "Video Source",
                             "name": "video_source",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "Select one of these video services",
                             "required": 1,
@@ -4156,6 +4423,7 @@
                             "key": "field_596caf530470e",
                             "label": "Video ID",
                             "name": "video_id",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add just the embed URL, not the full HTML embed code with iframe element.",
                             "required": 1,
@@ -4175,6 +4443,7 @@
                             "key": "field_5e8f72773f2c9",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4191,6 +4460,7 @@
                             "key": "field_5a577705e41e6",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -4218,6 +4488,7 @@
                             "key": "field_5fd7562e42930",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4237,6 +4508,7 @@
                             "key": "field_5e917b7a39c39",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4256,6 +4528,7 @@
                             "key": "field_5a5f18f181b0a",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -4275,6 +4548,7 @@
                             "key": "field_6026ab81ec858",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4291,6 +4565,7 @@
                             "key": "field_6026ab83ec859",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -4305,11 +4580,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026ab83ec85a",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -4320,12 +4597,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026ab83ec859"
                                 },
                                 {
                                     "key": "field_6026ab83ec85b",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -4339,12 +4618,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026ab83ec859"
                                 },
                                 {
                                     "key": "field_6026ab83ec85c",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -4358,7 +4639,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026ab83ec859"
                                 }
                             ]
                         }
@@ -4376,6 +4658,7 @@
                             "key": "field_5e8f73347d3ab",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4392,6 +4675,7 @@
                             "key": "field_596cbeec0366a",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -4411,6 +4695,7 @@
                             "key": "field_5fd3b4a63fa72",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -4430,6 +4715,7 @@
                             "key": "field_596cbf0a0366b",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for this block",
                             "required": 0,
@@ -4449,6 +4735,7 @@
                             "key": "field_5e8f73417d3ac",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4465,6 +4752,7 @@
                             "key": "field_596cae5f0470c",
                             "label": "Map iframe URL",
                             "name": "map_url",
+                            "aria-label": "",
                             "type": "url",
                             "instructions": "Add just the embed URL, not the full HTML embed code with iframe element.",
                             "required": 1,
@@ -4481,6 +4769,7 @@
                             "key": "field_5a577725e41e9",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -4508,6 +4797,7 @@
                             "key": "field_5fd7561e4292f",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4527,6 +4817,7 @@
                             "key": "field_5e917b9239c3a",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4546,6 +4837,7 @@
                             "key": "field_5a5f19a481b0b",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -4565,6 +4857,7 @@
                             "key": "field_6026aba3ec85d",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4581,6 +4874,7 @@
                             "key": "field_6026aba5ec85e",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -4595,11 +4889,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026aba5ec85f",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -4610,12 +4906,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026aba5ec85e"
                                 },
                                 {
                                     "key": "field_6026aba5ec860",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -4629,12 +4927,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026aba5ec85e"
                                 },
                                 {
                                     "key": "field_6026aba5ec861",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -4648,7 +4948,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026aba5ec85e"
                                 }
                             ]
                         }
@@ -4666,6 +4967,7 @@
                             "key": "field_5fad5844a94ee",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4682,6 +4984,7 @@
                             "key": "field_596cdd8752de1",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -4701,6 +5004,7 @@
                             "key": "field_596cdd8752de2",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for this block",
                             "required": 0,
@@ -4720,6 +5024,7 @@
                             "key": "field_596cdd8752dde",
                             "label": "Selected Logos",
                             "name": "logos_selected",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Select published logos\/brands to display",
                             "required": 0,
@@ -4734,11 +5039,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Logo",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_596dc1840d8c9",
                                     "label": "Logo",
                                     "name": "logo",
+                                    "aria-label": "",
                                     "type": "post_object",
                                     "instructions": "",
                                     "required": 0,
@@ -4755,7 +5062,8 @@
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "return_format": "object",
-                                    "ui": 1
+                                    "ui": 1,
+                                    "parent_repeater": "field_596cdd8752dde"
                                 }
                             ]
                         },
@@ -4763,6 +5071,7 @@
                             "key": "field_5fad5848a94ef",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4779,6 +5088,7 @@
                             "key": "field_596cdd8752de0",
                             "label": "Display As",
                             "name": "display_as",
+                            "aria-label": "",
                             "type": "radio",
                             "instructions": "",
                             "required": 0,
@@ -4803,6 +5113,7 @@
                             "key": "field_5fad585da94f0",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -4830,6 +5141,7 @@
                             "key": "field_5fd734566586e",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4849,6 +5161,7 @@
                             "key": "field_5a577753e41ee",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -4868,6 +5181,7 @@
                             "key": "field_5a5f19b481b0c",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -4887,6 +5201,7 @@
                             "key": "field_6026abb8ec862",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -4903,6 +5218,7 @@
                             "key": "field_6026abbaec863",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -4917,11 +5233,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026abbaec864",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -4932,12 +5250,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026abbaec863"
                                 },
                                 {
                                     "key": "field_6026abbaec865",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -4951,12 +5271,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026abbaec863"
                                 },
                                 {
                                     "key": "field_6026abbaec866",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -4970,7 +5292,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026abbaec863"
                                 }
                             ]
                         }
@@ -4988,6 +5311,7 @@
                             "key": "field_5fad58f8a94f1",
                             "label": "Content",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -5004,6 +5328,7 @@
                             "key": "field_596cd8c30f7fc",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a title for this block",
                             "required": 0,
@@ -5023,6 +5348,7 @@
                             "key": "field_5fd3b4733fa71",
                             "label": "Subtitle",
                             "name": "subtitle",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a subtitle for this block",
                             "required": 0,
@@ -5042,6 +5368,7 @@
                             "key": "field_596cd8c30f7fd",
                             "label": "Description",
                             "name": "description",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "Add a short description for this block",
                             "required": 0,
@@ -5061,6 +5388,7 @@
                             "key": "field_596cd8c30f7fa",
                             "label": "Selected Testimonials",
                             "name": "testimonials_selected",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "Select published testimonials to display",
                             "required": 0,
@@ -5075,11 +5403,13 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Testimonial",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_596e1182706c8",
                                     "label": "Testimonial",
                                     "name": "testimonial",
+                                    "aria-label": "",
                                     "type": "post_object",
                                     "instructions": "",
                                     "required": 0,
@@ -5096,7 +5426,8 @@
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "return_format": "object",
-                                    "ui": 1
+                                    "ui": 1,
+                                    "parent_repeater": "field_596cd8c30f7fa"
                                 }
                             ]
                         },
@@ -5104,6 +5435,7 @@
                             "key": "field_5fad58faa94f2",
                             "label": "Styles",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -5120,6 +5452,7 @@
                             "key": "field_596cdcad0d88e",
                             "label": "Display As",
                             "name": "display_as",
+                            "aria-label": "",
                             "type": "radio",
                             "instructions": "",
                             "required": 0,
@@ -5133,17 +5466,18 @@
                                 "list": "List",
                                 "slides": "Slides"
                             },
+                            "default_value": "slides",
+                            "return_format": "value",
                             "allow_null": 0,
                             "other_choice": 0,
-                            "save_other_choice": 0,
-                            "default_value": "slider : Slider",
                             "layout": "horizontal",
-                            "return_format": "value"
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_596e1df88d4e5",
                             "label": "Align",
                             "name": "align",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -5178,6 +5512,7 @@
                             "key": "field_596cd9260f7fe",
                             "label": "What to Display",
                             "name": "what_to_display",
+                            "aria-label": "",
                             "type": "radio",
                             "instructions": "",
                             "required": 0,
@@ -5202,6 +5537,7 @@
                             "key": "field_596e2351e8cc0",
                             "label": "Hide Photos",
                             "name": "hide_photos",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -5221,6 +5557,7 @@
                             "key": "field_596e239ee8cc1",
                             "label": "Link Testimonials to",
                             "name": "link_testimonials_to",
+                            "aria-label": "",
                             "type": "radio",
                             "instructions": "Link testimonials to a main testimonials page or to the individual page for each testimonial (if supported by theme)",
                             "required": 0,
@@ -5246,6 +5583,7 @@
                             "key": "field_596e3e2aba15f",
                             "label": "Linked Page",
                             "name": "linked_page",
+                            "aria-label": "",
                             "type": "url",
                             "instructions": "Add the URL of the page you'd like to link testimonials to.",
                             "required": 0,
@@ -5270,6 +5608,7 @@
                             "key": "field_5fad5900a94f3",
                             "label": "Background Color",
                             "name": "background_color",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -5297,6 +5636,7 @@
                             "key": "field_5a577777e41f0",
                             "label": "Background Image",
                             "name": "background_image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -5321,6 +5661,7 @@
                             "key": "field_5a57776de41ef",
                             "label": "Invert Text",
                             "name": "invert_text",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -5340,6 +5681,7 @@
                             "key": "field_5fd734796586f",
                             "label": "Center",
                             "name": "center",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -5359,6 +5701,7 @@
                             "key": "field_5a5f19df81b0e",
                             "label": "CSS Class",
                             "name": "css_class",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Add a class name to this block to style it in the theme's CSS.",
                             "required": 0,
@@ -5378,6 +5721,7 @@
                             "key": "field_6026abcdec867",
                             "label": "Buttons",
                             "name": "",
+                            "aria-label": "",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -5394,6 +5738,7 @@
                             "key": "field_6026abd0ec868",
                             "label": "Call to Action Buttons",
                             "name": "call_to_action_buttons",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -5408,11 +5753,13 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Button",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_6026abd0ec869",
                                     "label": "Button URL",
                                     "name": "button_url",
+                                    "aria-label": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -5423,12 +5770,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6026abd0ec868"
                                 },
                                 {
                                     "key": "field_6026abd0ec86a",
                                     "label": "Button Text",
                                     "name": "button_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -5442,12 +5791,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_6026abd0ec868"
                                 },
                                 {
                                     "key": "field_6026abd0ec86b",
                                     "label": "New Tab?",
                                     "name": "new_tab",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -5461,7 +5812,8 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_6026abd0ec868"
                                 }
                             ]
                         }
@@ -5501,5 +5853,6 @@
     ],
     "active": true,
     "description": "Allows you to create a number of content rows and blocks and drop and drag them into place. A number of predetermined have been added to experiment with.",
-    "modified": 1634636631
+    "show_in_rest": 0,
+    "modified": 1673625732
 }

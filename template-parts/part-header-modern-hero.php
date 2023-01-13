@@ -38,7 +38,7 @@
 		if ($banner_type == 'static') { // if there is NO a static image set for this page
 			$static_bg = $hero_bg; // take the default customizer image
 		}	
-	} elseif ( (is_home() || is_archive()) && 'post' == get_post_type() )  {
+	} elseif ( ( is_home() || (is_archive() && 'post' == get_post_type()) ) || 'post' == get_post_type() )  {
 		$static_bg = $hero_bg_archives; // take the default customizer image
 	} else {
 		if (!$static_bg) { // if there is NO a static image set for this page
