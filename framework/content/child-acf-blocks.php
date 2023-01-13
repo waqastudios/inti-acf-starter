@@ -91,39 +91,42 @@ function child_flexible_content_blocks() {
 								</div>
 							</div>
 						</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+							<?php 
+								// Call to Action buttons
+
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -160,6 +163,7 @@ function child_flexible_content_blocks() {
 			
 					if( have_rows('content_column') ): ?>
 						<section class="inti-block paragraph-grid<?php echo $classes; ?>"<?php echo $style; ?>>
+
 							<?php if ($title || $subtitle || $pretitle) : ?>
 								<div class="grid-container to-animate">
 									<div class="grid-x grid-margin-x<?php if ($center) echo ' align-center'; ?>">
@@ -203,6 +207,8 @@ function child_flexible_content_blocks() {
 								</div>
 							</div>
 							<?php 
+								// Call to Action buttons
+
 								$column_count = get_sub_field('call_to_action_buttons');
 								if (is_array($column_count)) {
 									$column_count = count($column_count);
@@ -210,7 +216,7 @@ function child_flexible_content_blocks() {
 
 								if( have_rows('call_to_action_buttons') ): 
 									
-									?>
+								?>
 							<div class="cta-buttons">
 								<div class="grid-container to-animate">
 									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
@@ -350,39 +356,41 @@ function child_flexible_content_blocks() {
 								</div>
 							<?php endif; // end have_posts() check ?>
 						</div><!-- .grid-container -->
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -518,39 +526,41 @@ function child_flexible_content_blocks() {
 						?>
 		
 						</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -587,29 +597,28 @@ function child_flexible_content_blocks() {
 					if ($style) $style = ' style="' . $style . '"';
 				?>
 					<section class="inti-block featured-image<?php echo $classes; ?>"<?php echo $style; ?>>	
-
-					<?php if ($display_as == 'block') : ?>
-						<?php if ($title || $subtitle || $description || $pretitle) : ?>	
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x<?php if ($center) echo ' align-center'; ?>">
-									<div class="small-12 cell">
-										<header class="block-header">
-											<?php if ($pretitle) : ?>
-												<div class="entry-pretitle"><?php echo $pretitle; ?></div>
-											<?php endif; ?>
-											<?php if ($title) : ?>
-												<span class="entry-title"><?php echo $title; ?></span>
-											<?php endif; ?>
-											<?php if ($subtitle) : ?>
-												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
-											<?php endif; ?>
-											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-										</header>
-									</div><!-- .cell -->
-								</div><!-- .grid-x .grid-container-x -->
-							</div><!-- .grid-container -->
-						<?php endif; ?>		
-					<?php endif; ?>							
+						<?php if ($display_as == 'block') : ?>
+							<?php if ($title || $subtitle || $description || $pretitle) : ?>	
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x<?php if ($center) echo ' align-center'; ?>">
+										<div class="small-12 cell">
+											<header class="block-header">
+												<?php if ($pretitle) : ?>
+													<div class="entry-pretitle"><?php echo $pretitle; ?></div>
+												<?php endif; ?>
+												<?php if ($title) : ?>
+													<span class="entry-title"><?php echo $title; ?></span>
+												<?php endif; ?>
+												<?php if ($subtitle) : ?>
+													<div class="entry-subtitle"><?php echo $subtitle; ?></div>
+												<?php endif; ?>
+												<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
+											</header>
+										</div><!-- .cell -->
+									</div><!-- .grid-x .grid-container-x -->
+								</div><!-- .grid-container -->
+							<?php endif; ?>		
+						<?php endif; ?>							
 						<div class="grid-container to-animate">
 							<div class="grid-x grid-margin-x">
 
@@ -848,39 +857,41 @@ function child_flexible_content_blocks() {
 						?>
 		
 						</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -1085,52 +1096,57 @@ function child_flexible_content_blocks() {
 								<?php endif; ?>
 							</div>
 						</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
 
 				<?php
 				/**
-				 * Accordion Content
+				 * Accordion/Tabs Content
 				 */
-				elseif( get_row_layout() == 'accordion' ):
+				elseif( get_row_layout() == 'accordion_tabs' ):
 					$title = get_sub_field('title');
 					$pretitle = get_sub_field('pretitle');
 					$subtitle = get_sub_field('subtitle');
 					$description = get_sub_field('description');
+
+					$type = get_sub_field('type');
+					$orientation = get_sub_field('orientation');
 
 					$bgcolor = get_sub_field('background_color');
 					$bgimg = get_sub_field('background_image');
@@ -1147,11 +1163,8 @@ function child_flexible_content_blocks() {
 					if ($bgcolor != "none") $classes .= " " . $bgcolor;
 					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
 					if ($style) $style = ' style="' . $style . '"';
-
-			
-					if( have_rows('items') ):
-						?>
-					<section class="inti-block accordion-block<?php echo $classes; ?>"<?php echo $style; ?>>
+				?>
+					<section class="inti-block accordion-tabs-block<?php echo $classes; ?>"<?php echo $style; ?>>
 						<?php if ($title || $subtitle || $description || $pretitle) : ?>	
 							<div class="grid-container to-animate">
 								<div class="grid-x grid-margin-x<?php if ($center) echo ' align-center'; ?>">
@@ -1172,11 +1185,15 @@ function child_flexible_content_blocks() {
 								</div><!-- .grid-x .grid-container-x -->
 							</div><!-- .grid-container -->
 						<?php endif; ?>	
-							<div class="grid-container to-animate">
+						<?php if( have_rows('items') ): ?>
+
+							<div class="grid-container">
+							<?php if( $type == 'accordion' ) : ?>
+
 								<div class="grid-x">
 									<div class="cell">
 										<?php $id = md5(uniqid(rand(), true)); ?>
-										<ul class="accordion" data-accordion role="tablist" id="accordion-<?php echo $id; ?>" data-multi-expand="true" data-allow-all-closed="true">
+										<ul class="accordion<?php if ($invert) echo ' white'; ?>" data-accordion role="tablist" id="accordion-<?php echo $id; ?>" data-multi-expand="true" data-allow-all-closed="true">
 										<?php while ( have_rows('items') ) : the_row(); ?>
 											<li class="accordion-item" data-accordion-item>
 												<?php $id = md5(uniqid(rand(), true)); ?>
@@ -1185,117 +1202,31 @@ function child_flexible_content_blocks() {
 													class="accordion-title" aria-controls="accordion-panel-<?php echo $id; ?>">
 														<?php the_sub_field('title') ?>
 												</a>
-												<div class="accordion-content" roll="tabpanel" data-tab-content aria-labelledby="accordion-panel-heading">
-													<?php the_sub_field('content') ?>
+												<div class="accordion-content<?php if ($invert) echo ' white'; ?>" roll="tabpanel" data-tab-content aria-labelledby="accordion-panel-heading">
+													<div class="entry-content">
+														<?php the_sub_field('content') ?>
+													</div>
 												</div>
 											</li>
 										<?php endwhile; ?>
 										</ul>
 									</div>
 								</div>
-							</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php elseif ( $type == 'tabs' ) : ?>
 
-							if( have_rows('call_to_action_buttons') ): 
-								
-								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
-
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
+								<?php 
+									$id = md5(uniqid(rand(), true)); 
+									$tabs = get_sub_field('items'); 
+									// if (is_array($column_count)) {
+									// 	$tab_count = count($tabs); 
+									// }
 								?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
-
-								<?php
-									endwhile; ?>
-								</div>
-							</div>
-						</div>
-						<?php
-							endif; ?>
-					</section>
-					<?php endif; ?>
-
-
-
-
-
-				<?php
-				/**
-				 * Tabs Content
-				 */
-				elseif( get_row_layout() == 'tabs' ):
-					$tabs = get_sub_field('items');
-					if (is_array($tabs)) {
-						$tab_count = count($tabs);
-					}
-					$orientation = get_sub_field('orientation');
-
-					$title = get_sub_field('title');
-					$pretitle = get_sub_field('pretitle');
-					$subtitle = get_sub_field('subtitle');
-					$description = get_sub_field('description');
-
-					$bgcolor = get_sub_field('background_color');
-					$bgimg = get_sub_field('background_image');
-					$invert = get_sub_field('invert_text');
-					$center = get_sub_field('center');
-					$cssclass = get_sub_field('css_class');
-
-					$classes = ""; $style = "";
-					if ($invert) $classes .= " invert-text";	
-					if ($bgimg) $classes .= " cover";
-					if ($center) $classes .= " centered";
-					if ($cssclass) $classes .= " " . preg_replace("~[^a-zA-Z0-9- ]+~", "", $cssclass);
-					if ($bgcolor != "none") $classes .= " " . $bgcolor;
-					if ($bgimg) $style = " background-image:url('" . $bgimg . "');";
-					if ($style) $style = ' style="' . $style . '"';
-
-					if( have_rows('items') ):
-						?>
-					<section class="inti-block tabs-block<?php echo $classes; ?>"<?php echo $style; ?>>
-						<?php if ($title || $subtitle || $description || $pretitle) : ?>	
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x<?php if ($center) echo ' align-center'; ?>">
-									<div class="small-12 cell">
-										<header class="block-header">
-											<?php if ($pretitle) : ?>
-												<div class="entry-pretitle"><?php echo $pretitle; ?></div>
-											<?php endif; ?>
-											<?php if ($title) : ?>
-												<span class="entry-title"><?php echo $title; ?></span>
-											<?php endif; ?>
-											<?php if ($subtitle) : ?>
-												<div class="entry-subtitle"><?php echo $subtitle; ?></div>
-											<?php endif; ?>
-											<?php if ($description) : ?><div class="entry-summary"><?php echo $description; ?></div><?php endif; ?>
-										</header>
-									</div><!-- .cell -->
-								</div><!-- .grid-x .grid-container-x -->
-							</div><!-- .grid-container -->
-						<?php endif; ?>	
-							<div class="grid-container to-animate">
-
-								<?php $id = md5(uniqid(rand(), true)); ?>
 
 								<?php if ($orientation == "horizontal") : ?>
 									<div class="grid-x grid-margin-x">
 										<div class="cell tabs-wrapper">
-											<ul class="tabs <?php echo $orientation ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
+											<ul class="tabs <?php echo $orientation ?><?php if ($invert) echo ' white'; ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
 												<?php  
 													$c = 0;
 													while ( have_rows('items') ) : the_row();
@@ -1309,13 +1240,15 @@ function child_flexible_content_blocks() {
 													endwhile; 
 												?>
 											</ul>
-											<div class="tabs-content" data-tabs-content="inti-tabs-<?php echo $id; ?>">
+											<div class="tabs-content<?php if ($invert) echo ' white'; ?>" data-tabs-content="inti-tabs-<?php echo $id; ?>">
 												<?php 
 													$c = 0;
 													while ( have_rows('items') ) : the_row(); 
 												?>
 													<div class="tabs-panel <?php echo $orientation ?><?php if ($c == 0) echo " is-active" ?> <?php echo $orientation ?>" id="tabpanel-<?php echo $id; ?>-<?php echo $c; ?>">
-														<?php the_sub_field('content') ?>
+														<div class="entry-content">
+															<?php the_sub_field('content') ?>
+														</div>
 													</div>
 												<?php 
 													$c++;
@@ -1329,7 +1262,7 @@ function child_flexible_content_blocks() {
 
 									<div class="grid-x tabs-wrapper">
 										<div class="small-4 medium-3 cell">
-											<ul class="tabs <?php echo $orientation ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
+											<ul class="tabs <?php echo $orientation ?><?php if ($invert) echo ' white'; ?>" data-tabs id="inti-tabs-<?php echo $id; ?>">
 												<?php  
 													$c = 0;
 													while ( have_rows('items') ) : the_row();
@@ -1345,7 +1278,7 @@ function child_flexible_content_blocks() {
 											</ul>
 										</div>
 										<div class="small-8 medium-9 cell">
-											<div class="tabs-content <?php echo $orientation ?>" data-tabs-content="inti-tabs-<?php echo $id; ?>">
+											<div class="tabs-content <?php echo $orientation ?><?php if ($invert) echo ' white'; ?>" data-tabs-content="inti-tabs-<?php echo $id; ?>">
 												<?php 
 													$c = 0;
 													while ( have_rows('items') ) : the_row(); 
@@ -1362,43 +1295,46 @@ function child_flexible_content_blocks() {
 									</div>
 
 								<?php endif; ?>
-
+							<?php endif; ?>
 							</div>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+						<?php endif; ?>
+							<?php 
+								// Call to Action buttons
+
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
-					<?php endif; ?>
 
 
 
@@ -1488,39 +1424,41 @@ function child_flexible_content_blocks() {
 								</div><!-- .cell -->
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -1580,39 +1518,41 @@ function child_flexible_content_blocks() {
 								</div><!-- .cell -->
 							</div><!-- .grid-x .grid-container-x -->
 						</div><!-- .grid-container -->
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
@@ -2203,39 +2143,41 @@ function child_flexible_content_blocks() {
 						<?php endif; ?>
 
 					<?php endif; ?>
-						<?php 
-							$column_count = get_sub_field('call_to_action_buttons');
-							if (is_array($column_count)) {
-								$column_count = count($column_count);
-							} 
+							<?php 
+								// Call to Action buttons
 
-							if( have_rows('call_to_action_buttons') ): 
-								
+								$column_count = get_sub_field('call_to_action_buttons');
+								if (is_array($column_count)) {
+									$column_count = count($column_count);
+								} 
+
+								if( have_rows('call_to_action_buttons') ): 
+									
 								?>
-						<div class="cta-buttons">
-							<div class="grid-container to-animate">
-								<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
+							<div class="cta-buttons">
+								<div class="grid-container to-animate">
+									<div class="grid-x grid-margin-x <?php if ($center) echo ' align-center' ?> align-middle">
 
-								<?php
-									while ( have_rows('call_to_action_buttons') ) : the_row(); 
-										$url = get_sub_field('button_url');
-										$txt = get_sub_field('button_text');
-										$blank = get_sub_field('new_tab');
-								?>
+									<?php
+										while ( have_rows('call_to_action_buttons') ) : the_row(); 
+											$url = get_sub_field('button_url');
+											$txt = get_sub_field('button_text');
+											$blank = get_sub_field('new_tab');
+									?>
 
-										<div class="cell shrink">
-											<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
-												<?php echo $txt; ?>
-											</a>
-										</div>
+											<div class="cell shrink">
+												<a href="<?php echo $url; ?>" class="button large <?php if ($invert): echo ' invert'; else : echo ' primary'; endif; ?> hollow"<?php if ($blank) echo 'target="_blank"'; ?>>
+													<?php echo $txt; ?>
+												</a>
+											</div>
 
-								<?php
-									endwhile; ?>
+									<?php
+										endwhile; ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<?php
-							endif; ?>
+							<?php
+								endif; ?>
 					</section>
 
 
